@@ -1,16 +1,24 @@
-# Final project for Roa 2021
+# Aawhina
 
+## Final project for Roa 2021 at EDA
 
+Made by Jo, Matt S, Phill & Zoe
 
-To initialise
+## Setup
+
+Setup:
 ```
 npm i
 npm run knex migrate:latest
 npm run knex seed:run
-npm run dev
 ``` 
 
-# MVP User Stories:
+To run in development:
+```
+npm run dev
+```
+
+## MVP User Stories:
 
 - As a user I want to be able to register
 - As a user I want to be able to login
@@ -21,7 +29,7 @@ npm run dev
 - As a helper I want to be able to 
 
 
-# Stretch user stories:
+## Stretch user stories:
 
 - As a user I want to be able to register as a helper or helpee
 - As a user I want to be able to login using Facebook
