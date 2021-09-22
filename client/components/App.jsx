@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import Fruit from './Fruit'
+import Home from './Home'
+// import Register from './Register'
+// import Login from './Login'
 
 const App = () => {
   return (
     <>
-      <h1>Hola! Fruit time!</h1>
-      <Fruit />
+      <h1>Welcome to Aawhina</h1>
+      <Route exact path='/' component={Home} />
+      {/* <Route path='/register' component={Register} />
+      <Route path='/login' component={Login} /> */}
     </>
   )
 }
 
 export default App
+// export default connect()(App)
