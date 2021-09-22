@@ -6,16 +6,20 @@ Made by Jo, Matt S, Phill & Zoe
 
 ## Tech we will be using
 
-### Redux
-
+* Redux
+```
 * I user: {etc}
 * requests: [{}]
 * offers: [{}]
 * loading: true
+```
 
-### React
-* mui
+* React
+```
+mui
+```
 
+* Authenticare
 
 
 ## Setup
