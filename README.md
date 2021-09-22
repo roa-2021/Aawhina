@@ -4,6 +4,21 @@
 
 Made by Jo, Matt S, Phill & Zoe
 
+## Tech we will be using
+
+Redux
+```
+user: {etc}
+requests: [{}]
+offers: [{}]
+loading: true
+
+React
+```
+mui
+
+
+
 ## Setup
 
 Setup:
