@@ -6,16 +6,15 @@ Made by Jo, Matt S, Phill & Zoe
 
 ## Tech we will be using
 
-Redux
-```
-user: {etc}
-requests: [{}]
-offers: [{}]
-loading: true
+### Redux
 
-React
-```
-mui
+* I user: {etc}
+* requests: [{}]
+* offers: [{}]
+* loading: true
+
+### React
+* mui
 
 
 
