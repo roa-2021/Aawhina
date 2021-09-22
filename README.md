@@ -8,10 +8,10 @@ Made by Jo, Matt S, Phill & Zoe
 
 * Redux
 ```
-* I user: {etc}
-* requests: [{}]
-* offers: [{}]
-* loading: true
+- I user: {etc}
+- requests: [{}]
+- offers: [{}]
+- loading: true
 ```
 
 * React
