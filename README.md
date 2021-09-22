@@ -8,7 +8,7 @@ Made by Jo, Matt S, Phill & Zoe
 
 * Redux
 ```
-I user: {etc}
+user: {etc}
 requests: [{}]
 offers: [{}]
 loading: true
