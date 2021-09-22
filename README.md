@@ -7,13 +7,13 @@ Made by Jo, Matt S, Phill & Zoe
 ## Tech we will be using
 
 * Redux
-- I user: {etc}
-- requests: [{}]
-- offers: [{}]
-- loading: true
+I user: {etc}
+requests: [{}]
+offers: [{}]
+loading: true
 
 * React
-- mui
+mui
 
 
 * Authenticare
