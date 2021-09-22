@@ -1,0 +1,68 @@
+{
+  "name": "boilerplate-react-knex",
+  "version": "0.0.1",
+  "description": "A React and knex starter",
+  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-knex.git",
+  "main": "server/index.js",
+  "author": "EDA",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server",
+    "build": "npm run webpack",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "npm run webpack -- --watch",
+    "dev:server": "nodemon server",
+    "webpack": "webpack --config ./client/webpack.config.js",
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll --verbose",
+    "lint": "eslint --ext .js,.jsx ."
+  },
+  "keywords": [
+    "frontend",
+    "backend"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "eda",
+    "ignorePatterns": [
+      "bundle.js"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.4"
+  },
+  "devDependencies": {
+    "@babel/core": "7.13.1",
+    "@babel/plugin-proposal-class-properties": "7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.13.0",
+    "@babel/plugin-transform-runtime": "7.13.1",
+    "@babel/preset-env": "7.13.0",
+    "@babel/preset-react": "7.12.13",
+    "@testing-library/react": "11.2.5",
+    "babel-loader": "^8.2.2",
+    "eslint": "7.9.0",
+    "eslint-config-eda": "0.1.4",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sqlite3": "^5.0.2",
+    "superagent": "6.1.0",
+    "supertest": "^6.1.3",
+    "webpack": "5.24.0",
+    "webpack-cli": "4.5.0"
+  }
+}
