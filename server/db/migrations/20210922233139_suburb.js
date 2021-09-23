@@ -1,5 +1,5 @@
 
-exports.up = (knex, Promise) => {
+exports.up = (knex) => {
   return knex.schema.createTable('suburb', t => {
     t.increments('id').primary()
     t.specificType('neighbours', 'INT[]')
@@ -7,6 +7,6 @@ exports.up = (knex, Promise) => {
   })
 }
 
-exports.down = (knex, Promise) => {
+exports.down = (knex) => {
   return knex.schema.dropTable('suburb')
 }
