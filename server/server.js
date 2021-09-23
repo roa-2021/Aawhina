@@ -16,4 +16,8 @@ server.use('/api/v1', userRoutes)
 server.use('/api/v1/offers', offerRoutes)
 server.use('/api/v1/requests', requestRoutes)
 
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
+
 module.exports = server
