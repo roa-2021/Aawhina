@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { applyAuthRoutes } = require('authenticare/server')
+// const { applyAuthRoutes } = require('authenticare/server')
 
 const db = require('../db/users_db')
 
