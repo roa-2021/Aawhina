@@ -1,4 +1,5 @@
 import React from 'react'
+import toggleLoginForm from './Welcome'
 // import connect from 'react-redux'
 
 function Login () {
@@ -6,8 +7,8 @@ function Login () {
     <>
       <h3>Login Component</h3 >
       <p>form goes here</p>
-      <button>Submit</button>
-      <button>Cancel</button>
+      <button >Submit</button>
+      <button onClick={toggleLoginForm}>Cancel</button>
 
     </>
   )
