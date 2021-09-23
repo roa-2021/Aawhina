@@ -1,22 +1,50 @@
-# A starter webpack project for React with databases
+# Aawhina
 
-This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:
+## Final project for Roa 2021 at EDA
 
-* Use as template or fork this repo
-* Rename your repo according to the app you're building
+Made by Jo, Matt S, Phill & Zoe
 
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && npm i
+## Tech we will be using
+
+* Redux
+* React
+* Authenticare
+* Express
+* Knex
+
+
+## Setup
+
+Setup:
 ```
-
-To initialise your database
-```
+npm i
 npm run knex migrate:latest
 npm run knex seed:run
+``` 
+
+To run in development:
+```
+npm run dev
 ```
 
-To start the development server with a watcher that rebuilds your code
-```sh
-npm run dev
-``` 
+## MVP User Stories:
+
+- As a user I want to be able to register
+- As a user I want to be able to login
+- As a user I want to be able to create a profile
+- As a helpee I want to be able to list a job I need help with
+- As a helpee I want to be able to be sure that my information isn’t too early/at all
+- As a helper I want to be able to offer help for a particular job
+- As a helper I want to be able to 
+
+
+## Stretch user stories:
+
+- As a user I want to be able to register as a helper or helpee
+- As a user I want to be able to login using Facebook
+- As a user I want to be able to upload a profile picture
+- As a helper I want to be able to gain special recognition/rewards for positive reviews on my helping.
+- As a helper I want to be able to be able to view jobs on a map
+- As a helper I want to be able to search for jobs by type
+- As a helper I want to be able to specify how long my offer for help is valid for
+- As a user I want to be able to rescind my offer for help

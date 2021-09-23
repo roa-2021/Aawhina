@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions'
 
 const initialState = []
