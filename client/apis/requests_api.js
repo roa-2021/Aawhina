@@ -1,7 +1,9 @@
 import request from 'superagent'
 
-export const getFruit = () => {
-  return request.get('/api/v1/fruit')
+const requestsRoot = '/api/v1/requests'
+
+export const getRequests = () => {
+  return request.get(requestsRoot)
     .then(response => {
       console.log(response)
       return response.body

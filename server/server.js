@@ -8,9 +8,9 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 // server.use(cors('*'))
 
-const userRoutes = require('./routes/users')
-const offerRoutes = require('./routes/offers')
-const requestRoutes = require('./routes/requests')
+const userRoutes = require('./routes/userRoutes')
+const offerRoutes = require('./routes/offerRoutes')
+const requestRoutes = require('./routes/requestRoutes')
 
 server.use('/api/v1', userRoutes)
 server.use('/api/v1/offers', offerRoutes)
