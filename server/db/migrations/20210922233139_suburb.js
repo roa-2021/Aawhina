@@ -1,4 +1,3 @@
-
 exports.up = (knex) => {
   return knex.schema.createTable('suburb', t => {
     t.increments('id').primary()

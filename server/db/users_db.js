@@ -1,12 +1,41 @@
-const knex = require('knex')
-const config = require('./knexfile')
-const env = process.env.NODE_ENV || 'development'
-const connection = knex(config[env])
+const db = require('./connection')
 
-const getAllUsers = (db = connection) => {
+const getAllUsers = () => {
+  return db('users')
+}
+const getUserByEmail = (email) => {
+  return db('users')
+    .select()
+    .where('email', email)
+    .first()
+}
+// TODO //
+const deleteUser = () => {
+  return db('users')
+}
+// TODO //
+const createUserProfile = () => {
+  return db('users')
+}
+// TODO //
+const editUserProfile = () => {
   return db('users')
 }
 
+const userExists = (email) => {
+  return db('users')
+    .count('id as n')
+    .where('email', email)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
+
 module.exports = {
-  getAllUsers
+  getAllUsers,
+  getUserByEmail,
+  deleteUser,
+  createUserProfile,
+  editUserProfile,
+  userExists
 }
