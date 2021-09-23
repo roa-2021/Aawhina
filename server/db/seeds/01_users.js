@@ -1,13 +1,16 @@
 exports.seed = (knex) => {
   // Deletes ALL existing entries
   return knex('users').del()
-    .then(function () {
+    .then(() => Promise.all([
+
+    ]))
+    .then (([joHash, phillHash, zoeHash, mattHash]) =>
       // Inserts seed entries
-      return knex('users').insert([
-        { id: 1, name: 'jo' },
-        { id: 2, name: 'phill' },
-        { id: 3, name: 'zoe' },
-        { id: 4, name: 'matt' }
+      knex('users').insert([
+        { id: 1, name: 'Jo', email: 'jo@gmail.com', hash: 'joHash', suburb_id: '', bio: 'Hi, I"m Jo!', gender: 'female', image: ''},
+        { id: 2, name: 'Phill', email: 'phill@gmail.com', hash: 'phillHash', suburb_id: '', bio: 'Hi, I"m Phill!', gender: 'male', image: ''},
+        { id: 3, name: 'Zoe', email: 'zoe@gmail.com', hash: 'zoeHash', suburb_id: '', bio: 'Hi, I"m Zoe!', gender: 'gender non conforming', image: ''},
+        { id: 4, name: 'Matt', email: 'matt@gmail.com', hash: 'mattHash', suburb_id: '', bio: 'Hi, I"m Matt!', gender: 'male', image: ''}
       ])
-    })
-}
+     )
+    }
