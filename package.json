@@ -43,6 +43,7 @@
     "express": "^4.17.1",
     "knex": "^0.95.11",
     "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
     "redux-thunks": "^1.0.0"
   },
   "devDependencies": {
