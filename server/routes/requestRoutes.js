@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const db = require('../db/users_db')
+const db = require('../db/requests_db')
 
 router.get('/', (req, res) => {
-  return db.getAllFruit()
-    .then(fruit => {
-      return res.json(fruit)
+  return db.getAllRequestsAndUsersAndSuburbs()
+    .then(requests => {
+      return res.json(requests)
     })
     .catch(err => {
       console.log(err.message)
