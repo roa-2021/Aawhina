@@ -10,16 +10,24 @@ const getUserByEmail = (email) => {
     .first()
 }
 // TODO //
-const deleteUser = () => {
+const deleteUser = (id) => {
   return db('users')
+    .where('id', id)
+    .del()
 }
 // TODO //
-const createUserProfile = () => {
+const createUserProfile = (user) => {
   return db('users')
+    .insert(user, 'id')
+    .then(userEmail => {
+      return getUserByEmail(userEmail[0])
+    })
 }
 // TODO //
-const editUserProfile = () => {
+const editUserProfile = (id, newUser) => {
   return db('users')
+    .where('id', id)
+    .update(newUser)
 }
 
 const userExists = (email) => {
