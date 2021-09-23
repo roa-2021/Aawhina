@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+// const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/offers_db')
 
 router.get('/', (req, res) => {
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
       return res.status(500).send('500 error :(')
     })
 })
-
+// to update with auth
 router.post('/', (req, res) => {
   const offer = req.body
   db.createOffer(offer)
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
       res.status(500).json(`error did not work: ${error.message}`)
     })
 })
-
+// to update with auth
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   db.deleteOffer(id)
@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(`error did not work: ${error.message}`)
     })
 })
-
+// to update with auth
 router.patch('/:id', (req, res) => {
   const id = req.params.id
   const newOffer = req.body
