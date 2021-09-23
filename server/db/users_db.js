@@ -1,3 +1,4 @@
+// const { generateHash } = require('authenticare/server')
 const db = require('./connection')
 
 const getAllUsers = () => {
@@ -9,13 +10,8 @@ const getUserByEmail = (email) => {
     .where('email', email)
     .first()
 }
-// TODO //
-const deleteUser = (id) => {
-  return db('users')
-    .where('id', id)
-    .del()
-}
 
+//will call userexists and generate hash
 const createUserProfile = (user) => {
   return db('users')
     .insert(user, 'id')
@@ -23,13 +19,18 @@ const createUserProfile = (user) => {
       return getUserByEmail(userEmail[0])
     })
 }
-
+//will require auth
 const editUserProfile = (id, newUser) => {
   return db('users')
     .where('id', id)
     .update(newUser)
 }
-
+//will require auth
+const deleteUser = (id) => {
+  return db('users')
+    .where('id', id)
+    .del()
+}
 const userExists = (email) => {
   return db('users')
     .count('id as n')
