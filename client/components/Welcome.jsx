@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 
-// import Register from './Register'
-// import Login from './Login'
-
 function Welcome () {
   const [loginFormVisible, setLoginFormVisible] = useState(false)
   const [registerFormVisible, setRegisterFormVisible] = useState(false)
@@ -21,25 +18,17 @@ function Welcome () {
   return (
     <>
       {
-        loginFormVisible ? (
-          <>
-            <Login />
-          </>
-        ) : registerFormVisible ? (
-          <>
-            <Register />
-          </>
-        )
-          : <>
-            <h3>Welcome Component</h3 >
-            <button onClick={toggleLoginForm}>Login</button>
-            <button onClick={toggleRegisterForm}>Register</button>
-
-          </>}
-
+        loginFormVisible
+          ? <Login />
+          : registerFormVisible
+            ? <Register />
+            : <>
+              <h3>Welcome Component</h3 >
+              <button onClick={toggleLoginForm}>Login</button>
+              <button onClick={toggleRegisterForm}>Register</button>
+            </>}
     </>
   )
 }
 
-// export default Welcome
-export default connect(mapReduxToProps)(Welcome)
+export default connect()(Welcome)
