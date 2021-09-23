@@ -7,12 +7,20 @@ function Welcome () {
   const [loginFormVisible, setLoginFormVisible] = useState(false)
   const [registerFormVisible, setRegisterFormVisible] = useState(false)
 
+  // const toggleLoginForm = () => {
+  //   setLoginFormVisible(true)
+  // }
+
+  // const toggleRegisterForm = () => {
+  //   setRegisterFormVisible(true)
+  // }
+
   const toggleLoginForm = () => {
-    setLoginFormVisible(true)
+    setLoginFormVisible(!loginFormVisible)
   }
 
   const toggleRegisterForm = () => {
-    setRegisterFormVisible(true)
+    setRegisterFormVisible(!registerFormVisible)
   }
 
   return (

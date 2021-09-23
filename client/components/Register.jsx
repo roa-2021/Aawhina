@@ -1,4 +1,5 @@
 import React from 'react'
+import toggleRegisterForm from './Welcome'
 // import connect from 'react-redux'
 
 function Register () {
@@ -7,7 +8,7 @@ function Register () {
       <h3>Register Component</h3 >
       <p>form goes here</p>
       <button>Submit</button>
-      <button>Cancel</button>
+      <button onClick={toggleRegisterForm}>Cancel</button>
 
     </>
   )
