@@ -4,9 +4,9 @@ exports.up = (knex, Promise) => {
     t.increments('id').primary()
     t.int('request_id')
     t.int('user_id')
-    t.timestamp('created_at')
     t.string('notes')
     t.boolean('accepted')
+    t.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }
 
