@@ -10,7 +10,6 @@ const App = () => {
   return (
     <>
       <h1>Welcome to Aawhina</h1>
-      {/* <Route exact path='/' component={Home} /> */}
       <Router>
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
