@@ -3,16 +3,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // import Home from './Home'
-import Register from './Register'
-import Login from './Login'
+// import Register from './Register'
+// import Login from './Login'
+import Welcome from './Welcome'
 
 const App = () => {
   return (
     <>
-      <h1>Welcome to Aawhina</h1>
       <Router>
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
+        <Route exact path='/' component={Welcome} />
       </Router>
     </>
   )
