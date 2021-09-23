@@ -7,7 +7,6 @@ exports.up = (knex) => {
     t.string('details')
     t.string('time_frame')
     t.timestamp('created_at').defaultTo(knex.fn.now())
-
   })
 }
 
