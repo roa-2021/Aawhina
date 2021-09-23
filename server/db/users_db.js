@@ -15,7 +15,7 @@ const deleteUser = (id) => {
     .where('id', id)
     .del()
 }
-// TODO //
+
 const createUserProfile = (user) => {
   return db('users')
     .insert(user, 'id')
@@ -23,7 +23,7 @@ const createUserProfile = (user) => {
       return getUserByEmail(userEmail[0])
     })
 }
-// TODO //
+
 const editUserProfile = (id, newUser) => {
   return db('users')
     .where('id', id)
@@ -47,3 +47,19 @@ module.exports = {
   editUserProfile,
   userExists
 }
+
+// TODO - Auth routes
+// const express = require('express')
+
+// const router = express.Router()
+// const { applyAuthRoutes } = require('authenticare/server')
+
+// const { userExists, getUserByEmail, createUserProfile } = require('../db/users')
+
+// applyAuthRoutes(router, {
+//   userExists,
+//   getUserByName,
+//   createUser
+// })
+
+// module.exports = router
