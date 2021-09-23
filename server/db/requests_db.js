@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV || 'development'
 const connection = knex(config[env])
 
 const getAllUsers = (db = connection) => {
-  return db('users')
+  return db('requests')
 }
 
 module.exports = {
