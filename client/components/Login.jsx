@@ -1,5 +1,5 @@
 import React from 'react'
-import toggleLoginForm from './Welcome'
+import toggleOfferForm from './Dashboard'
 // import connect from 'react-redux'
 
 function Login () {
