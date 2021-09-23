@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
+// const { applyAuthRoutes } = require('authenticare/server')
 
-const db = require('../db/db')
+const db = require('../db/users_db')
 
 router.get('/', (req, res) => {
-  return db.getAllFruit()
-    .then(fruit => {
-      return res.json(fruit)
+  return db.getAllUsers()
+    .then(users => {
+      return res.json(users)
     })
     .catch(err => {
       console.log(err.message)
