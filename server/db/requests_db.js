@@ -3,13 +3,13 @@ const db = require('./connection')
 const getAllRequestsAndUsersAndSuburbs = () => {
   return db('requests')
     .join('users', 'user_id', 'users.id')
-    // .join('suburb', 'users.suburb_id', 'suburb.id')
-    .select('*', 'requests.id AS request_id')
+    .join('suburb', 'users.suburb_id', 'suburb.id')
+    .select('*', 'requests.id AS request_id', 'suburb.name AS suburb_name')
 }
 // TODO //
 const getRequestById = (id) => {
   return db('requests')
-    .where('request.id', id)
+    .where('requests.id', id)
     .first()
 }
 // TODO //
