@@ -12,25 +12,9 @@ function Login ()  {
 
   return (
   <>
-  <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
-  <Button onClick={() => loginWithRedirect()}>Register/Log In</Button>
-  </Box>
+  <Button variant='contained' size='large' onClick={() => loginWithRedirect()}>Register/Log In</Button>
   </>
   )}
   
+
 export default Login
-
-// function Login () {
-//   return (
-//     <>
-//       <h3>Login Component</h3 >
-//       <p>form goes here</p>
-//       <button >Submit</button>
-//       <button onClick={toggleLoginForm}>Cancel</button>
-
-//     </>
-//   )
-// }
-
-// export default Login
-// // export default connect()(Login)

@@ -12,7 +12,6 @@ import Logout from './Logout'
 const App = () => {
   return (
     <>
-      <h3>App Component</h3>
       <Router>
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />

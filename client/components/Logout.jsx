@@ -6,12 +6,14 @@ import Box from '@mui/material/Box'
 const Logout = () => {
   const { logout } = useAuth0()
 
+
+
   return (
-    <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-    <Button onClick={() => logout({ returnTo: window.location.origin })}>
+
+    <Button size='large' variant='contained' onClick={() => logout({ returnTo: window.location.origin })}>
       Log Out
     </Button>
-    </Box>
+    
   )
 }
 

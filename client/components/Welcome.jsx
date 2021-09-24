@@ -5,14 +5,23 @@ import Register from './Register'
 import Link from 'react-router-dom'
 import Logout from './Logout'
 import Nav from './Nav'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Stack from '@mui/material/Stack'
 
 function Welcome () {
 
   return (
     <>
-      <Nav/>
-      <Login/>
-      <Logout/>
+      <Stack sx={{ pt: 10 }}direction="row" justifyContent="center">
+        <Typography  component='h1' variant='h3'>Welcome</Typography>
+      </Stack>
+      <Stack sx={{ pt: 20 }}direction="row" spacing={25}justifyContent="center">
+        <Login/>
+        <Logout/>
+      </Stack>
     </>
   )
 }
