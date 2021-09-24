@@ -10,17 +10,13 @@ import nav from './Nav'
 const App = () => {
   return (
     <>
-      <>
-      <h3>App Component</h3>
-      </>
-      <>
-        <Router>
-          <Route exact path='/' component={Welcome} />
-          <Route path='/dashboard' component={nav} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/dashboard' component={Dashboard} />
-        </Router>
-      </>
+      <Router>
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/' component={Welcome} />
+        <Route path='/dashboard' component={nav} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/dashboard' component={Dashboard} />
+      </Router>
     </>
   )
 }

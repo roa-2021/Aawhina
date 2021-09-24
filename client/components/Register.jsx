@@ -8,6 +8,13 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import InputAdornment from '@mui/material/InputAdornment'
+import IconButton from '@mui/material/IconButton'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import Visibility from '@mui/icons-material/Visibility'
 
 
 function Register (props) {
@@ -19,60 +26,83 @@ function Register (props) {
   //   email: '',
   // })
 
+  const handleChange =(e) => {
+    e.preventdefault()
+  }
+
+
+  const handleSubmit = () => {
+      console.log('hello')
+  }
+
+
   return (
     <>
-    <Box
-      component='form'
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' }
- 
-      }}
-      noValidate
-      autoComplete='off'
-         >
-      <div>
-        <TextField required id = 'outlined-required' label = 'First Name'/>
-        <TextField required id = 'outlined-required' label = 'Last Name'/>
-      </div>
-      <div>
-        <TextField required id='outlined-required'label='Email' />
-      </div>
-      <div>
-      <FormControl>
-        <InputLabel>Suburb</InputLabel>
-        <Select labelId='demo-simple-select-label'id='demo-simple-select'
-          // value={age}
-          // label='Age'
-          // onChange={handleChange}
-          autoWidth label='Suburb'sx={{ m: 1, width: '20ch' }}>
-          
-        <MenuItem >To map over suburb</MenuItem>
-        </Select>
-        </FormControl>
-        <FormControl>
-        <InputLabel>Gender</InputLabel>
-        <Select labelId='demo-simple-select-label'id='demo-simple-select'
-          // value={age}
-          // label='Age'
-          // onChange={handleChange}
-          autoWidth label='Gender'sx={{ m: 1, width: '20ch' }}>
-          <MenuItem >Female</MenuItem>
-          <MenuItem >Male</MenuItem>
-          <MenuItem >Gender Diverse</MenuItem>
-          <MenuItem >Prefer not to say</MenuItem>
-        </Select>
-        </FormControl>
-      </div>
-      </Box>
+    <Container component='main' maxWidth='xs'>
+      <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <Typography  component='h1' variant='h5'>Register</Typography>
+        <Box sx={{mt:3}} component='form'>
+          <Grid container spacing={2} >
 
-      <Box sx={{ '& .MuiTextField-root': { m: 1, width: '53ch', height: '30ch'} }}>
-      <div>
-      <TextField required id = 'outlined-multiline-flexible' multiline maxRows={3}  label = 'About you'/>
-      </div>
-      </Box>
-        <Button>Register</Button>
-        <Button>Cancel</Button>
-    </>
+          <Grid item sm={6}>
+            <TextField required fullWidth id = 'outlined-required' label = 'First Name'/>
+          </Grid>
+          <Grid item sm={6}>
+            <TextField required fullWidth id = 'outlined-required' label = 'Last Name'/>
+          </Grid>
+          <Grid item sm={12}>
+            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' />
+          </Grid>
+          <Grid item sm={12}>
+            <TextField required fullWidth id='outlined-required'label='Password' placeholder='please create a password'
+            endAdornment={
+                <InputAdornment position='end'>
+                  <IconButton aria-label='toggle password visibility'></IconButton>
+                </InputAdornment>
+            }/>
+          </Grid>
+
+          <Grid item sm={6}>
+          <InputLabel>Suburb</InputLabel>
+          <Select
+            // value={age}
+            label='Suburb'
+            onChange={handleChange}
+            sx={{ width: '21ch' }}>
+          <MenuItem >To map over suburb</MenuItem>
+          </Select>
+          </Grid>
+          
+          <Grid item sm={6}>
+          <InputLabel>Gender</InputLabel>
+            <Select
+              // value={gender}
+              label='Gender'
+              onChange={handleChange}
+              sx={{ width: '21ch' }}>
+              <MenuItem >Female</MenuItem>
+              <MenuItem >Male</MenuItem>
+              <MenuItem >Gender Diverse</MenuItem>
+              <MenuItem >Prefer not to say</MenuItem>
+            </Select>
+          </Grid>
+      
+        <Grid item sm={12}>
+          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you'/>
+        </Grid>
+        <Grid>
+
+        </Grid>
+
+
+          <Button onClick={handleSubmit}>Register</Button>
+          <Button>Cancel</Button>
+          
+        </Grid>
+        </Box>
+        </Box>
+        </Container>
+      </>
   )
 }
 
