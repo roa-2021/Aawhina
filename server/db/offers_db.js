@@ -1,4 +1,5 @@
 const db = require('./connection')
+
 // many requests to one user
 const getAllOffersAndUsers = () => {
   return db('offers')
@@ -13,26 +14,33 @@ const getOfferById = (id) => {
     .select('*', 'offers.id AS offer_id')
     .first()
 }
-// TODO //
+// authorizeupdate required
 const deleteOffer = (id) => {
   return db('offers')
     .where('id', id)
     .del()
 }
-// TO test //
+// authorizeupdate required
 const createOffer = (offer) => {
+  // fruit.added_by_user = user.id
   return db('offers')
     .insert(offer, 'id')
     .then(offerId => {
       return getOfferById(offerId[0])
     })
 }
-// TODO //
+// authorizeupdate required
 const editOffer = (id, newOffer) => {
   return db('offers')
     .where('id', id)
     .update(newOffer)
 }
+
+// function authorizeUpdate (fruit, user) {
+//   if (fruit.added_by_user !== user.id) {
+//     throw new Error('Unauthorized')
+//   }
+// }
 
 module.exports = {
   getAllOffersAndUsers,
