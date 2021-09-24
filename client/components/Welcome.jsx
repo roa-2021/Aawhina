@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Login from './Login'
-import Register from './Register'
+import Register from './MakeProfile'
 import Link from 'react-router-dom'
 import Logout from './Logout'
 import Nav from './Nav'
@@ -10,8 +10,10 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Welcome () {
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
@@ -22,6 +24,11 @@ function Welcome () {
         <Login/>
         <Logout/>
       </Stack>
+
+      isAuthenticated && (
+      {console.log(user)}
+        <h1>Hi</h1>
+    )
     </>
   )
 }
