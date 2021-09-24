@@ -1,40 +1,34 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Login from './Login'
-import Register from './Register'
+import Register from './MakeProfile'
+import Link from 'react-router-dom'
+import Logout from './Logout'
+import Nav from './Nav'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container'
+import Stack from '@mui/material/Stack'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Welcome () {
-  const [loginFormVisible, setLoginFormVisible] = useState(false)
-  const [registerFormVisible, setRegisterFormVisible] = useState(false)
-
-  // const toggleLoginForm = () => {
-  //   setLoginFormVisible(true)
-  // }
-
-  // const toggleRegisterForm = () => {
-  //   setRegisterFormVisible(true)
-  // }
-
-  const toggleLoginForm = () => {
-    setLoginFormVisible(!loginFormVisible)
-  }
-
-  const toggleRegisterForm = () => {
-    setRegisterFormVisible(!registerFormVisible)
-  }
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
-      {
-        loginFormVisible
-          ? <Login />
-          : registerFormVisible
-            ? <Register />
-            : <>
-              <h3>Welcome Component</h3 >
-              <button onClick={toggleLoginForm}>Login</button>
-              <button onClick={toggleRegisterForm}>Register</button>
-            </>}
+      <Stack sx={{ pt: 10 }}direction="row" justifyContent="center">
+        <Typography  component='h1' variant='h3'>Welcome</Typography>
+      </Stack>
+      <Stack sx={{ pt: 20 }}direction="row" spacing={25}justifyContent="center">
+        <Login/>
+        <Logout/>
+      </Stack>
+
+      isAuthenticated && (
+      {console.log(user)}
+        <h1>Hi</h1>
+    )
     </>
   )
 }

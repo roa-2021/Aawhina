@@ -1,5 +1,6 @@
 html, body {
-  background-color: #eeebe4;
-  color: #28282e;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('./images/background.png');
   font-family: 'Lato', sans-serif;
 }
