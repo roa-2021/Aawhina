@@ -25,7 +25,6 @@ export default function Requests (props) {
             justifyContent="center"
             aligncards="stretch"
             rowSpacing={2} 
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             { requests.map(request => {
               return (
