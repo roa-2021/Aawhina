@@ -14,5 +14,5 @@ function Login () {
   )
 }
 
-// export default Login
-export default connect()(Login)
+export default Login
+// export default connect()(Login)
