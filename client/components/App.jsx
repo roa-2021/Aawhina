@@ -6,10 +6,13 @@ import Welcome from './Welcome'
 import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
 import Requests from './Requests'
-import Register from './Register'
+// import Register from './Register'
 import Dashboard from './Dashboard'
 import Footer from './Footer'
 import Nav from './Nav'
+import Login from './Login'
+import Logout from './Logout'
+import MakeProfile from './MakeProfile'
 
 const App = () => {
   return (
