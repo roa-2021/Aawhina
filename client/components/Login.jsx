@@ -1,6 +1,6 @@
 import React from 'react'
-import toggleOfferForm from './Dashboard'
-// import connect from 'react-redux'
+import toggleLoginForm from './Welcome'
+import connect from 'react-redux'
 
 function Login () {
   return (
@@ -14,5 +14,5 @@ function Login () {
   )
 }
 
-export default Login
-// export default connect(mapReduxToProps)(Login)
+// export default Login
+export default connect()(Login)
