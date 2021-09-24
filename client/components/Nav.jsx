@@ -221,4 +221,5 @@ function PrimarySearchAppBar() {
   );
 }
 
-export default connect()(PrimarySearchAppBar)
+// export default connect()(PrimarySearchAppBar)
+export default PrimarySearchAppBar
