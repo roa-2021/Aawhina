@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     domain="dev-mtmo2d9w.us.auth0.com"
     clientId="E9gg2nB473dDTUiYKPaa4wsxaJxXcWnN"
     redirectUri={window.location.origin}
+    audience="https://dev-mtmo2d9w.us.auth0.com/api/v2/"
+    scope="read:current_user update:current_user_metadata"
   >
     <Provider store={store} >
       <App />
