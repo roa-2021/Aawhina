@@ -1,26 +1,24 @@
 import React from 'react'
 import toggleLoginForm from './Welcome'
 import connect from 'react-redux'
-import Backdrop from '@mui/material/Backdrop'
+import { useAuth0 } from '@auth0/auth0-react'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+import Logout from './Logout'
 
-function Login () {
+
+
+function Login ()  {
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0()
+
   return (
-    <>
-      <Backdrop
-            sx={{ color: '#ccc', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={open}
-            // onClick={handleClose}
-            > <>
-      <h3>Login Component</h3 >
-      <p>form goes here</p>
-      <button >Submit</button>
-      <button onClick={toggleLoginForm}>Cancel</button>
 
-    </>
-          </Backdrop>
-    </>
-  )
-}
+    <>
+
+  <Button variant='contained' size='large' onClick={() => loginWithRedirect()}>Register/Log In</Button>
+  </>
+
+  )}
+  
 
 export default Login
-// export default connect()(Login)
