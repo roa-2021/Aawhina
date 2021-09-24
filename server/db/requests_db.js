@@ -1,36 +1,56 @@
 const db = require('./connection')
+
 // many requests to one user
-const getAllRequestsAndUsersAndSuburbs = () => {
+async function getAllRequestsAndUsersAndSuburbs () {
   return db('requests')
     .join('users', 'user_id', 'users.id')
     .join('suburb', 'users.suburb_id', 'suburb.id')
     .select('*', 'requests.id AS request_id', 'suburb.name AS suburb_name')
 }
-// TODO //
-const getRequestById = (id) => {
+
+async function getRequestById (id) {
   return db('requests')
     .where('requests.id', id)
     .first()
 }
-// TODO //
-const deleteRequest = (id) => {
+// authorizeupdate required
+async function deleteRequest (id, user) {
   return db('requests')
     .where('id', id)
-    .del()
+    .first()
+    .then(request => authorizeUpdate(request, user))
+    .then(() => {
+      return db('requests')
+        .where('id', id)
+        .delete()
+    })
 }
-// TODO //
-const createRequest = (request) => {
+// authorizeupdate required
+async function createRequest (request, user) {
+  request.added_by_user = user.id
   return db('requests')
     .insert(request, 'id')
     .then(requestId => {
       return getRequestById(requestId[0])
     })
 }
-
-const editRequest = (id, newRequest) => {
+// authorizeupdate required
+async function editRequest (newRequest, user) {
   return db('requests')
-    .where('id', id)
-    .update(newRequest)
+    .where('id', newRequest.id)
+    .first()
+    .then(request => authorizeUpdate(request, user))
+    .then(() => {
+      return db('requests')
+        .where('id', newRequest.id)
+        .update(newRequest)
+    })
+}
+
+function authorizeUpdate (request, user) {
+  if (request.added_by_user !== user.id) {
+    throw new Error('Unauthorized')
+  }
 }
 
 module.exports = {
