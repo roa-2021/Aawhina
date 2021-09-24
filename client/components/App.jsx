@@ -11,6 +11,7 @@ const App = () => {
   return (
     <>
       <Router>
+        <Route exact path='/register' component={Register} />
         <Route exact path='/' component={Welcome} />
         <Route path='/dashboard' component={nav} />
         <Route exact path='/register' component={Register} />
