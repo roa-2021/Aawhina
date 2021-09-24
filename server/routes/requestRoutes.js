@@ -3,7 +3,7 @@ const router = express.Router()
 const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/requests_db')
 
-// trying auth syntax??
+
 // GET /api/v1/requests
 router.get('/', async (req, res) => {
   try {
@@ -13,18 +13,16 @@ router.get('/', async (req, res) => {
     res.status(500).send(err.message)
   }
 })
-// normal syntax
+
 // GET /api/v1/requests/:id
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  return db.getRequestById(id)
-    .then(request => {
-      return res.json(request)
-    })
-    .catch(err => {
-      console.log(err.message)
-      return res.status(500).send('500 error :(')
-    })
+router.get('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const requests = await db.getRequestById(id)
+    res.json({ requests })
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
 })
 // POST /api/v1/requests
 router.post('/', getTokenDecoder(), async (req, res) => {
@@ -45,7 +43,7 @@ router.post('/', getTokenDecoder(), async (req, res) => {
 
 // DELETE /api/v1/requests/:id
 router.delete('/:id', getTokenDecoder(), async (req, res) => {
-  const id = req.params.id
+  const id = Number(req.params.id)
   const user = req.user
   if (req.user) {
     alert('username:', req.user.username)
@@ -66,7 +64,7 @@ router.delete('/:id', getTokenDecoder(), async (req, res) => {
 })
 
 // PUT /api/v1/requests/:id
-router.put('/:id', getTokenDecoder(), async (req, res) => {
+router.put('/', getTokenDecoder(), async (req, res) => {
   const updatedRequest = req.body
   const user = req.user
   if (req.user) {
