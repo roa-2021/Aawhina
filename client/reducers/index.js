@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import cartReducer from './cart'
-import pageReducer from './page'
+import requestReducer from './requests'
+import offerReducer from './offers'
 
 export default combineReducers({
-  cart: cartReducer,
-  activePage: pageReducer
+  requests: requestReducer,
+  offers: offerReducer
 })

@@ -1,7 +1,8 @@
-import { getRequests, postRequest } from '../apis/requests_api'
+import { getRequests, postRequest, updateRequest } from '../apis/requests_api'
 
 export const RECEIVE_REQUESTS = 'RECEIVE_REQUESTS'
 export const ADD_REQUEST = 'ADD_REQUEST'
+export const UPDATE_REQUEST = 'UPDATE_REQUEST'
 
 // THUNKS
 
@@ -23,6 +24,15 @@ export function postRequestThunk (request) {
   }
 }
 
+export function updateRequestThunk (request) {
+  return dispatch => {
+    updateRequest(request)
+      .then(response => {
+        dispatch(updateRequestAction(response))
+      })
+  }
+}
+
 // ACTION CREATORS
 
 function setRequests(requests) {
@@ -32,9 +42,16 @@ function setRequests(requests) {
   }
 }
 
-function addRequest (request) {
+function addRequest(request) {
   return {
     type: ADD_REQUEST,
+    request
+  }
+}
+
+function updateRequestAction (request) {
+  return {
+    type: UPDATE_REQUEST,
     request
   }
 }

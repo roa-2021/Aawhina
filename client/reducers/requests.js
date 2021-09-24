@@ -14,7 +14,6 @@ function requestReducer (state = initialState, action) {
       const newState = state.map(request => {
         return request.id === action.request.id ? action.request : request
       })
-
       return newState
     
     default:
