@@ -1,15 +1,77 @@
-import React from 'react'
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
-function Offers () {
-  return ( 
+function Requests () {
+  const [open, setOpen] = React.useState(false);
+  const [scroll, setScroll] = React.useState('paper');
+  
+  const handleClickOpen = (scrollType) => () => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
+  const descriptionElementRef = React.useRef(null);
+  React.useEffect(() => {
+    if (open) {
+      const { current: descriptionElement } = descriptionElementRef;
+      if (descriptionElement !== null) {
+        descriptionElement.focus();
+      }
+    }
+  }, [open]);
+  
+  return (
     <>
-  <h3>Your offers:</h3>
-  <ul>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
- </ul>
- </>
-  ) 
+    <h3>Offers you have made:</h3>
+
+
+    <div>
+      <ul>
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button> 
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
+        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
+      </ul>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        scroll={scroll}
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+        >
+        <DialogTitle id="scroll-dialog-title">Request Title</DialogTitle>
+        <DialogContent dividers={scroll === 'paper'}>
+          <DialogContentText
+            id="scroll-dialog-description"
+            ref={descriptionElementRef}
+            tabIndex={-1}
+            > 
+          Description of request, Description of request, Description of request, Description of request,
+          Description of request, Description of request, Description of request, Description of request,
+          Description of request, Description of request, Description of request, Description of request,
+          Description of request, Description of request, Description of request, Description of request
+            
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Offer</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  </>
+  );
 }
-export default Offers
+
+export default Requests
