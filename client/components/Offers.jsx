@@ -32,7 +32,7 @@ function Requests () {
     }
   }, [open]);
 
-  const lightTheme = createTheme({ palette: { mode: 'light' } })
+  // const lightTheme = createTheme({ palette: { mode: 'light' } })
   
   return (
     <>
@@ -51,7 +51,7 @@ function Requests () {
       }}
     >
       <Paper elevation={3} >
-        <h3>Request title</h3>
+        <h3>Request responded to 1</h3>
       </Paper>
     </Box>
   

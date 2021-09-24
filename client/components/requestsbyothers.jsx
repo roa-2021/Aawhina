@@ -54,7 +54,7 @@ function Requests () {
     >
     
       <Paper elevation={3} >
-        <h3>My Request 1</h3>
+        <h3>Request Title</h3>
       </Paper>
     </Box>
   {/*  ---------------- */}
