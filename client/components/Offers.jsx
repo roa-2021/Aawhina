@@ -31,10 +31,12 @@ function Requests () {
   
   return (
     <>
+    <div className="offers-requests-header">
     <h3>Offers you have made:</h3>
+    </div>
 
 
-    <div>
+    <div className="offers-requests">
       <ul>
         <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button> 
         <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>

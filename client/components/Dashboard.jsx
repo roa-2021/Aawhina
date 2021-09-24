@@ -24,24 +24,26 @@ const handleChange = (event, newAlignment) => {
 return (
   <>
   <>
-  <ToggleButtonGroup 
+  <div className="toggle-buttons">
+  <ToggleButtonGroup
     size="large" 
-    color="primary"
+    color="warning"
     value={alignment}
       exclusive
       onChange={handleChange}
   >
-    <ToggleButton value='offers' onClick={toggleOffers}>Offers</ToggleButton>
-    <ToggleButton value='requests' onClick={toggleRequests}>Requests</ToggleButton>
+    <ToggleButton value='offers' onClick={toggleOffers}><strong>Offers</strong></ToggleButton>
+    <ToggleButton value='requests' onClick={toggleRequests}><strong>Requests</strong></ToggleButton>
   </ToggleButtonGroup>
+  </div>
   </>
-  <>
+  <div className="offers-requests-container">
    {
      offers
      ? <Offers />
      : <Requests />
    }
-</>
+  </div>
 </>
 )
 }

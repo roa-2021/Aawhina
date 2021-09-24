@@ -5,7 +5,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
@@ -33,46 +32,30 @@ function Requests () {
       }
     }
   }, [open]);
-  
-  // elevated boxes
-
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: 60,
-    lineHeight: '60px',
-  }))
 
   const lightTheme = createTheme({ palette: { mode: 'light' } })
 
   return (
     <>
-    <h3>Requests</h3>
+    <h3>Requests you have made:</h3>
 
-    <Grid container spacing={2}>
-      {[lightTheme].map((theme, index) => (
-        <Grid item xs={6} key={index}>
-          <ThemeProvider theme={theme}>
-            <Box
-              sx={{
-                p: 2,
-                bgcolor: 'background.default',
-                display: 'grid',
-                gridTemplateColumns: { md: '1fr 1fr' },
-                gap: 2,
-              }}
-            >
-              {[1].map((elevation) => (
-                <Item key={elevation} elevation={2} onClick={handleClickOpen('paper')}>
-                  {`Request Title`}
-                </Item>
-              ))}
-            </Box>
-          </ThemeProvider>
-        </Grid>
-      ))}
-    </Grid>
+    
+    <Box onClick={handleClickOpen('paper')}
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          m: 1,
+          width: 128,
+          height: 128,
+        },
+      }}
+    >
+      <Paper elevation={3} >
+        <h3>Request Title</h3>
+      </Paper>
+    </Box>
+  
 
     <div>
       <Dialog
@@ -89,10 +72,14 @@ function Requests () {
             ref={descriptionElementRef}
             tabIndex={-1}
             > 
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request
+            <h3>Category</h3>
+            <p>groceries</p>
+            <h3>Description</h3>
+            <p>I need someone to do some grocery shopping for me because I can't leave the house</p>
+            <h3>Timeframe</h3>
+            <p>Today</p>
+            <h3>Created:</h3>
+            <p>24/09/2021</p>
             
           </DialogContentText>
         </DialogContent>

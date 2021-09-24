@@ -4,3 +4,25 @@ html, body {
   background-image: url('./images/background.png');
   font-family: 'Lato', sans-serif;
 }
+
+.toggle-buttons{
+  display: flex;
+  justify-content: center;
+
+}
+
+.offers-requests-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+
+}
+
+.offers-requests-header {
+  display: flex;
+  max-height: 
+}
+.offers-requests {
+  display: flex;
+}
