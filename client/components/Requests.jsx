@@ -2,7 +2,16 @@ import React from 'react'
 
 function Requests () {
  return ( 
- <p>Requests Component</p>
+   <>
+ <h3>Your requests:</h3>
+ <ul>
+  <li>request</li>
+  <li>request</li>
+  <li>request</li>
+ </ul>
+
+<button>Make a request</button>
+</>
  ) 
 }
 export default Requests
