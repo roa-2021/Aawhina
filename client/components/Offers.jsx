@@ -5,6 +5,9 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 function Requests () {
   const [open, setOpen] = React.useState(false);
@@ -28,23 +31,32 @@ function Requests () {
       }
     }
   }, [open]);
+
+  const lightTheme = createTheme({ palette: { mode: 'light' } })
   
   return (
     <>
-    <div className="offers-requests-header">
     <h3>Offers you have made:</h3>
-    </div>
 
+    
+    <Box onClick={handleClickOpen('paper')}
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          m: 1,
+          width: 128,
+          height: 128,
+        },
+      }}
+    >
+      <Paper elevation={3} >
+        <h3>Request title</h3>
+      </Paper>
+    </Box>
+  
 
-    <div className="offers-requests">
-      <ul>
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button> 
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
-        <li>Request Title</li> <button onClick={handleClickOpen('paper')}>See Details</button> <button>Recind offer</button>
-      </ul>
+    <div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -59,19 +71,24 @@ function Requests () {
             ref={descriptionElementRef}
             tabIndex={-1}
             > 
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request,
-          Description of request, Description of request, Description of request, Description of request
+            <h3>Category</h3>
+            <p>groceries</p>
+            <h3>Description</h3>
+            <p>I need someone to do some grocery shopping for me because I can't leave the house</p>
+            <h3>Timeframe</h3>
+            <p>Today</p>
+            <h3>Created:</h3>
+            <p>24/09/2021</p>
             
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Offer</Button>
+          <Button onClick={handleClose}>Back</Button>
+          <Button>Recind offer</Button>
         </DialogActions>
       </Dialog>
     </div>
+    
   </>
   );
 }
