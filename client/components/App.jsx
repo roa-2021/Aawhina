@@ -14,6 +14,7 @@ const App = () => {
     <>
       <CssBaseline/>
       <Router>
+        <Route exact path='/register' component={Register} />
         <Route exact path='/' component={Welcome} />
         <Route path='/requests' component={Requests} />
         <Route path='/dashboard' component={Nav} />
