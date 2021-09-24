@@ -21,8 +21,9 @@ html, body {
 
 .offers-requests-header {
   display: flex;
-  max-height: 
+  /* max-height:  */
 }
+
 .offers-requests {
   display: flex;
 }

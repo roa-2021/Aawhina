@@ -85,6 +85,60 @@ function Requests () {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Back</Button>
+          <Button>Edit</Button>
+          <Button>Delete</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
+    <h3>Requests by others:</h3>
+
+    
+    <Box onClick={handleClickOpen('paper')}
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          m: 1,
+          width: 128,
+          height: 128,
+        },
+      }}
+    >
+      <Paper elevation={3} >
+        <h3>Request Title</h3>
+      </Paper>
+    </Box>
+  
+
+    <div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        scroll={scroll}
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description"
+        >
+        <DialogTitle id="scroll-dialog-title">Request Title</DialogTitle>
+        <DialogContent dividers={scroll === 'paper'}>
+          <DialogContentText
+            id="scroll-dialog-description"
+            ref={descriptionElementRef}
+            tabIndex={-1}
+            > 
+            <h3>Category</h3>
+            <p>groceries</p>
+            <h3>Description</h3>
+            <p>I need someone to do some grocery shopping for me because I can't leave the house</p>
+            <h3>Timeframe</h3>
+            <p>Today</p>
+            <h3>Created:</h3>
+            <p>24/09/2021</p>
+            
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Back</Button>
           <Button onClick={handleClose}>Offer to help</Button>
         </DialogActions>
       </Dialog>
