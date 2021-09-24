@@ -6,18 +6,26 @@ import Requests from './Requests';
 
 export default function Dashboard() {
 
-  const [offers, setOffers] = React.useState(true);
+  const [offers, setOffers] = React.useState(true)
 
-const toggleForms = () => {
-  setOffers(!offers)
+const toggleOffers = () => {
+  setOffers(true)
+}
+
+const toggleRequests = () => {
+  setOffers(false)
 }
 
 return (
   <>
   <>
-  <ToggleButtonGroup exclusive onChange={toggleForms}>
-    <ToggleButton>Offers</ToggleButton>
-    <ToggleButton>Requests</ToggleButton>
+  <ToggleButtonGroup 
+    color="warning"
+  size="large" 
+  // exclusive onChange={toggleForms}
+  >
+    <ToggleButton onClick={toggleOffers}>Offers</ToggleButton>
+    <ToggleButton onClick={toggleRequests}>Requests</ToggleButton>
   </ToggleButtonGroup>
   </>
   <>
