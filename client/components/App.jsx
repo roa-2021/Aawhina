@@ -11,10 +11,11 @@ const App = () => {
     <>
 
       <Router>
+        <Route exact path='/register' component={Register} />
         <Route exact path='/' component={Welcome} />
       </Router>
     </>
   )
 }
 
-export default connect()(App)
+export default App
