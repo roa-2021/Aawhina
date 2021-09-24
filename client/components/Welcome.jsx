@@ -39,4 +39,5 @@ function Welcome () {
   )
 }
 
-export default connect()(Welcome)
+// export default connect()(Welcome)
+export default Welcome

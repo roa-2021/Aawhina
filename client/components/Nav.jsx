@@ -166,7 +166,7 @@ function Nav() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Āwhina
           </Typography>
           <Search>
             <SearchIconWrapper>
