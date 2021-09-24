@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent } from '@mui/material'
+import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 
 import requests from '../../request.json'
@@ -35,11 +35,19 @@ export default function Requests (props) {
                       <Typography variant="h6">
                         {`${request.title}`}
                       </Typography>
-                      <Typography >
+                      <Typography my={0.5}>
                         {`User ${request.user_id} would like help with ${request.details}`}
                       </Typography>
-                      <Chip label={request.category} variant="outlined" />
-                      <Chip label={request.suburb_name} variant="outlined" />
+                      <Stack direction="row" spacing={1}>
+                        <Chip
+                        label={request.category} 
+                        variant="outlined" 
+                        />
+                        <Chip 
+                          label={request.suburb_name} 
+                          variant="outlined" 
+                        />
+                      </Stack>
                     </CardContent>
                   </Card>
                 </Grid>)
