@@ -5,7 +5,6 @@ const requestsUrl = '/api/v1/requests'
 export const getRequests = () => {
   return request.get(requestsUrl)
     .then(response => {
-      console.log(response)
       return response.body
     })
 }
