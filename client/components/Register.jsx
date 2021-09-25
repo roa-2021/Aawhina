@@ -4,22 +4,21 @@ import connect from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import Logout from './Logout'
 
 
 
-function Login ()  {
-  const { loginWithRedirect } = useAuth0()
+function Register ()  {
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0()
   // loginWithRedirect({ appState: {targetUrl: window.location.pathname } })
 
   return (
 
     <>
 
-  <Button variant='contained' size='large' onClick={() => loginWithRedirect()}>Log In</Button>
+  <Button variant='contained' size='large' onClick={() => loginWithRedirect({ appState: {targetUrl: window.location.pathname } })}>Register</Button>
   </>
 
   )}
   
 
-export default Login
+export default Register

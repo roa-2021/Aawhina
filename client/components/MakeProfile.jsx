@@ -18,7 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 
 
-function Register (props) {
+function MakeProfile (props) {
 
   const [values, setValues] = useState({
     first: '',
@@ -107,5 +107,5 @@ function Register (props) {
   )
 }
 
-export default Register
+export default MakeProfile
 // export default connect(mapReduxToProps)(Register)
