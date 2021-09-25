@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
+import * as React from 'react'
 // import connect from 'react-redux'
 
 import Button from '@mui/material/Button'
@@ -11,6 +11,11 @@ import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from "@mui/lab/DatePicker";
+import TimePicker from '@mui/lab/TimePicker';
+
 
 
 function MakeRequest (props) {
@@ -20,8 +25,11 @@ function MakeRequest (props) {
     timeframe: '',
     details: '',
   })
+
   const [category, setCategory] = useState('')
   const [suburb, setSuburb] = useState('')
+  const [date, setDate] = React.useState(null); // date-picker
+  const [time, setTime] = React.useState(new Date('2018-01-01T00:00:00.000Z'));
 
   const handleCategory = (e) => {
     e.preventDefault()
@@ -47,41 +55,64 @@ function MakeRequest (props) {
         <Box sx={{mt:3}} component='form'>
           <Grid container spacing={2} >
 
-          <Grid item sm={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Title' />
-          </Grid>
+            <Grid item sm={12}>
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Title' />
+            </Grid>
 
+            <Grid item sm={12}>
+            <InputLabel>Category</InputLabel>
+            <Select
+              value={category}
+              label='Category'
+              onChange={handleCategory}
+              sx={{ width: '46ch' }}>
+              
+            <MenuItem >To map over category</MenuItem>
+            </Select>
+            </Grid>
+            
+            <LocalizationProvider  dateAdapter={AdapterDateFns}>
+            <Grid item sm={6}>
+              <DatePicker
+                label="Date to be completed by"
+                value={date}
+                sx={{ width: '46ch' }}
+                onChange={(newDate) => {
+                  setDate(newDate);
+                }}
+                renderInput={(params) => (
+                  <TextField {...params} helperText={params?.inputProps?.placeholder} />
+                )}
+              />
+          </Grid>
           <Grid item sm={6}>
-          <InputLabel>Category</InputLabel>
-          <Select
-            value={category}
-            label='Category'
-            onChange={handleCategory}
-            sx={{ width: '46ch' }}>
-          <MenuItem >To map over category</MenuItem>
-          </Select>
-          </Grid>
+          <TimePicker
+            value={time}
+            onChange={setTime}
+            renderInput={(params) => <TextField {...params} />}
+          />
+              </Grid>
+          </LocalizationProvider>
+
+
+
+            <Grid item sm={6}>
+            <InputLabel>Suburb</InputLabel>
+            <Select
+              value={suburb}
+              label='Suburb'
+              onChange={handleSuburb}
+              sx={{ width: '46ch' }}>
+            <MenuItem >To map over suburb</MenuItem>
+            </Select>
+            </Grid>
+
+
+            
+        
           <Grid item sm={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Timeframe' />
+            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details'/>
           </Grid>
-
-          <Grid item sm={6}>
-          <InputLabel>Suburb</InputLabel>
-          <Select
-            value={suburb}
-            label='Suburb'
-            onChange={handleSuburb}
-            sx={{ width: '46ch' }}>
-          <MenuItem >To map over suburb</MenuItem>
-          </Select>
-          </Grid>
-
-
-          
-      
-        <Grid item sm={12}>
-          <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details'/>
-        </Grid>
         <Grid>
 
         </Grid>
