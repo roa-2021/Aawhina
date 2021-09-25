@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import connect from 'react-redux'
+import { connect } from 'react-redux'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
