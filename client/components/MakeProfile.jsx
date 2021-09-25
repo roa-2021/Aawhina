@@ -26,8 +26,6 @@ function MakeProfile (props) {
   const { user } = useAuth0()
 
   console.log(user.email)
-
-function MakeProfile ( {users, dispatch} ) {
   // this is where the postUserThunk(user) gets called and sends the user info to the database
   
   const [values, setValues] = useState({
