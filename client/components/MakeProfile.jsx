@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+
 import { connect } from 'react-redux'
+import postUserThunk from '../actions/users'
+
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -15,7 +18,14 @@ import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 import Nav from './Nav'
+import { useAuth0 } from '@auth0/auth0-react'
 
+
+function MakeProfile (props) {
+  const { dispatch } = props
+  const { user } = useAuth0()
+
+  console.log(user.email)
 
 function MakeProfile ( {users, dispatch} ) {
   // this is where the postUserThunk(user) gets called and sends the user info to the database
@@ -23,8 +33,14 @@ function MakeProfile ( {users, dispatch} ) {
   const [values, setValues] = useState({
     first: '',
     last: '',
+    // gender: '',
     email: '',
+    bio: '',
+    image: ''
   })
+
+  // const suburb = props.suburb
+
   const [suburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
@@ -39,9 +55,33 @@ function MakeProfile ( {users, dispatch} ) {
 
   }
 
-  const handleSubmit = () => {
-      console.log('hello')
+  const handleChange =(e) => {
+    e.preventDefault()
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+
   }
+
+
+  const handleSubmit = (e) => {
+     e.preventDefault()
+     const newUser = {
+       first: values.first,
+       last: values.last,
+      //  gender: values.gender,
+       suburb: suburb,
+       email: values.email,
+       bio: values.bio,
+      //  image: values.image,
+     }
+     console.log(newUser)
+     dispatch(postUserThunk(newUser))
+    //  props.history.push('/')
+  }
+
+  const { first, last, email, bio} = values
 
   return (
     <>
@@ -52,17 +92,17 @@ function MakeProfile ( {users, dispatch} ) {
         <Box sx={{mt:3}} component='form'>
           <Grid container spacing={2} >
 
-          <Grid item sm={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'First Name'/>
+          <Grid item xs={6}>
+            <TextField required fullWidth id = 'outlined-required' label = 'First Name' name='first' value={first} onChange={handleChange}/>
           </Grid>
-          <Grid item sm={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'Last Name'/>
+          <Grid item xs={6}>
+            <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
           </Grid>
-          <Grid item sm={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' />
+          <Grid item xs={12}>
+            <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
           </Grid>
 
-          <Grid item sm={6}>
+          <Grid item xs={6}>
           <InputLabel>Suburb</InputLabel>
           <Select
             value={suburb}
@@ -73,29 +113,30 @@ function MakeProfile ( {users, dispatch} ) {
           </Select>
           </Grid>
           
-          <Grid item sm={6}>
+          <Grid item xs={6}>
           <InputLabel>Gender</InputLabel>
             <Select
               value={gender}
               label='Gender'
               onChange={handleGender}
               sx={{ width: '21ch' }}>
-              <MenuItem value={gender}>Female</MenuItem>
-              <MenuItem value={gender}>Male</MenuItem>
-              <MenuItem >Gender Diverse</MenuItem>
-              <MenuItem >Prefer not to say</MenuItem>
+              <MenuItem value='female'>Female</MenuItem>
+              <MenuItem value='male'>Male</MenuItem>
+              <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
+              <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
             </Select>
+        
           </Grid>
       
-        <Grid item sm={12}>
-          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you'/>
+        <Grid item xs={12}>
+          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
         </Grid>
         <Grid>
 
         </Grid>
 
 
-          <Button onClick={handleSubmit}>Register</Button>
+          <Button onClick={handleSubmit}>Create profile</Button>
           <Button>Cancel</Button>
           
         </Grid>
