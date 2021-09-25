@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import connect from 'react-redux'
+import postUserThunk from '../actions/users'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -45,21 +46,33 @@ function MakeProfile ( {user} ) {
 
   }
 
+  const handleChange =(e) => {
+    e.preventDefault()
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+
+  }
+
 
   const handleSubmit = (e) => {
      e.preventDefault()
      const newUser = {
        first: values.first,
        last: values.last,
-      //  gender: values.gender,
+       gender: values.gender,
        suburb: suburb,
        email: values.email,
        bio: values.bio,
        image: values.image,
      }
+     console.log(newUser)
+     dispatch(postUserThunk(newUser))
+     props.history.push('/')
   }
 
-  const { first, last, email, bio, image } = values
+  const { first, last, email, bio} = values
 
   return (
     <>
@@ -71,13 +84,13 @@ function MakeProfile ( {user} ) {
           <Grid container spacing={2} >
 
           <Grid item xs={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'First Name'/>
+            <TextField required fullWidth id = 'outlined-required' label = 'First Name' name='first' value={first} onChange={handleChange}/>
           </Grid>
           <Grid item xs={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'Last Name'/>
+            <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
           </Grid>
           <Grid item xs={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' />
+            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' name='email' value={email} onChange={handleChange}/>
           </Grid>
 
           <Grid item xs={6}>
@@ -94,22 +107,20 @@ function MakeProfile ( {user} ) {
           <Grid item xs={6}>
           <InputLabel>Gender</InputLabel>
             <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
               value={gender}
               label='Gender'
               onChange={handleGender}
               sx={{ width: '21ch' }}>
-              <MenuItem value={female}>Female</MenuItem>
-              <MenuItem value={male}>Male</MenuItem>
-              {/* <MenuItem value={gender}>Gender Diverse</MenuItem> */}
-              {/* <MenuItem value={gender}>Prefer not to say</MenuItem> */}
+              <MenuItem value='female'>Female</MenuItem>
+              <MenuItem value='male'>Male</MenuItem>
+              <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
+              <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
             </Select>
         
           </Grid>
       
         <Grid item xs={12}>
-          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you'/>
+          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
         </Grid>
         <Grid>
 
