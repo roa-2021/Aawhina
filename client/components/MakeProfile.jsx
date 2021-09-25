@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
+import { useHistory } from 'react-router-dom'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -83,7 +84,7 @@ function MakeProfile (props) {
     })  
 
   }  
-
+  let history = useHistory()
 
   const handleSubmit = (e) => {
      e.preventDefault()
@@ -97,13 +98,13 @@ function MakeProfile (props) {
 
      }  
       dispatch(postUserThunk(newUser)) 
+      history.push('/') 
 
     console.log(newUser)
     
+    
+    
     //  uploadImage()
-
-
-     props.history.push('/') 
   }  
 
   const { first, last, bio} = values
