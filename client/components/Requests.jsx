@@ -1,10 +1,10 @@
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import React, { useState, useEffect } from 'react'
-
+import { connect } from 'react-redux'
 import requests from '../../request.json'
 import RequestCard from './RequestCard'
 
-export default function Requests ({ user }) {
+function Requests ({ user }) {
   
   user = {id: 1, name: "Matt"}
   

@@ -6,14 +6,14 @@ function Offers ({offers, dispatch}) {
   return ( 
     <>
   <h3>Your offers:</h3>
-  <ul>
+  {/* <ul>
       {offers.map(offer=> 
           <li>
             <strong>{offer}</strong>
             <button>recind offer</button>
           </li>
       )}
-      </ul>
+      </ul> */}
       
       {/* <ul>
   <li>Offer</li> <button>recind offer</button>
