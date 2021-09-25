@@ -13,12 +13,23 @@ const store = createStore(reducers, composeEnhancers(
   applyMiddleware(thunkMiddleware)
 ))
 
+// const onRedirectCallback = appState => {
+//   history.push(
+//     appState && appState.targetUrl
+//       ? appState.targetUrl
+//       : window.location.pathname
+
+//   )
+// }
+// loginWithRedirect({ appState: {targetUrl: window.location.pathname } })
+
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Auth0Provider
     domain="dev-mtmo2d9w.us.auth0.com"
     clientId="E9gg2nB473dDTUiYKPaa4wsxaJxXcWnN"
     redirectUri={window.location.origin}
+    // onRedirectCallback={onRedirectCallback}
   >
     <Provider store={store} >
       <App />

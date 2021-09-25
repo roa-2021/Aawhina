@@ -3,6 +3,7 @@ import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Offers from './Offers';
 import Requests from './Requests';
+import Nav from './Nav'
 
 export default function Dashboard() {
 
@@ -24,6 +25,7 @@ const handleChange = (event, newAlignment) => {
 return (
   <>
   <>
+  <Nav/>
   <ToggleButtonGroup 
     size="large" 
     color="primary"
