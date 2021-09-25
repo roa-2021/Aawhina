@@ -7,6 +7,7 @@ import MakeProfile from './MakeProfile'
 import Dashboard from './Dashboard'
 import Login from './Login'
 import Logout from './Logout'
+import MakeRequest from './MakeRequest'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path='/' component={Welcome} />
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/requests/new' component={MakeRequest} />
       </Router>
     </>
   )
