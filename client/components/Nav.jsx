@@ -16,6 +16,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { connect } from 'react-redux';
 
+import Logout from './Logout'
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -197,6 +199,7 @@ function Nav() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
+              <Logout/>
               <AccountCircle />
             </IconButton>
           </Box>
