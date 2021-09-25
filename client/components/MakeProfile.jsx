@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { connect } from 'react-redux'
 import postUserThunk from '../actions/users'
+import Nav from './Nav'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -17,7 +18,8 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
-import Nav from './Nav'
+import { styled } from '@mui/material/styles'
+
 import { useAuth0 } from '@auth0/auth0-react'
 
 
@@ -25,8 +27,7 @@ function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
 
-  console.log(user.email)
-  // this is where the postUserThunk(user) gets called and sends the user info to the database
+  // const suburb = props.suburb
   
   const [values, setValues] = useState({
     first: '',
@@ -34,33 +35,54 @@ function MakeProfile (props) {
     // gender: '',
     email: '',
     bio: '',
-    image: ''
-  })
-
-  // const suburb = props.suburb
+  })  
+  const [image, setImage ] = useState("")
+  const [ url, setUrl ] = useState("")
 
   const [suburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "refb93xz")
+    data.append("cloud_name","dvctkzwbh")
+
+    fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
+      method:"post",
+      body: data})
+      .then(resp => resp.json())
+      .then(data => {
+        setUrl(data.url)
+      })
+      .catch(err => console.log(err))
+    
+    }
+
+    const Input = styled('input')({
+      display: 'none',
+    })
+
+
   const handleSuburb = (e) => {
     e.preventDefault()
     setSuburb(e.target.value)
-  }
+  }  
 
   const handleGender =(e) => {
     e.preventDefault()
     setGender(e.target.value)
 
-  }
+  }  
 
   const handleChange =(e) => {
     e.preventDefault()
     setValues({
       ...values,
       [e.target.name]: e.target.value
-    })
+    })  
 
-  }
+  }  
 
 
   const handleSubmit = (e) => {
@@ -68,18 +90,28 @@ function MakeProfile (props) {
      const newUser = {
        first: values.first,
        last: values.last,
-      //  gender: values.gender,
+      //  gender: values.gender, 
        suburb: suburb,
-       email: values.email,
+       email: user.email,
        bio: values.bio,
-      //  image: values.image,
-     }
+     }  
+    //  dispatch(postUserThunk(newUser)) 
+     uploadImage()
      console.log(newUser)
-     dispatch(postUserThunk(newUser))
-    //  props.history.push('/')
-  }
+     console.log(url)
 
-  const { first, last, email, bio} = values
+
+    //  props.history.push('/') 
+  }  
+
+
+  //Image upload code
+
+
+
+
+
+  const { first, last, bio} = values
 
   return (
     <>
@@ -131,6 +163,10 @@ function MakeProfile (props) {
         </Grid>
         <Grid>
 
+        <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+          <button onClick={uploadImage}>Upload</button> 
+          {/* <img src={url}/> */}
+
         </Grid>
 
 
@@ -154,3 +190,5 @@ function mapState2Props (globalState) {
 }
 
 export default connect(mapState2Props)(MakeProfile)
+
+// upload preset name refb93xz
