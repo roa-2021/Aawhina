@@ -103,8 +103,6 @@ router.delete('/:id', (req, res) => {
 //     }
 //     res.status(500).send(err.message)
 //   }
-})
-
 
 // router.put('/:id', getTokenDecoder(), async (req, res) => {
 //   const updatedRequest = req.body
