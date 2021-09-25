@@ -12,7 +12,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { connect } from 'react-redux';
@@ -59,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function PrimarySearchAppBar() {
+function Nav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -169,7 +168,7 @@ function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Āwhina
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -224,5 +223,5 @@ function PrimarySearchAppBar() {
   );
 }
 
-export default connect()(PrimarySearchAppBar)
+export default connect()(Nav)
 
