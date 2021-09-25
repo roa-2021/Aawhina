@@ -18,9 +18,16 @@ import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 import Nav from './Nav'
+import { useAuth0 } from '@auth0/auth0-react'
 
 
-function MakeProfile ( {user} ) {
+function MakeProfile (props) {
+  const { dispatch } = props
+  const { user } = useAuth0()
+
+  console.log(user.email)
+
+
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -61,15 +68,15 @@ function MakeProfile ( {user} ) {
      const newUser = {
        first: values.first,
        last: values.last,
-       gender: values.gender,
+      //  gender: values.gender,
        suburb: suburb,
        email: values.email,
        bio: values.bio,
-       image: values.image,
+      //  image: values.image,
      }
      console.log(newUser)
      dispatch(postUserThunk(newUser))
-     props.history.push('/')
+    //  props.history.push('/')
   }
 
   const { first, last, email, bio} = values
@@ -90,7 +97,7 @@ function MakeProfile ( {user} ) {
             <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
           </Grid>
           <Grid item xs={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' name='email' value={email} onChange={handleChange}/>
+            <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
           </Grid>
 
           <Grid item xs={6}>
