@@ -1,4 +1,4 @@
-import { getRequests, postRequest, updateRequest } from '../apis/requests_api'
+// import { getRequests, postRequest, updateRequest } from '../apis/requests_api'
 
 export const RECEIVE_REQUESTS = 'RECEIVE_REQUESTS'
 export const ADD_REQUEST = 'ADD_REQUEST'
