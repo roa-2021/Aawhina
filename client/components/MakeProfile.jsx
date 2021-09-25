@@ -24,8 +24,14 @@ function MakeProfile (props) {
   const [values, setValues] = useState({
     first: '',
     last: '',
+    // gender: '',
     email: '',
+    bio: '',
+    image: ''
   })
+
+  // const suburb = props.suburb
+
   const [suburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
@@ -41,10 +47,20 @@ function MakeProfile (props) {
   }
 
 
-  const handleSubmit = () => {
-      console.log('hello')
+  const handleSubmit = (e) => {
+     e.preventDefault()
+     const newUser = {
+       first: values.first,
+       last: values.last,
+      //  gender: values.gender,
+       suburb: suburb,
+       email: values.email,
+       bio: values.bio,
+       image: values.image,
+     }
   }
 
+  const { first, last, email, bio, image } = values
 
   return (
     <>
@@ -55,17 +71,17 @@ function MakeProfile (props) {
         <Box sx={{mt:3}} component='form'>
           <Grid container spacing={2} >
 
-          <Grid item sm={6}>
+          <Grid item xs={6}>
             <TextField required fullWidth id = 'outlined-required' label = 'First Name'/>
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={6}>
             <TextField required fullWidth id = 'outlined-required' label = 'Last Name'/>
           </Grid>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Email' />
           </Grid>
 
-          <Grid item sm={6}>
+          <Grid item xs={6}>
           <InputLabel>Suburb</InputLabel>
           <Select
             value={suburb}
@@ -76,21 +92,24 @@ function MakeProfile (props) {
           </Select>
           </Grid>
           
-          <Grid item sm={6}>
+          <Grid item xs={6}>
           <InputLabel>Gender</InputLabel>
             <Select
+                        labelId="demo-simple-select-helper-label"
+                        id="demo-simple-select-helper"
               value={gender}
               label='Gender'
               onChange={handleGender}
               sx={{ width: '21ch' }}>
-              <MenuItem value={gender}>Female</MenuItem>
-              <MenuItem value={gender}>Male</MenuItem>
-              <MenuItem >Gender Diverse</MenuItem>
-              <MenuItem >Prefer not to say</MenuItem>
+              <MenuItem value={female}>Female</MenuItem>
+              <MenuItem value={male}>Male</MenuItem>
+              {/* <MenuItem value={gender}>Gender Diverse</MenuItem> */}
+              {/* <MenuItem value={gender}>Prefer not to say</MenuItem> */}
             </Select>
+        
           </Grid>
       
-        <Grid item sm={12}>
+        <Grid item xs={12}>
           <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you'/>
         </Grid>
         <Grid>
@@ -98,7 +117,7 @@ function MakeProfile (props) {
         </Grid>
 
 
-          <Button onClick={handleSubmit}>Register</Button>
+          <Button onClick={handleSubmit}>Create profile</Button>
           <Button>Cancel</Button>
           
         </Grid>
