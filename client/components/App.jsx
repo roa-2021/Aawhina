@@ -28,23 +28,23 @@ const App = (props) => {
     <>
       <CssBaseline/>
       {/* <Nav /> */}
-      <Box
+      {/* <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        minHeight: '10vh',
         alignContent: 'flex-start'
       }}
-      >
+      > */}
       <Router>
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
-        {/* <Route exact path='/' component={Welcome} /> */}
+        <Route exact path='/' component={Welcome} />
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />
       </Router>
-      </Box>
+      {/* </Box> */}
     </>
   )
 }
