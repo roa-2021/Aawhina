@@ -2,23 +2,29 @@ import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stac
 import React, { useState, useEffect } from 'react'
 
 import requests from '../../request.json'
+import RequestCard from './RequestCard'
 
-export default function Requests (props) {
+export default function Requests ({ user }) {
+  
+  user = {id: 1, name: "Matt"}
+  
+  const requestsToShow = user ? requests.filter(request => user.id === request.user_id) : requests
+
   return (
     <>
       <Container 
         component="main"
         maxWidth="md" 
       >
-        <Box
+        { !user && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
           mt={4}
-          mb={2}
         >
+
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
-        </Box>
-        <Box>
+        </Box>}
+        <Box mt={2}>
           <Grid
             container
             direction="column"
@@ -26,32 +32,9 @@ export default function Requests (props) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requests.map(request => {
-              return (
-                <Grid item key={request.id}>
-                  <Card variant="outlined">
-                    <CardContent>
-                      <Typography variant="h6">
-                        {`${request.title}`}
-                      </Typography>
-                      <Typography my={0.5}>
-                        {`User ${request.user_id} would like help with ${request.details}`}
-                      </Typography>
-                      <Stack direction="row" spacing={1}>
-                        <Chip
-                        label={request.category} 
-                        variant="outlined" 
-                        />
-                        <Chip 
-                          label={request.suburb_name} 
-                          variant="outlined" 
-                        />
-                      </Stack>
-                    </CardContent>
-                  </Card>
-                </Grid>)
-            })}
+            { requestsToShow.map(request => <RequestCard request={request} />)}
             <Grid 
+              item
               mt={2}
               sx={{
                 display: 'flex',
@@ -61,6 +44,7 @@ export default function Requests (props) {
               <Button 
                 variant="contained"
                 size="large"
+                href="/requests/new"
               >
                 Make a request
               </Button>
