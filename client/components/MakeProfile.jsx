@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { connect } from 'react-redux'
-import postUserThunk from '../actions/users'
+import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
 
 import Button from '@mui/material/Button'
@@ -32,36 +32,36 @@ function MakeProfile (props) {
   const [values, setValues] = useState({
     first: '',
     last: '',
-    // gender: '',
     email: '',
     bio: '',
   })  
-  const [image, setImage ] = useState("")
-  const [ url, setUrl ] = useState("")
-
   const [suburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
-  const uploadImage = () => {
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "refb93xz")
-    data.append("cloud_name","dvctkzwbh")
+  // const [image, setImage ] = useState("")
+  // const [ url, setUrl ] = useState("")
 
-    fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
-      method:"post",
-      body: data})
-      .then(resp => resp.json())
-      .then(data => {
-        setUrl(data.url)
-      })
-      .catch(err => console.log(err))
+
+  // const uploadImage = () => {
+  //   const data = new FormData()
+  //   data.append("file", image)
+  //   data.append("upload_preset", "refb93xz")
+  //   data.append("cloud_name","dvctkzwbh")
+
+  //   fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
+  //     method:"post",
+  //     body: data})
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       setUrl(data.url)
+  //     })
+  //     .catch(err => console.log(err))
     
-    }
+  //   }
 
-    const Input = styled('input')({
-      display: 'none',
-    })
+  //   const Input = styled('input')({
+  //     display: 'none',
+  //   })
 
 
   const handleSuburb = (e) => {
@@ -88,28 +88,23 @@ function MakeProfile (props) {
   const handleSubmit = (e) => {
      e.preventDefault()
      const newUser = {
-       first: values.first,
-       last: values.last,
-      //  gender: values.gender, 
-       suburb: suburb,
+       first_name: values.first,
+       last_name: values.last,
        email: user.email,
+      //  suburb_id: suburb,
        bio: values.bio,
+       gender: gender, 
+
      }  
-    //  dispatch(postUserThunk(newUser)) 
-     uploadImage()
-     console.log(newUser)
-     console.log(url)
+      dispatch(postUserThunk(newUser)) 
+
+    console.log(newUser)
+    
+    //  uploadImage()
 
 
-    //  props.history.push('/') 
+     props.history.push('/') 
   }  
-
-
-  //Image upload code
-
-
-
-
 
   const { first, last, bio} = values
 
@@ -163,15 +158,14 @@ function MakeProfile (props) {
         </Grid>
         <Grid>
 
-        <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+        {/* <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
           <button onClick={uploadImage}>Upload</button> 
-          {/* <img src={url}/> */}
+          <img src={url}/> */}
 
         </Grid>
 
 
           <Button onClick={handleSubmit}>Create profile</Button>
-          <Button>Cancel</Button>
           
         </Grid>
         </Box>

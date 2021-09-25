@@ -5,7 +5,6 @@ const offersUrl = '/api/v1/offers'
 export const getOffers = () => {
   return request.get(offersUrl)
     .then(response => {
-      console.log(response)
       return response.body
     })
 }

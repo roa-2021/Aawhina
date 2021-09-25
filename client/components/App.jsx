@@ -39,7 +39,7 @@ const App = (props) => {
       <Router>
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
-        <Route exact path='/' component={Welcome} />
+        {/* <Route exact path='/' component={Welcome} /> */}
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />

@@ -5,7 +5,6 @@ const userUrl = '/api/v1'
 export const getUsers = () => {
   return request.get(userUrl)
     .then(response => {
-      console.log(response)
       return response.body
     })
 }
