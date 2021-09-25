@@ -16,6 +16,7 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
+import Nav from './Nav'
 
 
 function MakeProfile (props) {
@@ -47,6 +48,7 @@ function MakeProfile (props) {
 
   return (
     <>
+    <Nav/>
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
