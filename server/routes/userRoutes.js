@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
 // const { getTokenDecoder } = require('authenticare/server')
-
-
-checkProfileExists,
-
-createUserProfile
-
 const db = require('../db/users_db')
+
+// createUserProfile
+
+
 // GET /api/v1
 router.get('/', (req, res) => {
   return db.getAllUsers()

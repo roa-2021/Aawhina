@@ -30,7 +30,7 @@ function Welcome (props) {
   }
 
   if (isAuthenticated) {
-    checkProfile()
+    checkProfile(user)
     return (
       <>
      {profileExists ? < Dashboard user={user}/> : <MakeProfile user={user}/> }
@@ -53,17 +53,5 @@ function Welcome (props) {
 
 }
 
-export default connect()(Welcome)
+export default Welcome
 
-    // <>
-    //   <Stack sx={{ pt: 10 }}direction="row" justifyContent="center">
-    //     <Typography  component='h1' variant='h3'>Welcome</Typography>
-    //   </Stack>
-    //   <Stack sx={{ pt: 20 }}direction="row" spacing={25}justifyContent="center">
-    //     <Login/>
-    //     <Register/>
-    //   </Stack>
-    //   isAuthenticated && (
-
-    //     <Dashboard/>
-    //   )

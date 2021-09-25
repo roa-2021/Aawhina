@@ -106,5 +106,5 @@ function MakeProfile ( {user} ) {
   )
 }
 
-// export default MakeProfile
-export default connect(MakeProfile)
+export default MakeProfile
+// export default connect(MakeProfile)
