@@ -20,6 +20,8 @@ import Nav from './Nav'
 
 
 function MakeProfile ( {user} ) {
+  // this is where the postUserThunk(user) gets called and sends the user info to the database
+  
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -106,5 +108,5 @@ function MakeProfile ( {user} ) {
   )
 }
 
-export default MakeProfile
-// export default connect(MakeProfile)
+// export default MakeProfile
+export default connect(MakeProfile)

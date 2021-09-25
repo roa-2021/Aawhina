@@ -1,10 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/users_db')
-
-// createUserProfile
-
 
 // GET /api/v1
 router.get('/', (req, res) => {
@@ -30,8 +26,18 @@ router.get('/:email', (req, res) => {
       return res.status(500).send('No user profile created')
     })
 })
+// POST /api/v1
+router.post('/', (req, res) => {
+  const user = req.body
+  db.createUserProfile(user)
+    .then(user => {
+      return res.json(user)
+    })
+    .catch(error => {
+      res.status(500).json(`error did not work: ${error.message}`)
+    })
+})
 
-// to update with auth
 // DEL /api/v1/:id
 router.delete('/:id', (req, res) => {
   const id = req.params.id
@@ -43,7 +49,7 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(`error did not work: ${error.message}`)
     })
 })
-// to update with auth
+
 // PUT /api/v1/:id
 router.put('/:id', (req, res) => {
   const id = req.params.id

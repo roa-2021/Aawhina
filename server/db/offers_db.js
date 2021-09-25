@@ -14,33 +14,27 @@ const getOfferById = (id) => {
     .select('*', 'offers.id AS offer_id')
     .first()
 }
-// authorizeupdate required
+
 const deleteOffer = (id) => {
   return db('offers')
     .where('id', id)
     .del()
 }
-// authorizeupdate required
+
 const createOffer = (offer) => {
-  // fruit.added_by_user = user.id
   return db('offers')
     .insert(offer, 'id')
     .then(offerId => {
       return getOfferById(offerId[0])
     })
 }
-// authorizeupdate required
+
 const editOffer = (id, newOffer) => {
   return db('offers')
     .where('id', id)
     .update(newOffer)
 }
 
-// function authorizeUpdate (fruit, user) {
-//   if (fruit.added_by_user !== user.id) {
-//     throw new Error('Unauthorized')
-//   }
-// }
 
 module.exports = {
   getAllOffersAndUsers,

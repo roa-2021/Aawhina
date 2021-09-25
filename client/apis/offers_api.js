@@ -10,15 +10,28 @@ export const getOffers = () => {
     })
 }
 
-// function logError (err) {
-//   if (err.message === 'Forbidden') {
-//     throw new Error('Only the user who added the fruit may update and delete it')
-//   } else {
-//     // eslint-disable-next-line no-console
-//     console.error(
-//       'Error consuming the API (in client/api.js):',
-//       err.message
-//     )
-//     throw err
-//   }
-// }
+export const getOffer = (id) => {
+  return request
+    .get(`${offersUrl}/${id}`)
+    .then(res => res.body)
+}
+
+export const postOffer = (newOffer) => {
+  return request
+    .post(offersUrl)
+    .send (newOffer)
+    .then (res => res.body)
+}
+
+export const deleteOffer = (id) => {
+  return request 
+    .delete(`${offersUrl}/${id}`)
+    .then(res => res.body)
+}
+
+export const updateOffer = (id, newDetails) => {
+  return request
+    .put(`${offersUrl}/${id}`)
+    .send(newDetails)
+    .then(res => res.body)
+}
