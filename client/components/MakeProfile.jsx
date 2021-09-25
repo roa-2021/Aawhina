@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
 import connect from 'react-redux'
-
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -19,7 +17,9 @@ import Visibility from '@mui/icons-material/Visibility'
 import Nav from './Nav'
 
 
-function MakeProfile ( {user} ) {
+function MakeProfile ( {users, dispatch} ) {
+  // this is where the postUserThunk(user) gets called and sends the user info to the database
+  
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -106,5 +106,12 @@ function MakeProfile ( {user} ) {
   )
 }
 
-export default MakeProfile
-// export default connect(MakeProfile)
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users
+  }
+}
+
+export default connect(mapState2Props)(MakeProfile)
