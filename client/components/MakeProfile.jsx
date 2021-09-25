@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-// import connect from 'react-redux'
+import connect from 'react-redux'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -16,10 +16,10 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
+import Nav from './Nav'
 
 
-function MakeProfile (props) {
-
+function MakeProfile ( {user} ) {
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -39,14 +39,13 @@ function MakeProfile (props) {
 
   }
 
-
   const handleSubmit = () => {
       console.log('hello')
   }
 
-
   return (
     <>
+    <Nav/>
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
@@ -108,4 +107,4 @@ function MakeProfile (props) {
 }
 
 export default MakeProfile
-// export default connect(mapReduxToProps)(Register)
+// export default connect(MakeProfile)

@@ -11,6 +11,21 @@ export const getUsers = () => {
     })
 }
 
+export const postUser = (newUser) => {
+  return request
+    .post(userUrl)
+    .send (newUser)
+    .then (res => res.body)
+}
+
+export const getUser = (email) => {
+  return request
+    .get(`${userUrl}/${email}`)
+    .then (res => res.body)
+}
+
+
+
 // function logError (err) {
 //   if (err.message === 'Forbidden') {
 //     throw new Error('Only the user who added the fruit may update and delete it')
