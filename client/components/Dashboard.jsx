@@ -6,7 +6,7 @@ import Offers from './Offers';
 import Requests from './Requests';
 import Nav from './Nav'
 
-export default function Dashboard({dispatch, offers}) {
+function Dashboard({dispatch}) {
 
   const [offers, setOffers] = React.useState(true)
   const [alignment, setAlignment] = React.useState('offers');
