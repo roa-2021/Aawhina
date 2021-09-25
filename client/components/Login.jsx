@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import Logout from './Logout'
+import LoginIcon from '@mui/icons-material/Login'
 
 
 
@@ -16,10 +17,10 @@ function Login ()  {
 
     <>
 
-  <Button variant='contained' size='large' onClick={() => loginWithRedirect()}>Log In</Button>
+  <Button variant='contained' size='large' endIcon={<LoginIcon/>} onClick={() => loginWithRedirect()}>Log In</Button>
   </>
 
   )}
   
 
-export default Login
+  export default connect()(Login) 

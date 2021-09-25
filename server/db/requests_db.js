@@ -13,45 +13,33 @@ async function getRequestById (id) {
     .where('requests.id', id)
     .first()
 }
-// authorizeupdate required
+
 async function deleteRequest (id, user) {
-  return db('requests')
-    .where('id', id)
-    .first()
-    .then(request => authorizeUpdate(request, user))
-    .then(() => {
-      return db('requests')
-        .where('id', id)
-        .delete()
-    })
-}
-// authorizeupdate required
+    return db('requests')
+      .where('id', id)
+      .del()
+  }
+
 async function createRequest (request, user) {
-  request.added_by_user = user.id
+  // request.added_by_user = user.id
   return db('requests')
     .insert(request, 'id')
     .then(requestId => {
       return getRequestById(requestId[0])
     })
 }
-// authorizeupdate required
+
 async function editRequest (newRequest, user) {
   return db('requests')
-    .where('id', newRequest.id)
-    .first()
-    .then(request => authorizeUpdate(request, user))
-    .then(() => {
-      return db('requests')
-        .where('id', newRequest.id)
-        .update(newRequest)
-    })
+  .where('id', id)
+  .update(newRequest)
 }
 
-function authorizeUpdate (request, user) {
-  if (request.added_by_user !== user.id) {
-    throw new Error('Unauthorized')
-  }
-}
+// function authorizeUpdate (request, user) {
+//   if (request.added_by_user !== user.id) {
+//     throw new Error('Unauthorized')
+//   }
+// }
 
 module.exports = {
   deleteRequest,

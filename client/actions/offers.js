@@ -1,4 +1,4 @@
-import { getOffers, postOffer, updateOffer } from '../apis/offers_api'
+import { getOffers, getOffer, postOffer, deleteOffer, updateOffer } from '../apis/offers_api'
 
 export const RECEIVE_OFFERS = 'RECEIVE_OFFERS'
 export const ADD_OFFER = 'ADD_OFFER'

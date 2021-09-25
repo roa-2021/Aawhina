@@ -223,5 +223,5 @@ function Nav() {
   );
 }
 
-// export default connect()(PrimarySearchAppBar)
-export default Nav
+export default connect()(Nav)
+

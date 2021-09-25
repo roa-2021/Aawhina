@@ -21,7 +21,7 @@ const store = createStore(reducers, composeEnhancers(
 
 //   )
 // }
-// loginWithRedirect({ appState: {targetUrl: window.location.pathname } })
+// loginWithRedirect({ screen_hint: "signup", })
 
 document.addEventListener('DOMContentLoaded', () => {
   render(

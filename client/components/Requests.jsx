@@ -54,3 +54,13 @@ export default function Requests ({ user }) {
       </Container>
     </>)
 }
+
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users
+  }
+}
+
+export default connect(mapState2Props)(Requests)

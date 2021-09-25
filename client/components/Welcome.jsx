@@ -13,16 +13,27 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
 import { useAuth0 } from '@auth0/auth0-react'
+import { getUser } from '../apis/users_api'
 
-function Welcome () {
+function Welcome (props) {
   const { user, isAuthenticated, isLoading } = useAuth0();
   
+  const [profileExists, setprofileExists] = React.useState(false)
+
+  const checkProfile = (user) => {
+    getUser(user.email)
+    .then ((user) => {
+      if (user) {
+        setprofileExists(true)
+      }
+    })
+  }
+
   if (isAuthenticated) {
+    checkProfile(user)
     return (
       <>
-    <MakeProfile/>
-    {/* <h2>{user.email}</h2> */}
-    {/* {console.log(user.email)} */}
+     {profileExists ? < Dashboard user={user}/> : <MakeProfile user={user}/> }
     </>
     )
   }
@@ -42,5 +53,5 @@ function Welcome () {
 
 }
 
-// export default connect()(Welcome)
 export default Welcome
+
