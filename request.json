@@ -1,0 +1,22 @@
+[
+  { 
+    "id": 1,
+    "user_id": 2, 
+    "title": "Sample Post1", 
+    "category": "groceries", 
+    "details": "sample details 1", 
+    "time_frame": "today", 
+    "suburb_name": "Newtown",
+    "created_at": 123 
+  },
+  { 
+    "id": 2,
+    "user_id": 1,
+    "title": "Sample Post2",
+    "category": "groceries",
+    "details": "sample details 2",
+    "time_frame": "this week",
+    "suburb_name": "Newtown",
+    "created_at": 123 
+  }
+]
