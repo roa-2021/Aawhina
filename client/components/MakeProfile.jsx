@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-// import connect from 'react-redux'
+import connect from 'react-redux'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -18,8 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
 
 
-function MakeProfile (props) {
-
+function MakeProfile ( {user} ) {
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -39,11 +38,9 @@ function MakeProfile (props) {
 
   }
 
-
   const handleSubmit = () => {
       console.log('hello')
   }
-
 
   return (
     <>
@@ -107,5 +104,5 @@ function MakeProfile (props) {
   )
 }
 
-export default MakeProfile
-// export default connect(mapReduxToProps)(Register)
+// export default MakeProfile
+export default connect(MakeProfile)
