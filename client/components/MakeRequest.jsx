@@ -74,7 +74,7 @@ function MakeRequest (props) {
             <LocalizationProvider  dateAdapter={AdapterDateFns}>
             <Grid item sm={6}>
               <DatePicker
-                label="Date to be completed by"
+                label="To be completed by"
                 value={date}
                 sx={{ width: '46ch' }}
                 onChange={(newDate) => {
@@ -96,7 +96,7 @@ function MakeRequest (props) {
 
 
 
-            <Grid item sm={6}>
+            {/* <Grid item sm={6}>
             <InputLabel>Suburb</InputLabel>
             <Select
               value={suburb}
@@ -105,7 +105,7 @@ function MakeRequest (props) {
               sx={{ width: '46ch' }}>
             <MenuItem >To map over suburb</MenuItem>
             </Select>
-            </Grid>
+            </Grid> */}
 
 
             
