@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Offers from './Offers';
 import Requests from './Requests';
 import Nav from './Nav'
 
-export default function Dashboard() {
+export default function Dashboard({dispatch, offers}) {
 
   const [offers, setOffers] = React.useState(true)
   const [alignment, setAlignment] = React.useState('offers');
@@ -47,3 +48,14 @@ return (
 </>
 )
 }
+
+
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users
+  }
+}
+
+export default connect(mapState2Props)(Dashboard)
