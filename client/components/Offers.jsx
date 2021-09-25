@@ -2,24 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function Offers ({offers, dispatch}) {
-  
   return ( 
     <>
   <h3>Your offers:</h3>
-  <ul>
+  {offers}
+  {/* <ul>
       {offers.map(offer=> 
           <li>
-            <strong>{offer}</strong>
+            <strong>{offer}</strong> 
             <button>recind offer</button>
           </li>
       )}
-      </ul>
-      
-      {/* <ul>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
- </ul> */}
+      </ul> */}
+
+
  </>
   ) 
 }
