@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import connect from 'react-redux'
 import postUserThunk from '../actions/users'
 
@@ -27,7 +26,9 @@ function MakeProfile (props) {
 
   console.log(user.email)
 
-
+function MakeProfile ( {users, dispatch} ) {
+  // this is where the postUserThunk(user) gets called and sends the user info to the database
+  
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -145,5 +146,12 @@ function MakeProfile (props) {
   )
 }
 
-export default MakeProfile
-// export default connect(MakeProfile)
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users
+  }
+}
+
+export default connect(mapState2Props)(MakeProfile)

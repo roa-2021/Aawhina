@@ -1,4 +1,4 @@
-import { getUsers, postUser, updateUser } from '../apis/users_api'
+import { getUsers, getUser, postUser, updateUser, deleteUser} from '../apis/users_api'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const ADD_USER = 'ADD_USER'

@@ -3,6 +3,7 @@ const router = express.Router()
 // const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/offers_db')
 
+// GET /api/v1/offers
 router.get('/', (req, res) => {
   return db.getAllOffersAndUsers()
     .then(offers => {
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
       return res.status(500).send('500 error :(')
     })
 })
-
+// GET /api/v1/offers/:id
 router.get('/:id', (req, res) => {
   const id = req.params.id
   return db.getOfferById(id)
@@ -25,7 +26,7 @@ router.get('/:id', (req, res) => {
       return res.status(500).send('500 error :(')
     })
 })
-// to update with auth
+// POST /api/v1/offers
 router.post('/', (req, res) => {
   const offer = req.body
   db.createOffer(offer)
@@ -36,7 +37,7 @@ router.post('/', (req, res) => {
       res.status(500).json(`error did not work: ${error.message}`)
     })
 })
-// to update with auth
+// DEL /api/v1/offers/:id
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   db.deleteOffer(id)
@@ -47,8 +48,8 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(`error did not work: ${error.message}`)
     })
 })
-// to update with auth
-router.patch('/:id', (req, res) => {
+// PUT /api/v1/offers/:id
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const newOffer = req.body
   db.editOffer(id, newOffer)

@@ -11,34 +11,40 @@ const getUserByEmail = (email) => {
     .first()
 }
 
-//will call userexists and generate hash
+const getUserById = (id) => {
+  return db('users')
+    .select()
+    .where('id', id)
+    .first()
+}
+
 const createUserProfile = (user) => {
   return db('users')
     .insert(user, 'id')
-    .then(userEmail => {
-      return getUserByEmail(userEmail[0])
+    .then(userId => {
+      return getUserById(userId[0])
     })
 }
-//will require auth
+
 const editUserProfile = (id, newUser) => {
   return db('users')
     .where('id', id)
     .update(newUser)
 }
-//will require auth
+
 const deleteUser = (id) => {
   return db('users')
     .where('id', id)
     .del()
 }
-const userExists = (email) => {
-  return db('users')
-    .count('id as n')
-    .where('email', email)
-    .then(count => {
-      return count[0].n > 0
-    })
-}
+// const userExists = (email) => {
+//   return db('users')
+//     .count('id as n')
+//     .where('email', email)
+//     .then(count => {
+//       return count[0].n > 0
+//     })
+// }
 
 module.exports = {
   getAllUsers,
@@ -46,21 +52,6 @@ module.exports = {
   deleteUser,
   createUserProfile,
   editUserProfile,
-  userExists
+  getUserById
 }
 
-// TODO - Auth routes
-// const express = require('express')
-
-// const router = express.Router()
-// const { applyAuthRoutes } = require('authenticare/server')
-
-// const { userExists, getUserByEmail, createUserProfile } = require('../db/users')
-
-// applyAuthRoutes(router, {
-//   userExists,
-//   getUserByName,
-//   createUser
-// })
-
-// module.exports = router

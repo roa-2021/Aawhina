@@ -1,11 +1,11 @@
 import React from 'react'
-
-function Requests () {
+import { connect } from 'react-redux'
+function Requests ({requests, dispatch}) {
  return ( 
    <>
  <h3>Your requests:</h3>
  <ul>
-  <li>request</li>
+  <li>{requests}</li>
   <li>request</li>
   <li>request</li>
  </ul>
@@ -14,4 +14,13 @@ function Requests () {
 </>
  ) 
 }
-export default Requests
+
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users
+  }
+}
+
+export default connect(mapState2Props)(Requests)
