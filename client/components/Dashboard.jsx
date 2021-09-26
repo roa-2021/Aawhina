@@ -6,7 +6,7 @@ import MyOffers from './MyOffers';
 import MyRequests from './MyRequests';
 import Nav from './Nav'
 import { useAuth0 } from '@auth0/auth0-react'
-
+import Welcome from './Welcome'
 
 
 function Dashboard({dispatch, users}) {
@@ -33,7 +33,7 @@ const toggleRequests = () => {
 const handleChange = (event, newAlignment) => {
   setAlignment(newAlignment);
 };
-
+if (isAuthenticated) {
 return (
   <>
     <Nav />
@@ -51,6 +51,10 @@ return (
         ? <MyOffers currentUser={currentUser}/>
         : <MyRequests currentUser={currentUser} />}
   </>
+)
+}
+return (
+  < Welcome />
 )
 }
 

@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import RequestCard from './RequestCard'
 import Nav from './Nav'
+import Welcome from './Welcome'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Requests ({ currentUser, requests }) {
-  // console.log(currentUser)
+  const { user, isAuthenticated, isLoading } = useAuth0();
   
   // const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
-
+  if (isAuthenticated) {
   return (
     <>
     <Nav />
@@ -53,6 +55,8 @@ function Requests ({ currentUser, requests }) {
         </Box>
       </Container>
     </>)
+  }
+  return (< Welcome />)
 }
 
 function mapState2Props (globalState) {
