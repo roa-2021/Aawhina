@@ -14,6 +14,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import { grey } from '@mui/material/colors';
 import { autocompleteClasses } from '@mui/material';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 
 
 const Img = styled('img')({
@@ -25,10 +26,18 @@ const Img = styled('img')({
 
 function Login ()  {
 
+  const [editing, setEditing] = React.useState(false)
+  
+  const toggleEditing = () => {
+    setEditing(!editing)
+    
+  }
+
   return (
 
     <>
       <Nav/>
+
 
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -41,9 +50,7 @@ function Login ()  {
               sx={{ width: 110, height: 110 }}
               />
           </Grid>
-          <Typography sx={{ ml: 2.7,  cursor: 'pointer' }} variant="body2">
-                  Edit Photo
-          </Typography>
+          <Button sx={{ml: 1}}size="small">Edit Photo</Button>
         </Box>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
@@ -55,14 +62,23 @@ function Login ()  {
               <Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="medium">
                 About me:
               </Typography>
+
+
+              {editing?
+              <p>Editing about me section</p>
+              :
               <Typography variant="body2" color="text.secondary">
                 Information about myself that I have entered into my bio section
-              </Typography>
+              </Typography>}
+              
+
+
             </Grid>
             <Grid item sx={{pt: 0}}>
-              <Typography sx={{cursor: 'pointer'}} variant="body2">
-                Edit
-              </Typography>
+            <Box sx={{ "& button": { m: -2, p: 0 } }}>
+             <Button size="small" onClick={toggleEditing}>Edit</Button>
+            </Box>
+  
             </Grid>
           </Grid>
           <Grid item>
