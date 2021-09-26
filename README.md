@@ -41,6 +41,7 @@ npm run dev
 - As an offerer I want to be able to rescind my offer for help
 - As an offerer I want to be able to view requests in my area
 - As a requester I want to be able to specify when I need a job completed (by)
+- As a requester I want to be able to view any offers on my requests
 
 
 ## Stretch user stories:
