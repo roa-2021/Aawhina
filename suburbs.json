@@ -219,157 +219,157 @@
       "id":"37",
       "name": "Newtown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Mount Cook", "Hataitai", "Vogeltown", "Evans Bay", "Berhampore", "Kilbirnie", "Melrose"]
     },
     {
       "id":"38",
       "name": "Ngaio",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Crofton Downs", "Khandallah", "Kaiwharawhara", "Wadestown"]
     },
     {
       "id":"39",
       "name": "Ngauranga",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Broadmeadows", "Johnsonville", "Newlands", "Kaiwharawhara", "Khandallah"]
     },
     {
       "id":"40",
       "name": "Northland",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wilton", "Wadestown", "Thorndon", "Kelburn", "Highbury", "Karori"]
     },
     {
       "id":"41",
       "name": "Ohariu",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Glenside", "Tawa", "Makara Beach", "Colonial Knob", "Kenepuru"]
     },
     {
       "id":"42",
       "name": "Oriental Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Mount Victoria", "Wellington Central", "Roseneath", "Te Aro"]
     },
     {
       "id":"43",
       "name": "Ōwhiro Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Brooklyn", "Kingston", "Island Bay", "Makara"]
     },
     {
       "id":"44",
       "name": "Paparangi",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Glenside", "Grenada", "Woodridge", "Newlands"]
     },
     {
       "id":"45",
       "name": "Pipitea",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Kaiwharawhara", "Wellington Central", "Thorndon", "Wadestown"]
     },
     {
       "id":"46",
       "name": "Redwood",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Tawa", "Churton Park", "Grenada North"]
     },
     {
       "id":"47",
       "name": "Rongotai",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Evans Bay", "Maupuia", "Miramar", "Kilbirnie", "Lyall Bay"]
     },
     {
       "id":"48",
       "name": "Roseneath",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wellington Central", "Oriental Bay", "Mount Victoria", "Hataitai", "Evans Bay"]
     },
     {
       "id":"49",
       "name": "Seatoun",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Worser Bay", "Breaker Bay", "Strathmore Park"]
     },
     {
       "id":"50",
       "name": "Shelly Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Maupuia", "Miramar"]
     },
     {
       "id":"51",
       "name": "Southgate",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Berhampore", "Newtown", "Melrose", "Island Bay", "Houghton Bay"]
     },
     {
       "id":"52",
       "name": "Strathmore Park",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Rongotai", "Breaker Bay", "Moa Point"]
     },
     {
       "id":"53",
       "name": "Takapu Valley",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Ranui Heights", "Cannons Creek", "Belmont", "Tawa", "Grenada North", "Horokiwi"]
     },
     {
       "id":"54",
       "name": "Tawa",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Porirua", "Linden", "Ohariu", "Churton Park", "Redwood"]
     },
     {
       "id":"55",
       "name": "Te Aro",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wellington Central", "Kelburn", "Aro Valley", "Oriental Bay", "Mount Victoria", "Mount Cook", "Kelburn"]
     },
     {
       "id":"56",
       "name": "Thorndon",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wadestown", "Pipitea", "Kelburn", "Wellington Central", "Wilton", "Northland"]
     },
     {
       "id":"57",
       "name": "Vogeltown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Brooklyn", "Mount Cook", "Newtown", "Berhampore", "Mornington", "Kowhai Park"]
     },
     {
       "id":"58",
       "name": "Wadestown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Ngaio", "Kaiwharawhara", "Thorndon", "Wilton", "Crofton Downs"]
     },
     {
       "id":"59",
       "name": "Wellington Central",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Pipitea", "Te Aro", "Kelburn", "Thorndon"]
     },
     {
       "id":"60",
       "name": "Wilton",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Crofton Downs", "Wadestown", "Thorndon", "Karori"]
     },
     {
       "id":"61",
       "name": "Woodridge",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Grenada", "Horokiwi", "Paparangi", "Glenside", "Newlands"]
     },
     {
       "id":"62",
       "name": "Worser Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Karaka Bay", "Seatoun Heights", "Seatoun"]
     },
     {
       "id":"63",
