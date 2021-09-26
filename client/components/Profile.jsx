@@ -33,7 +33,7 @@ function Login ()  {
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Box>
-          <Grid item sx={{ mt: 2}}>
+          <Grid item sx={{ mt: 7}}>
           <Avatar
               alt="Profile picture"
               src="/images/avatar.jpeg"
@@ -52,15 +52,15 @@ function Login ()  {
                 Hi, I'm Phill
               </Typography>
               <Divider light />
-              <Typography variant="body2" gutterBottom>
+              <Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="medium">
                 About me:
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Information about myself that I have entered into my bio section
               </Typography>
             </Grid>
-            <Grid item >
-              <Typography sx={{ cursor: 'pointer'}} variant="body2">
+            <Grid item sx={{pt: 0}}>
+              <Typography sx={{cursor: 'pointer'}} variant="body2">
                 Edit
               </Typography>
             </Grid>
