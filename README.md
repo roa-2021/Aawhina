@@ -11,6 +11,7 @@ Made by Jo, Matt S, Phill & Zoe
 * Authenticare
 * Express
 * Knex
+* MUI
 
 
 ## Setup
