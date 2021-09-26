@@ -35,10 +35,10 @@ npm run dev
 - As a user I want to be able to create a profile page
 - As a user I want to be able to view my profile page
 - As a requester I want to be able to list a job I need help with
-- As a requester I want to be able to be sure that my information isn’t too early/at all
 - As a requester I want to be able to offer help for a particular job
 - As an offerer I want to be able to rescind my offer for help
 - As an offerer I want to be able to view requests in my area
+- As a requester I want to be able to specify when I need a job completed (by)
 
 
 ## Stretch user stories:
