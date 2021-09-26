@@ -37,7 +37,8 @@ npm run dev
 - As a requester I want to be able to list a job I need help with
 - As a requester I want to be able to be sure that my information isn’t too early/at all
 - As a requester I want to be able to offer help for a particular job
-- As a requester I want to be able to 
+- As an offerer I want to be able to rescind my offer for help
+- As an offerer I want to be able to view requests in my area
 
 
 ## Stretch user stories:
@@ -49,4 +50,3 @@ npm run dev
 - As a helper I want to be able to be able to view jobs on a map
 - As a helper I want to be able to search for jobs by type
 - As a helper I want to be able to specify how long my offer for help is valid for
-- As an offerer I want to be able to rescind my offer for help
