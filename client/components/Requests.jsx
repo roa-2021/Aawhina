@@ -13,7 +13,6 @@ function Requests ({ currentUser, requests }) {
   if (isAuthenticated) {
   return (
     <>
-    <Nav />
       <Container 
         component="main"
         maxWidth="md" 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import MyOffers from './MyOffers';
-import MyRequests from './MyRequests';
+import Requests from './Requests'
 import Nav from './Nav'
 import { useAuth0 } from '@auth0/auth0-react'
 import Welcome from './Welcome'
@@ -36,7 +36,6 @@ const handleChange = (event, newAlignment) => {
 if (isAuthenticated) {
 return (
   <>
-    <Nav />
     <ToggleButtonGroup
       size="large"
       color="primary"

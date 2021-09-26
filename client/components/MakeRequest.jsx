@@ -21,27 +21,32 @@ import { postRequestThunk } from '../actions/requests'
 
 function MakeRequest (props) {
   const {dispatch} = props
+  
   let history = useHistory()
+
+
+
+  const [category, setCategory] = useState('')
+  const [timeframe, setTimeframe] = useState('')
+
   const [values, setValues] = useState({
     title: '',
-    timeframe: '',
     details: '',
   })
 
-  const [category, setCategory] = useState('')
-  const [suburb, setSuburb] = useState('')
-  const [date, setDate] = React.useState(null); // date-picker
-  const [time, setTime] = React.useState(new Date('2018-01-01T00:00:00.000Z'));
+  
 
   const handleCategory = (e) => {
     e.preventDefault()
     setCategory(e.target.value)
   }
+
+
+  const handleTimeframe = (e) => {
+    e.preventDefault()
+    setTimeframe(e.target.value)
+  }
   
-  // const handleSuburb = (e) => {
-  //   e.preventDefault()
-  //   setSuburb(e.target.value)
-  // }
 
   const handleChange =(e) => {
     e.preventDefault()
@@ -56,15 +61,15 @@ function MakeRequest (props) {
     const newRequest = {
       title: values.title,
       category: category,
-      details: values.title,
-      time_frame: values.timeframe,
+      time_frame: timeframe,
+      details: values.details,
      
     }  
      dispatch(postRequestThunk(newRequest)) 
      history.push('/Requests') 
-
   }
 
+  const { title, details } = values
 
   return (
     <>
@@ -75,7 +80,7 @@ function MakeRequest (props) {
           <Grid container spacing={2} >
 
             <Grid item sm={12}>
-              <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Title' onChange={handleChange}/>
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
             </Grid>
 
             <Grid item sm={12}>
@@ -85,33 +90,33 @@ function MakeRequest (props) {
               label='Category'
               onChange={handleCategory}
               sx={{ width: '46ch' }}>
-              
-            <MenuItem >To map over category</MenuItem>
+              <MenuItem value='Groceries'>Groceries</MenuItem>
+              <MenuItem value='Transport'>Transport</MenuItem>
+              <MenuItem value='Childcare'>Childcare</MenuItem>
+              <MenuItem value='Meal Preperation'>Meal Preperation</MenuItem>
+              <MenuItem value='Indoor Tasks'>Indoor Tasks</MenuItem>
+              <MenuItem value='Outdoor Tasks'>Outdoor Tasks</MenuItem>
+              <MenuItem value='Buddying'>Buddying</MenuItem>
+              <MenuItem value='Other'>Other</MenuItem>
+
             </Select>
             </Grid>
             
-            <LocalizationProvider  dateAdapter={AdapterDateFns}>
-            <Grid item sm={6}>
-              <DatePicker
-                label="Date to be completed by"
-                value={date}
-                sx={{ width: '46ch' }}
-                onChange={(newDate) => {
-                  setDate(newDate);
-                }}
-                renderInput={(params) => (
-                  <TextField {...params} helperText={params?.inputProps?.placeholder} />
-                )}
-              />
-          </Grid>
-          <Grid item sm={6}>
-          <TimePicker
-            value={time}
-            onChange={setTime}
-            renderInput={(params) => <TextField {...params} />}
-          />
-              </Grid>
-          </LocalizationProvider>
+            <Grid item sm={12}>
+            <InputLabel>Date to be completed by</InputLabel>
+            <Select
+              value={timeframe}
+              label='timeframe'
+              onChange={handleTimeframe}
+              sx={{ width: '46ch' }}>
+              <MenuItem value='Today'>Today</MenuItem>
+              <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
+              <MenuItem value='This week'>This week</MenuItem>
+              <MenuItem value='Next week'>Next week</MenuItem>
+              <MenuItem value='Ongoing'>Ongoing</MenuItem>
+              <MenuItem value='Other'>Other</MenuItem>
+            </Select>
+            </Grid>
 
 
 
@@ -130,7 +135,7 @@ function MakeRequest (props) {
             
         
           <Grid item sm={12}>
-            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details'onChange={handleChange}/>
+            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
           </Grid>
         <Grid>
 
