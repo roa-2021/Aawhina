@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as React from 'react'
-// import connect from 'react-redux'
+import connect from 'react-redux'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -15,11 +15,11 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
-
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 function MakeRequest (props) {
-
+  const { user } = useAuth0()
   const [values, setValues] = useState({
     title: '',
     timeframe: '',
@@ -42,9 +42,23 @@ function MakeRequest (props) {
   }
 
 
-  const handleSubmit = () => {
-      console.log('hello')
-  }
+  let history = useHistory()
+
+  const handleSubmit = (e) => {
+     e.preventDefault()
+     const newUser = {
+       first_name: values.first,
+       last_name: values.last,
+       email: user.email,
+      //  suburb_id: suburb,
+       bio: values.bio,
+       gender: gender, 
+
+     }  
+      dispatch(postUserThunk(newUser)) 
+      history.push('/') 
+
+  }  
 
 
   return (

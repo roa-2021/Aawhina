@@ -4,13 +4,14 @@ const router = express.Router()
 const db = require('../db/requests_db')
 
 // GET /api/v1/requests
-router.get('/', async (req, res) => {
-  try {
-    const requests = await db.getAllRequestsAndUsersAndSuburbs()
-    res.json({ requests })
-  } catch (err) {
+router.get('/',  (req, res) => {
+  db.getAllRequestsAndUsersAndSuburbs()
+    .then(requests => {
+      return res.json(requests)
+    }) 
+  .catch (err => {
     res.status(500).send(err.message)
-  }
+  })
 })
 
 // GET /api/v1/requests/:id

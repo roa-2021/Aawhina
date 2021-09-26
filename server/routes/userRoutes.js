@@ -4,7 +4,7 @@ const db = require('../db/users_db')
 
 // GET /api/v1
 router.get('/', (req, res) => {
-  return db.getAllUsers()
+  db.getAllUsers()
     .then(users => {
       return res.json(users)
     })

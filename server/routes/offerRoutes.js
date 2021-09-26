@@ -5,7 +5,7 @@ const db = require('../db/offers_db')
 
 // GET /api/v1/offers
 router.get('/', (req, res) => {
-  return db.getAllOffersAndUsers()
+  db.getAllOffersAndUsers()
     .then(offers => {
       return res.json(offers)
     })

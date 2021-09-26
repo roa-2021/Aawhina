@@ -1,14 +1,14 @@
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import requests from '../../request.json'
+// import requests from '../../request.json'
 import RequestCard from './RequestCard'
 
-function Requests ({ user }) {
+function Requests ({ currentUser, requests }) {
+  console.log(currentUser)
+  // user = {id: 1, name: "Matt"}
   
-  user = {id: 1, name: "Matt"}
-  
-  const requestsToShow = user ? requests.filter(request => user.id === request.user_id) : requests
+  const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
 
   return (
     <>
@@ -16,7 +16,7 @@ function Requests ({ user }) {
         component="main"
         maxWidth="md" 
       >
-        { !user && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
+        { !currentUser && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
           mt={4}
         >
 
@@ -32,7 +32,7 @@ function Requests ({ user }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requestsToShow.map(request => <RequestCard request={request} />)}
+            { requestsToShow && requestsToShow.map(request => <RequestCard request={request} />)}
             <Grid 
               item
               mt={2}
@@ -58,8 +58,7 @@ function Requests ({ user }) {
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
-    requests: globalState.requests,
-    users: globalState.users
+    requests: globalState.requests
   }
 }
 
