@@ -4,14 +4,14 @@ const router = express.Router()
 const db = require('../db/suburb_db')
 
 // GET /api/v1/suburbs
-router.get('/', async (req, res) => {
-  try {
-    const suburbs = await db.getAllSuburbs()
-    res.json({ suburbs })
-  } catch (err) {
+router.get('/', (req, res) => {
+  db.getAllSuburbs()
+  .then (suburbs => res.json(suburbs))
+  .catch ((err) => {
     res.status(500).send(err.message)
-  }
+  })
 })
+
 // GET /api/v1/suburbs/:id
 router.get('/:id', (req, res) => {
   const id = req.params.id

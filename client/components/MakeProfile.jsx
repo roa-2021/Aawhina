@@ -28,17 +28,15 @@ import { useAuth0 } from '@auth0/auth0-react'
 function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
-
+  
+  const [newSuburb, setSuburb] = useState([])
+  const [theSuburbs, setSuburbs] = useState([])
 
   useEffect(() => {
     getSuburbs()
-    .then(res => setSuburb(res)
+    .then(res => setSuburbs(res)
     )
-    .then(() =>
-      console.log(newSuburb))
   },[])
-
-
   
   const [values, setValues] = useState({
     first: '',
@@ -46,7 +44,6 @@ function MakeProfile (props) {
     email: '',
     bio: '',
   })  
-  const [newSuburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
   // const [image, setImage ] = useState("")
@@ -77,7 +74,7 @@ function MakeProfile (props) {
 
   const handleSuburb = (e) => {
     e.preventDefault()
-    setSuburb(e.target.value)
+    setSuburb([e.target.value])
   }  
 
   const handleGender =(e) => {
@@ -109,8 +106,6 @@ function MakeProfile (props) {
      }  
       dispatch(postUserThunk(newUser)) 
       history.push('/') 
-
-    console.log(newUser)
     
     
     
@@ -137,28 +132,24 @@ function MakeProfile (props) {
           <Grid item xs={12}>
             <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
           </Grid>
-
-          {/* <label htmlFor='suburbs'>Water:</label>
-          <select name='suburbs'value={suburb.id} onChange={handleSuburb}>
-            {suburbs.map(w => <option value={s.id} key={s.id}> {w.name} </option>)}
-          </select> */}
-
           <Grid item xs={6}>
           <InputLabel>Suburb</InputLabel>
           <Select
-            value={newSuburb}
             label='Suburb'
+            value={newSuburb}
             onChange={handleSuburb}
             sx={{ width: '21ch' }}>
-          <MenuItem >To map over suburb</MenuItem>
+              {theSuburbs && theSuburbs.map(s => (
+          <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
           </Select>
           </Grid>
           
           <Grid item xs={6}>
           <InputLabel>Gender</InputLabel>
             <Select
-              value={gender}
               label='Gender'
+              value={gender}
               onChange={handleGender}
               sx={{ width: '21ch' }}>
               <MenuItem value='female'>Female</MenuItem>
@@ -180,9 +171,9 @@ function MakeProfile (props) {
 
         </Grid>
 
-
+          <div>
           <Button onClick={handleSubmit}>Create profile</Button>
-          
+          </div>
         </Grid>
         </Box>
         </Box>
@@ -203,3 +194,29 @@ function mapState2Props (globalState) {
 export default connect(mapState2Props)(MakeProfile)
 
 // upload preset name refb93xz
+
+
+
+//potential workaround to filter by region 
+
+// <optgroup label='Wellington'>
+// {newSuburb && newSuburb.map(s => (
+// <option value={s.id}>{s.name}</option>
+// ))}
+// </optgroup>
+{/* <optgroup label='Lower Hutt'>
+{newSuburb && newSuburb.map(s => (
+<option value={s.id}>{s.name}</option>
+))}
+</optgroup>
+
+<optgroup label='Upper Hutt'>
+{newSuburb && newSuburb.map(s => (
+<option value={s.id}>{s.name}</option>
+))}
+</optgroup>
+<optgroup label='Porirua'>
+{newSuburb && newSuburb.map(s => (
+<option value={s.id}>{s.name}</option>
+))}
+</optgroup> */}
