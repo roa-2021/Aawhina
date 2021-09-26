@@ -167,10 +167,11 @@ function Nav() {
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
+            href="/"
           >
             Āwhina
           </Typography>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -178,10 +179,10 @@ function Nav() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -189,7 +190,8 @@ function Nav() {
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
+
             <IconButton
               size="large"
               edge="end"
@@ -200,26 +202,12 @@ function Nav() {
               color="inherit"
             >
               <Logout/>
-              <AccountCircle />
+              {/* <AccountCircle /> */}
             </IconButton>
 
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-              href="/requests"
-            >View Requests
-
-              <AccountCircle />
-            </IconButton>
-
-             {/* <IconButton variant="contained" size="large" href="/requests">View Requests </IconButton>
-             </IconButton>
-             <IconButton variant="contained" size="large" href="/dashboard">Dashboard </IconButton> */}
+             <IconButton variant="contained" size="small" href="/requests">View Requests </IconButton>
+    
+             <IconButton variant="contained" size="small" href="/dashboard">Dashboard </IconButton>
           </Box>
 
          
