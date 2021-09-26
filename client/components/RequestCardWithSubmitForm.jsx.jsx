@@ -24,13 +24,11 @@ export default function RequestCard ({ request }) {
   
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
-    setOpenSubmit(false)
     setScroll(scrollType);
   };
 
   const handleClickSubmitOpen = (scrollType) => () => {
     setOpenSubmit(true);
-    setOpen(false);
     setScrollSubmit(scrollType);
   };
   
@@ -155,8 +153,8 @@ export default function RequestCard ({ request }) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClickOpen('paper')}>Back</Button>
-            <Button onClick={handleSubmitClose}>Submit Offer</Button>
+            <Button onClick={handleClose}>Back</Button>
+            <Button onClick={handleClose}>Submit Offer</Button>
           </DialogActions>
         </Dialog>
       </div>
