@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function Offers ({offers, dispatch}) {
+  postOfferThunk
   
   return ( 
     <>
