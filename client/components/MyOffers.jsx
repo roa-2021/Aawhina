@@ -22,7 +22,7 @@ currentUser
   const offersToShow = offers ? offers.filter(offer => requestArr.indexOf(offer.request_id) !== -1) : null
 
   return (
-    <> {viewRequests ? <Requests currentUser="" /> : null }
+    <> {viewRequests ? <Requests /> : null }
       <Container 
         component="main"
         maxWidth="md" 

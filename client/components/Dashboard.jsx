@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import Offers from './MyOffers';
-import Requests from './MyRequests';
+import MyOffers from './MyOffers';
+import MyRequests from './MyRequests';
 import Nav from './Nav'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -44,12 +44,12 @@ return (
       exclusive
       onChange={handleChange}
     >
-      <ToggleButton value='offers' onClick={toggleOffers}>Offers</ToggleButton>
-      <ToggleButton value='requests' onClick={toggleRequests}>Requests</ToggleButton>
+      <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
+      <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
     </ToggleButtonGroup>
       {offers
-        ? <Offers currentUser={currentUser}/>
-        : <Requests currentUser={currentUser} />}
+        ? <MyOffers currentUser={currentUser}/>
+        : <MyRequests currentUser={currentUser} />}
   </>
 )
 }

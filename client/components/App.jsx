@@ -22,7 +22,6 @@ const App = (props) => {
     dispatch(getOffersThunk())
     dispatch(getRequestsThunk())
     dispatch(getUsersThunk())
-  
   }, [])
   return (
     <>
@@ -43,6 +42,7 @@ const App = (props) => {
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />
+        <Route exact path='/requests' component={Requests} />
       </Router>
       {/* </Box> */}
     </>

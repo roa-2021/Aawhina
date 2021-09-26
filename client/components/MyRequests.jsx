@@ -14,11 +14,11 @@ function Requests ({ currentUser, requests }) {
         component="main"
         maxWidth="md" 
       >
-        { !currentUser && <Box mt={4} >
+        {/* { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
-        </Box>}
+        </Box>} */}
 
         <Box mt={2}>
           <Grid
@@ -41,7 +41,7 @@ function Requests ({ currentUser, requests }) {
               <Button 
                 variant="contained"
                 size="large"
-                href="/requests/new"
+                href="/requests/new" //?? will this be a route or ternery??
               >
                 Make a request
               </Button>
@@ -54,7 +54,6 @@ function Requests ({ currentUser, requests }) {
 
 function mapState2Props (globalState) {
   return {
-    offers: globalState.offers,
     requests: globalState.requests
   }
 }

@@ -202,7 +202,28 @@ function Nav() {
               <Logout/>
               <AccountCircle />
             </IconButton>
+
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/requests"
+            >View Requests
+
+              <AccountCircle />
+            </IconButton>
+
+             {/* <IconButton variant="contained" size="large" href="/requests">View Requests </IconButton>
+             </IconButton>
+             <IconButton variant="contained" size="large" href="/dashboard">Dashboard </IconButton> */}
           </Box>
+
+         
+
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
