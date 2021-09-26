@@ -435,7 +435,7 @@
       "id":"73",
       "name": "Glendale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Arakura", "Homedale", "Wainuiomata", "Parkway"]
     },
     {
       "id":"74",
