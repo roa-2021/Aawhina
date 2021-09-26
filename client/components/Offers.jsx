@@ -1,29 +1,66 @@
 import React from 'react'
+import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import { connect } from 'react-redux'
 
-function Offers ({offers, dispatch}) {
-
+function Offers ({ currentUser, offers, requests }) {
   
-  return ( 
+  const requestArr = []
+  
+  ufcurrentUser 
+    ? requests.map(request => {
+      currentUser.id === request.user_id 
+        ? requestArr.push(request.id)
+        : null
+      })
+    : null
+
+  const offersToShow = offers ? offers.filter(offer => requestArr.indexOf(offer.request_id) !== -1) : null
+
+  return (
     <>
-  <h3>Your offers:</h3>
-  {/* <ul>
-      {offers.map(offer=> 
-          <li>
-            <strong>{offer}</strong>
-            <button>recind offer</button>
-          </li>
-      )}
-      </ul> */}
-      
-      {/* <ul>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
-  <li>Offer</li> <button>recind offer</button>
- </ul> */}
- </>
-  ) 
+      <Container 
+        component="main"
+        maxWidth="md" 
+      >
+        { !currentUser && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
+          mt={4}
+        >
+
+          <Typography variant="h5" align="center">
+            These neighbours of yours have offered help:
+          </Typography>
+        </Box>}
+        <Box mt={2}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            aligncards="stretch"
+            rowSpacing={2} 
+          >
+            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} />)}
+            <Grid 
+              item
+              mt={2}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Button 
+                variant="contained"
+                size="large"
+                href="/requests"
+              >
+                Explore requests for help
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </>)
 }
+
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,

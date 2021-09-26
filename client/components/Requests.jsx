@@ -1,12 +1,10 @@
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-// import requests from '../../request.json'
 import RequestCard from './RequestCard'
 
 function Requests ({ currentUser, requests }) {
   console.log(currentUser)
-  // user = {id: 1, name: "Matt"}
   
   const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
 
@@ -16,7 +14,7 @@ function Requests ({ currentUser, requests }) {
         component="main"
         maxWidth="md" 
       >
-        { !currentUser && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
+        { !currentUser && <Box
           mt={4}
         >
 
