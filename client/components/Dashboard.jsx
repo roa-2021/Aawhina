@@ -26,7 +26,7 @@ const handleChange = (event, newAlignment) => {
 return (
   <>
   <>
-  <Nav/>
+  {/* <Nav/> */}
   <ToggleButtonGroup 
     size="large" 
     color="primary"
