@@ -1,5 +1,6 @@
 # Aawhina
-
+ Neighbours helping neighbours
+ 
 ## Final project for Roa 2021 at EDA
 
 Made by Jo, Matt S, Phill & Zoe
