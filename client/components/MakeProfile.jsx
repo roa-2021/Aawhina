@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
 import { useHistory } from 'react-router-dom'
+import { getSuburbs} from '../apis/suburb_api'
 
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -28,7 +29,16 @@ function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
 
-  // const suburb = props.suburb
+
+  useEffect(() => {
+    getSuburbs()
+    .then(res => setSuburb(res)
+    )
+    .then(() =>
+      console.log(newSuburb))
+  },[])
+
+
   
   const [values, setValues] = useState({
     first: '',
@@ -36,7 +46,7 @@ function MakeProfile (props) {
     email: '',
     bio: '',
   })  
-  const [suburb, setSuburb] = useState('')
+  const [newSuburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
   // const [image, setImage ] = useState("")
@@ -92,7 +102,7 @@ function MakeProfile (props) {
        first_name: values.first,
        last_name: values.last,
        email: user.email,
-      //  suburb_id: suburb,
+       suburb_id: newSuburb,
        bio: values.bio,
        gender: gender, 
 
@@ -128,10 +138,15 @@ function MakeProfile (props) {
             <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
           </Grid>
 
+          {/* <label htmlFor='suburbs'>Water:</label>
+          <select name='suburbs'value={suburb.id} onChange={handleSuburb}>
+            {suburbs.map(w => <option value={s.id} key={s.id}> {w.name} </option>)}
+          </select> */}
+
           <Grid item xs={6}>
           <InputLabel>Suburb</InputLabel>
           <Select
-            value={suburb}
+            value={newSuburb}
             label='Suburb'
             onChange={handleSuburb}
             sx={{ width: '21ch' }}>
@@ -180,7 +195,8 @@ function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
     requests: globalState.requests,
-    users: globalState.users
+    users: globalState.users,
+    suburb: globalState.suburb
   }
 }
 
