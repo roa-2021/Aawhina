@@ -5,35 +5,34 @@ import Requests from './MyRequests';
 
 function Offers ({ currentUser, offers, requests }) {
   
-  // const requestArr = []
-  // currentUser 
-  //   ? requests.map(request => {
-  //     currentUser.id === request.user_id 
-  //       ? requestArr.push(request.id)
-  //       : null
-  //     })
-  //   : null
-  // const offersToShow = offers ? offers.filter(offer => requestArr.indexOf(offer.request_id) !== -1) : null
-  
-  
-  const offersToShow = currentUser ? offers.filter(offer => currentUser.id === offer.user_id) : offers
+  const requestArr = []
+  const [viewRequests, setviewRequests] = useState(false)
 
+  const clickHandler = () => {
+    setviewRequests(true)
+  }
+  currentUser 
+    ? requests.map(request => {
+      currentUser.id === request.user_id 
+        ? requestArr.push(request.id)
+        : null
+      })
+    : null
+
+  const offersToShow = offers ? offers.filter(offer => requestArr.indexOf(offer.request_id) !== -1) : null
 
   return (
-    <>
+    <> {viewRequests ? <Requests /> : null }
       <Container 
         component="main"
         maxWidth="md" 
       >
-        {offersToShow.length > 0 
-          ? <Box
+        { !currentUser && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
           mt={4}>
-            <Typography variant="h5" align="center">
-              These are the neighbours you've offered to help:
-            </Typography>
-          </Box> 
-          : null 
-        }
+          <Typography variant="h5" align="center">
+            These neighbours of yours have offered help:
+          </Typography>
+        </Box>}
         <Box mt={2}>
           <Grid
             container

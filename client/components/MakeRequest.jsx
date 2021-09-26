@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import * as React from 'react'
-// import connect from 'react-redux'
-
+import { connect } from 'react-redux'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -15,11 +15,13 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
-
+import { useAuth0 } from '@auth0/auth0-react'
+import { postRequestThunk } from '../actions/requests'
 
 
 function MakeRequest (props) {
-
+  const {dispatch} = props
+  let history = useHistory()
   const [values, setValues] = useState({
     title: '',
     timeframe: '',
@@ -36,14 +38,31 @@ function MakeRequest (props) {
     setCategory(e.target.value)
   }
   
-  const handleSuburb = (e) => {
+  // const handleSuburb = (e) => {
+  //   e.preventDefault()
+  //   setSuburb(e.target.value)
+  // }
+
+  const handleChange =(e) => {
     e.preventDefault()
-    setSuburb(e.target.value)
-  }
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })  
 
+  } 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newRequest = {
+      title: values.title,
+      category: category,
+      details: values.title,
+      time_frame: values.timeframe,
+     
+    }  
+     dispatch(postRequestThunk(newRequest)) 
+     history.push('/Requests') 
 
-  const handleSubmit = () => {
-      console.log('hello')
   }
 
 
@@ -56,7 +75,7 @@ function MakeRequest (props) {
           <Grid container spacing={2} >
 
             <Grid item sm={12}>
-              <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Title' />
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required'label='Title' onChange={handleChange}/>
             </Grid>
 
             <Grid item sm={12}>
@@ -74,7 +93,7 @@ function MakeRequest (props) {
             <LocalizationProvider  dateAdapter={AdapterDateFns}>
             <Grid item sm={6}>
               <DatePicker
-                label="To be completed by"
+                label="Date to be completed by"
                 value={date}
                 sx={{ width: '46ch' }}
                 onChange={(newDate) => {
@@ -111,7 +130,7 @@ function MakeRequest (props) {
             
         
           <Grid item sm={12}>
-            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details'/>
+            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details'onChange={handleChange}/>
           </Grid>
         <Grid>
 
@@ -129,5 +148,4 @@ function MakeRequest (props) {
   )
 }
 
-export default MakeRequest
-// export default connect(mapReduxToProps)(Register)
+export default connect()(MakeRequest)

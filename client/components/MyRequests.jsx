@@ -2,9 +2,9 @@ import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stac
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import RequestCard from './RequestCard'
-import Nav from './Nav'
 
 function Requests ({ currentUser, requests }) {
+  console.log(currentUser)
   
   const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
 
@@ -14,12 +14,12 @@ function Requests ({ currentUser, requests }) {
         component="main"
         maxWidth="md" 
       >
-       { currentUser && <Box mt={4} >
+        {/* { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
-        </Box>
-        }
+        </Box>} */}
+
         <Box mt={2}>
           <Grid
             container
@@ -28,7 +28,7 @@ function Requests ({ currentUser, requests }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requests && requestsToShow.map(request => <RequestCard key={request.id} request={request} />)}
+            { requestsToShow.map(request => <RequestCard request={request} />)}
             <Grid 
               item
               mt={2}
@@ -37,12 +37,13 @@ function Requests ({ currentUser, requests }) {
                 justifyContent: 'center'
               }}
             >
+  
               <Button 
                 variant="contained"
                 size="large"
-                href="/requests/new"
+                href="/requests/new" //?? will this be a route or ternery??
               >
-                Make a request 
+                Make a request
               </Button>
             </Grid>
           </Grid>
@@ -53,7 +54,6 @@ function Requests ({ currentUser, requests }) {
 
 function mapState2Props (globalState) {
   return {
-    offers: globalState.offers,
     requests: globalState.requests
   }
 }
