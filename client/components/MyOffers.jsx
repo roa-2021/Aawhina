@@ -11,7 +11,7 @@ function Offers ({ currentUser, offers, requests }) {
   const clickHandler = () => {
     setviewRequests(true)
   }
-currentUser 
+  currentUser 
     ? requests.map(request => {
       currentUser.id === request.user_id 
         ? requestArr.push(request.id)
@@ -54,7 +54,7 @@ currentUser
               value='requests'
                 variant="contained"
                 size="large"
-                onClick={clickHandler}
+                href="/requests"
               >
                 Explore requests for help
               </Button>
