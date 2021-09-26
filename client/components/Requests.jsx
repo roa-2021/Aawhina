@@ -14,7 +14,7 @@ function Requests ({ currentUser, requests }) {
         component="main"
         maxWidth="md" 
       >
-       { currentUser && <Box mt={4} >
+       { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
