@@ -14,7 +14,6 @@ const offerRoutes = require('./routes/offerRoutes')
 const requestRoutes = require('./routes/requestRoutes')
 
 
-
 server.use('/api/v1/offers', offerRoutes)
 server.use('/api/v1/requests', requestRoutes)
 server.use('/api/v1/suburbs', suburbRoutes)

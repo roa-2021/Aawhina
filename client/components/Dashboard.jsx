@@ -49,7 +49,7 @@ return (
     </ToggleButtonGroup>
       {offers
         ? <MyOffers currentUser={currentUser}/>
-        : <MyRequests currentUser={currentUser} />}
+        : <Requests currentUser={currentUser} />}
   </>
 )
 }
