@@ -34,7 +34,7 @@ function MakeProfile (props) {
     last: '',
     email: '',
     bio: '',
-  })  
+  })
   const [suburb, setSuburb] = useState('')
   const [gender, setGender] = useState('')
 
