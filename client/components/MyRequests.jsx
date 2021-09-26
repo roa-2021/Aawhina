@@ -1,20 +1,12 @@
-import React from 'react'
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import RequestCard from './RequestCard'
 
-function Offers ({ currentUser, offers, requests }) {
+function Requests ({ currentUser, requests }) {
+  console.log(currentUser)
   
-  const requestArr = []
-  
-  ufcurrentUser 
-    ? requests.map(request => {
-      currentUser.id === request.user_id 
-        ? requestArr.push(request.id)
-        : null
-      })
-    : null
-
-  const offersToShow = offers ? offers.filter(offer => requestArr.indexOf(offer.request_id) !== -1) : null
+  const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
 
   return (
     <>
@@ -22,14 +14,12 @@ function Offers ({ currentUser, offers, requests }) {
         component="main"
         maxWidth="md" 
       >
-        { !currentUser && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
-          mt={4}
-        >
-
+        { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
-            These neighbours of yours have offered help:
+            These neighbours of yours have requested help:
           </Typography>
         </Box>}
+
         <Box mt={2}>
           <Grid
             container
@@ -38,7 +28,7 @@ function Offers ({ currentUser, offers, requests }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} />)}
+            { requestsToShow.map(request => <RequestCard request={request} />)}
             <Grid 
               item
               mt={2}
@@ -47,12 +37,13 @@ function Offers ({ currentUser, offers, requests }) {
                 justifyContent: 'center'
               }}
             >
+  
               <Button 
                 variant="contained"
                 size="large"
-                href="/requests"
+                href="/requests/new"
               >
-                Explore requests for help
+                Make a request
               </Button>
             </Grid>
           </Grid>
@@ -64,9 +55,8 @@ function Offers ({ currentUser, offers, requests }) {
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
-    requests: globalState.requests,
-    users: globalState.users
+    requests: globalState.requests
   }
 }
 
-export default connect(mapState2Props)(Offers)
+export default connect(mapState2Props)(Requests)

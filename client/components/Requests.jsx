@@ -14,14 +14,12 @@ function Requests ({ currentUser, requests }) {
         component="main"
         maxWidth="md" 
       >
-        { !currentUser && <Box
-          mt={4}
-        >
-
+        { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
         </Box>}
+
         <Box mt={2}>
           <Grid
             container
@@ -30,7 +28,7 @@ function Requests ({ currentUser, requests }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requestsToShow && requestsToShow.map(request => <RequestCard request={request} />)}
+            { requestsToShow.map(request => <RequestCard request={request} />)}
             <Grid 
               item
               mt={2}
@@ -39,6 +37,7 @@ function Requests ({ currentUser, requests }) {
                 justifyContent: 'center'
               }}
             >
+  
               <Button 
                 variant="contained"
                 size="large"

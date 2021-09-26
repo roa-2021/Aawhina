@@ -104,7 +104,7 @@ export default function RequestCard ({ request }) {
                   variant="outlined" 
                 />
               </Stack>
-              
+  ///display all offers on request//
             </DialogContentText>
           </DialogContent>
           <DialogActions>

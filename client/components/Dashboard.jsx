@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import Offers from './Offers';
-import Requests from './Requests';
+import Offers from './MyOffers';
+import Requests from './MyRequests';
 import Nav from './Nav'
 import { useAuth0 } from '@auth0/auth0-react'
 
