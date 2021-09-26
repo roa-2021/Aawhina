@@ -14,6 +14,7 @@ import Login from './Login'
 import Logout from './Logout'
 import MakeRequest from './MakeRequest'
 import MakeProfile from './MakeProfile'
+import Nav from './Nav'
 
 const App = (props) => {
   const { dispatch } = props
@@ -26,15 +27,15 @@ const App = (props) => {
   return (
     <>
       <CssBaseline/>
-      {/* <Nav /> */}
-      {/* <Box
+      <Nav />
+      <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '10vh',
+        minHeight: '100vh',
         alignContent: 'flex-start'
       }}
-      > */}
+      >
       <Router>
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
@@ -44,7 +45,7 @@ const App = (props) => {
         <Route exact path='/requests/new' component={MakeRequest} />
         <Route exact path='/requests' component={Requests} />
       </Router>
-      {/* </Box> */}
+      </Box>
     </>
   )
 }

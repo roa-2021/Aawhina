@@ -36,9 +36,8 @@ const handleChange = (event, newAlignment) => {
 
 return (
   <>
-    <Nav />
-    <ToggleButtonGroup
-      size="large"
+    <ToggleButtonGroup 
+      size="large" 
       color="primary"
       value={alignment}
       exclusive
@@ -47,9 +46,10 @@ return (
       <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
       <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
     </ToggleButtonGroup>
-      {offers
-        ? <MyOffers currentUser={currentUser}/>
-        : <MyRequests currentUser={currentUser} />}
+    {offers
+      ? <MyOffers currentUser={currentUser}/>
+      : <MyRequests currentUser={currentUser} />
+    }
   </>
 )
 }

@@ -14,7 +14,12 @@ const offerRoutes = require('./routes/offerRoutes')
 const requestRoutes = require('./routes/requestRoutes')
 
 
+<<<<<<< HEAD
 
+||||||| 2002874
+server.use('/api/v1', userRoutes)
+=======
+>>>>>>> 2030aa1354fa2cdfed1bde7a9ca3e7702e3d3812
 server.use('/api/v1/offers', offerRoutes)
 server.use('/api/v1/requests', requestRoutes)
 server.use('/api/v1/suburbs', suburbRoutes)
