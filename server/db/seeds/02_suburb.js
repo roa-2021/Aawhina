@@ -153,4 +153,3 @@ exports.seed = function (knex) {
       ])
     })
 }
-s
