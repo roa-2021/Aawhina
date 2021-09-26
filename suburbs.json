@@ -441,223 +441,217 @@
       "id":"74",
       "name": "Gracefield",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waiwhetū", "Wainuiomata", "Seaview", "Woburn", "Moera"]
     },
     {
       "id":"75",
       "name": "Harbour View",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Tirohanga", "Melling", "Hutt Central", "Normandale"]
     },
     {
       "id":"76",
       "name": "Haywards",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Judgeford", "Heretaunga", "Silverstream", "Manor Park", "Kelson"]
     },
     {
       "id":"77",
       "name": "Homedale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Glendale", "Eastbourne", "Wainuiomata"]
     },
     {
       "id":"78",
       "name": "Hutt Central",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Boulcott", "Epuni", "Fairfield", "Waterloo", "Woburn", "Alicetown", "Melling", "Harbour View"]
     },
     {
       "id":"79",
       "name": "Kelson",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Haywards", "Manor Park", "Taitā", "Avalon", "Belmont"]
     },
     {
       "id":"80",
       "name": "Korokoro",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Maungaraki", "Alicetown", "Ava", "Petone", "Horokiwi"]
     },
     {
       "id":"81",
       "name": "Manor Park",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Haywards", "Pinehaven", "Stokes Valley", "Pomare"]
     },
     {
       "id":"82",
       "name": "Maungaraki",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Normandale", "Hutt Central", "Alicetown", "Petone", "Korokoro"]
     },
     {
       "id":"83",
       "name": "Melling",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Harbour View", "Boulcott", "Hutt Central", "Alicetown", "Maungaraki", "Normandale"]
     },
     {
       "id":"84",
       "name": "Moera",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Woburn", "Waiwhetū", "Gracefield", "Seaview", "Petone", "Ava"]
     },
     {
       "id":"85",
       "name": "Naenae",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Wingate", "Avalon", "Boulcott", "Epuni"]
     },
     {
       "id":"86",
       "name": "Normandale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Tirohanga", "Harbour View", "Melling", "Alicetown", "Maungaraki"]
     },
     {
       "id":"87",
       "name": "Parkway",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Gracefield", "Glendale", "Wainuiomata", "Arakura"]
     },
     {
       "id":"88",
       "name": "Petone",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Maungaraki", "Alicetown", "Moera", "Seaview", "Horokiwi", "Korokoro"]
     },
     {
       "id":"89",
       "name": "Pomare",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Stokes Valley", "Taitā", "Manor Park"]
     },
     {
       "id":"90",
       "name": "Seaview",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Moera", "Gracefield", "Eastbourne", "Days Bay", "Petone"]
     },
     {
       "id":"91",
       "name": "Stokes Valley",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Pinehaven", "Manor Park", "Pomare", "Taitā"]
     },
     {
       "id":"92",
       "name": "Taitā",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Pomare", "Stokes Valley", "Wingate", "Avalon", "Kelson"]
     },
     {
       "id":"93",
       "name": "Tirohanga",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Harbour View", "Belmont", "Boulcott", "Hutt Central", "Melling" ]
     },
     {
       "id":"94",
       "name": "Wainuiomata",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Glendale", "Arakura", "Parkway", "Gracefield", "Homedale"]
     },
     {
       "id":"95",
       "name": "Waiwhetū",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waterloo", "Gracefield", "Moera", "Woburn"]
     },
     {
       "id":"96",
       "name": "Waterloo",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Epuni", "Fairfield", "Waiwhetū", "Hutt Central", "Woburn"]
     },
     {
       "id":"97",
       "name": "Wingate",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Avalon", "Taitā", "Pomare", "Stokes Valley", "Naenae"]
     },
     {
       "id":"98",
       "name": "Woburn",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waterloo", "Hutt Central", "Waiwhetū", "Moera", "Ava"]
     },
     {
       "id":"99",
       "name": "Birchville",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Brown Owl", "Timberlea", "Te Mārua"]
     },
     {
       "id":"100",
       "name": "Brown Owl",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Timberlea", "Maoribank", "Birchville", "Tōtara Park"]
     },
     {
       "id":"101",
       "name": "Clouston Park",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Ebdentown", "Tōtara Park", "Kingsley Heights", "Maoribank"]
     },
     {
       "id":"102",
       "name": "Ebdentown",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Elderslea", "Upper Hutt Central", "Tōtara Park", "Kingsley Heights", "Clouston Park"]
     },
     {
       "id":"103",
       "name": "Elderslea",
       "region": "Upper Hutt",
-      "neighbours": []
-    },
-    {
-      "id":"104",
-      "name": "Emerald Hill",
-      "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Riverstone Terraces", "Wallaceville", "Upper Hutt Central", "Ebdentown"]
     },
     {
       "id":"105",
       "name": "Heretaunga",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Silverstream", "Trentham", "Moonshine"]
     },
     {
       "id":"106",
       "name": "Kingsley Heights",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Maidstone", "Mangaroa", "Ebdentown", "Clouston Park"]
     },
     {
       "id":"107",
       "name": "Mangaroa",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Whitemans Valley", "Maymorn", "Clouston Park", "Kingsley Heights", "Wallaceville"]
     },
     {
       "id":"108",
       "name": "Maoribank",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Timberlea", "Brown Owl", "Clouston Park"]
     },
     {
       "id":"109",
       "name": "Maymorn",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Te Mārua", "Timberlea", "Mangaroa"]
     },
     {
       "id":"110",
       "name": "Moonshine",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Pauatahanui", "Haywards", "Riverstone Terraces", "Trentham", "Heretaunga"]
     },
     {
       "id":"111",
@@ -687,13 +681,13 @@
       "id":"115",
       "name": "Te Mārua",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Maymorn", "Timberlea", "Birchville"]
     },
     {
       "id":"116",
       "name": "Timberlea",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": ["Maymorn", "Brown Owl", "Maoribank", "Birchville"]
     },
     {
       "id":"117",
