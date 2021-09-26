@@ -14,6 +14,7 @@ import Login from './Login'
 import Logout from './Logout'
 import MakeRequest from './MakeRequest'
 import MakeProfile from './MakeProfile'
+import Profile from './Profile'
 
 const App = (props) => {
   const { dispatch } = props
@@ -43,6 +44,7 @@ const App = (props) => {
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />
+        <Route exact path='/profile' component={Profile} />
       </Router>
       {/* </Box> */}
     </>
