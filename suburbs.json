@@ -3,13 +3,13 @@
       "id":"1",
       "name": "Aro Valley",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Kelburn", "Te Aro", "Brooklyn", "Highbury", "Northland"]
     },
     {
       "id":"2",
       "name": "Berhampore",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Vogeltown", "Newtown", "Melrose", "Southgate", "Island Bay", "Happy Valley", "Kingston", "Mornington"]
     },
     {
       "id":"3",
@@ -21,25 +21,25 @@
       "id":"4",
       "name": "Broadmeadows",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Newlands", "Ngauranga", "Khandallah", "Mount Kaukau"]
     },
     {
       "id":"5",
       "name": "Brooklyn",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Aro Valley", "Mount Cook", "Vogeltown", "Mornington", "Kingston", "Owhiro Bay", "Karori"]
     },
     {
       "id":"6",
       "name": "Churton Park",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Redwood", "Tawa", "Grenada Village", "Johnsonville", "Ohariu"]
     },
     {
       "id":"7",
       "name": "Crofton Downs",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Mount Kaukau", "Ngaio", "Kaiwharawhara", "Wilton"]
     },
     {
       "id":"8",
@@ -51,31 +51,31 @@
       "id":"9",
       "name": "Glenside",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Tawa", "Grenada", "Horokiwi", "Johnsonville", "Ohariu"]
     },
     {
       "id":"10",
       "name": "Grenada North",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Takapu Valley", "Horokiwi", "Grenada", "Glenside", "Tawa"]
     },
     {
       "id":"11",
       "name": "Grenada",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Grenada North", "Horokiwi", "Paparangi", "Glenside", "Redwood"]
     },
     {
       "id":"12",
       "name": "Happy Valley",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Kingston", "Brooklyn", "Island Bay", "Owhiro Bay", "South Coast"]
     },
     {
       "id":"13",
       "name": "Hataitai",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Oriental Bay", "Roseneath", "Evans Bay", "Kilbirnie", "Newtown", "Mount Cook", "Mount Victoria"]
     },
     {
       "id":"14",
@@ -87,289 +87,289 @@
       "id":"15",
       "name": "Horokiwi",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Takapu Valley", "Petone", "Grenada North", "Woodridge", "Newlands"]
     },
     {
       "id":"16",
       "name": "Houghton Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Melrose", "Island Bay", "Southgate"]
     },
     {
       "id":"17",
       "name": "Island Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Berhampore", "Melrose", "Southgate", "Houghton Bay", "Owhiro Bay", "Kingston", "Mornington"]
     },
     {
       "id":"18",
       "name": "Johnsonville",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Churton Park", "Paparangi", "Johnsonville", "Porirua", "Newlands", "Ngauranga", "Broadmeadows", "Khandallah", "Mount Kaukau", "Ohariu Valley"]
     },
     {
       "id":"19",
       "name": "Kaiwharawhara",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Pipitea", "Wadestown", "Ngaio"]
     },
     {
       "id":"20",
       "name": "Karaka Bays",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Maupuia", "Worser Bay", "Miramar"]
     },
     {
       "id":"21",
       "name": "Karori",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Makara", "Wilton", "Northland", "Highbury"]
     },
     {
       "id":"22",
       "name": "Kelburn",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Thorndon", "Wellington Central", "Aro Valley", "Highbury", "Karori", "Northland"]
     },
     {
       "id":"23",
       "name": "Khandallah",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Broadmeadows", "Ngauranga", "Kaiwharawhara", "Ngaio"]
     },
     {
       "id":"24",
       "name": "Kilbirnie",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Evans Bay", "Rongotai", "Lyall Bay", "Melrose", "Hataitai"]
     },
     {
       "id":"25",
       "name": "Kingston",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Berhampore", "Brooklyn", "Mornington", "Melrose", "Happy Valley"]
     },
     {
       "id":"26",
       "name": "Linden",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Porirua", "Cannons Creek", "Ranui Heights", "Takapu Valley", "Grenada North", "Tawa", "Churton Park", "Glenside", "Elsdon"]
     },
     {
       "id":"27",
       "name": "Lyall Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Kilbirnie", "Rongotai", "Moa Point", "Melrose"]
     },
     {
       "id":"28",
       "name": "Mākara",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Makara Beach", "Ohariu", "Karori", "Ohariu Valley"]
     },
     {
       "id":"29",
       "name": "Mākara Beach",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Makara", "Ohariu Valley", "Ohariu"]
     },
     {
       "id":"30",
       "name": "Maupuia",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Seatoun", "Miramar", "Evans Bay"]
     },
     {
       "id":"31",
       "name": "Melrose",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Newtown", "Kilbirnie", "Rongotai", "Lyall Bay", "Island Bay", "Southgate", "Berhampore"]
     },
     {
       "id":"32",
       "name": "Miramar",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Maupuia", "Karaka Bay", "Worser Bay", "Seatoun", "Strathmore Park", "Rongotai", "Kilbirnie"]
     },
     {
       "id":"33",
       "name": "Mornington",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Brooklyn", "Vogeltown", "Newtown", "Berhampore", "Kingston", "Kowhai Park"]
     },
     {
       "id":"34",
       "name": "Mount Cook",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Te Aro", "Mount Victoria", "Hataitai", "Newtown", "Brooklyn", "Aro Valley"]
     },
     {
       "id":"35",
       "name": "Mount Victoria",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Oriental Bay", "Roseneath", "Hataitai", "Newtown", "Mount Cook", "Te Aro"]
     },
     {
       "id":"36",
       "name": "Newlands",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Paparangi", "Woodridge", "Grenada", "Horokiwi", "Ngauranga", "Johnsonville"]
     },
     {
       "id":"37",
       "name": "Newtown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Mount Cook", "Hataitai", "Vogeltown", "Evans Bay", "Berhampore", "Kilbirnie", "Melrose"]
     },
     {
       "id":"38",
       "name": "Ngaio",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Crofton Downs", "Khandallah", "Kaiwharawhara", "Wadestown"]
     },
     {
       "id":"39",
       "name": "Ngauranga",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Broadmeadows", "Johnsonville", "Newlands", "Kaiwharawhara", "Khandallah"]
     },
     {
       "id":"40",
       "name": "Northland",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wilton", "Wadestown", "Thorndon", "Kelburn", "Highbury", "Karori"]
     },
     {
       "id":"41",
       "name": "Ohariu",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Glenside", "Tawa", "Makara Beach", "Colonial Knob", "Kenepuru"]
     },
     {
       "id":"42",
       "name": "Oriental Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Mount Victoria", "Wellington Central", "Roseneath", "Te Aro"]
     },
     {
       "id":"43",
       "name": "Ōwhiro Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Brooklyn", "Kingston", "Island Bay", "Makara"]
     },
     {
       "id":"44",
       "name": "Paparangi",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Johnsonville", "Glenside", "Grenada", "Woodridge", "Newlands"]
     },
     {
       "id":"45",
       "name": "Pipitea",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Kaiwharawhara", "Wellington Central", "Thorndon", "Wadestown"]
     },
     {
       "id":"46",
       "name": "Redwood",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Tawa", "Churton Park", "Grenada North"]
     },
     {
       "id":"47",
       "name": "Rongotai",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Evans Bay", "Maupuia", "Miramar", "Kilbirnie", "Lyall Bay"]
     },
     {
       "id":"48",
       "name": "Roseneath",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wellington Central", "Oriental Bay", "Mount Victoria", "Hataitai", "Evans Bay"]
     },
     {
       "id":"49",
       "name": "Seatoun",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Worser Bay", "Breaker Bay", "Strathmore Park"]
     },
     {
       "id":"50",
       "name": "Shelly Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Maupuia", "Miramar"]
     },
     {
       "id":"51",
       "name": "Southgate",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Berhampore", "Newtown", "Melrose", "Island Bay", "Houghton Bay"]
     },
     {
       "id":"52",
       "name": "Strathmore Park",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Rongotai", "Breaker Bay", "Moa Point"]
     },
     {
       "id":"53",
       "name": "Takapu Valley",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Ranui Heights", "Cannons Creek", "Belmont", "Tawa", "Grenada North", "Horokiwi"]
     },
     {
       "id":"54",
       "name": "Tawa",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Porirua", "Linden", "Ohariu", "Churton Park", "Redwood"]
     },
     {
       "id":"55",
       "name": "Te Aro",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wellington Central", "Kelburn", "Aro Valley", "Oriental Bay", "Mount Victoria", "Mount Cook", "Kelburn"]
     },
     {
       "id":"56",
       "name": "Thorndon",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Wadestown", "Pipitea", "Kelburn", "Wellington Central", "Wilton", "Northland"]
     },
     {
       "id":"57",
       "name": "Vogeltown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Brooklyn", "Mount Cook", "Newtown", "Berhampore", "Mornington", "Kowhai Park"]
     },
     {
       "id":"58",
       "name": "Wadestown",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Ngaio", "Kaiwharawhara", "Thorndon", "Wilton", "Crofton Downs"]
     },
     {
       "id":"59",
       "name": "Wellington Central",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Pipitea", "Te Aro", "Kelburn", "Thorndon"]
     },
     {
       "id":"60",
       "name": "Wilton",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Crofton Downs", "Wadestown", "Thorndon", "Karori"]
     },
     {
       "id":"61",
       "name": "Woodridge",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Grenada", "Horokiwi", "Paparangi", "Glenside", "Newlands"]
     },
     {
       "id":"62",
       "name": "Worser Bay",
       "region": "Wellington",
-      "neighbours": []
+      "neighbours": ["Miramar", "Karaka Bay", "Seatoun Heights", "Seatoun"]
     },
     {
       "id":"63",
@@ -435,289 +435,289 @@
       "id":"73",
       "name": "Glendale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Arakura", "Homedale", "Wainuiomata", "Parkway"]
     },
     {
       "id":"74",
       "name": "Gracefield",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waiwhetū", "Wainuiomata", "Seaview", "Woburn", "Moera"]
     },
     {
       "id":"75",
       "name": "Harbour View",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Tirohanga", "Melling", "Hutt Central", "Normandale"]
     },
     {
       "id":"76",
       "name": "Haywards",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Judgeford", "Heretaunga", "Silverstream", "Manor Park", "Kelson"]
     },
     {
       "id":"77",
       "name": "Homedale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Glendale", "Eastbourne", "Wainuiomata"]
     },
     {
       "id":"78",
       "name": "Hutt Central",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Boulcott", "Epuni", "Fairfield", "Waterloo", "Woburn", "Alicetown", "Melling", "Harbour View"]
     },
     {
       "id":"79",
       "name": "Kelson",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Haywards", "Manor Park", "Taitā", "Avalon", "Belmont"]
     },
     {
       "id":"80",
       "name": "Korokoro",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Maungaraki", "Alicetown", "Ava", "Petone", "Horokiwi"]
     },
     {
       "id":"81",
       "name": "Manor Park",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Haywards", "Pinehaven", "Stokes Valley", "Pomare"]
     },
     {
       "id":"82",
       "name": "Maungaraki",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Normandale", "Hutt Central", "Alicetown", "Petone", "Korokoro"]
     },
     {
       "id":"83",
       "name": "Melling",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Harbour View", "Boulcott", "Hutt Central", "Alicetown", "Maungaraki", "Normandale"]
     },
     {
       "id":"84",
       "name": "Moera",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Woburn", "Waiwhetū", "Gracefield", "Seaview", "Petone", "Ava"]
     },
     {
       "id":"85",
       "name": "Naenae",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Wingate", "Avalon", "Boulcott", "Epuni"]
     },
     {
       "id":"86",
       "name": "Normandale",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Tirohanga", "Harbour View", "Melling", "Alicetown", "Maungaraki"]
     },
     {
       "id":"87",
       "name": "Parkway",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Gracefield", "Glendale", "Wainuiomata", "Arakura"]
     },
     {
       "id":"88",
       "name": "Petone",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Maungaraki", "Alicetown", "Moera", "Seaview", "Horokiwi", "Korokoro"]
     },
     {
       "id":"89",
       "name": "Pomare",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Stokes Valley", "Taitā", "Manor Park"]
     },
     {
       "id":"90",
       "name": "Seaview",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Moera", "Gracefield", "Eastbourne", "Days Bay", "Petone"]
     },
     {
       "id":"91",
       "name": "Stokes Valley",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Pinehaven", "Manor Park", "Pomare", "Taitā"]
     },
     {
       "id":"92",
       "name": "Taitā",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Pomare", "Stokes Valley", "Wingate", "Avalon", "Kelson"]
     },
     {
       "id":"93",
       "name": "Tirohanga",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Harbour View", "Belmont", "Boulcott", "Hutt Central", "Melling" ]
     },
     {
       "id":"94",
       "name": "Wainuiomata",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Glendale", "Arakura", "Parkway", "Gracefield", "Homedale"]
     },
     {
       "id":"95",
       "name": "Waiwhetū",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waterloo", "Gracefield", "Moera", "Woburn"]
     },
     {
       "id":"96",
       "name": "Waterloo",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Epuni", "Fairfield", "Waiwhetū", "Hutt Central", "Woburn"]
     },
     {
       "id":"97",
       "name": "Wingate",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Avalon", "Taitā", "Pomare", "Stokes Valley", "Naenae"]
     },
     {
       "id":"98",
       "name": "Woburn",
       "region": "Lower Hutt",
-      "neighbours": []
+      "neighbours": ["Waterloo", "Hutt Central", "Waiwhetū", "Moera", "Ava"]
     },
     {
       "id":"99",
       "name": "Birchville",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [104, 117, 100, 116]
     },
     {
       "id":"100",
       "name": "Brown Owl",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [116, 99, 104, 115, 108, 117, 101]
     },
     {
       "id":"101",
       "name": "Clouston Park",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [102, 117, 108]
     },
     {
       "id":"102",
       "name": "Ebdentown",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [103, 101, 117, 106, 119]
     },
     {
       "id":"103",
       "name": "Elderslea",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [120, 119, 102]
     },
     {
       "id":"104",
       "name": "Emerald Hill",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [99, 115, 116, 100]
     },
     {
       "id":"105",
       "name": "Heretaunga",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [118, 114]
     },
     {
       "id":"106",
       "name": "Kingsley Heights",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [119, 102, 101]
     },
     {
       "id":"107",
       "name": "Mangaroa",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [108]
     },
     {
       "id":"108",
       "name": "Maoribank",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [106, 101, 117, 100, 116, 107]
     },
     {
       "id":"109",
       "name": "Maymorn",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [107, 115]
     },
     {
       "id":"110",
       "name": "Moonshine",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [113]
     },
     {
       "id":"111",
       "name": "Parkdale",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [104, 99, 115, 116, 100]
     },
     {
       "id":"112",
       "name": "Pinehaven",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [114]
     },
     {
       "id":"113",
       "name": "Riverstone Terraces",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [110]
     },
     {
       "id":"114",
       "name": "Silverstream",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [105, 112]
     },
     {
       "id":"115",
       "name": "Te Mārua",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [104, 109]
     },
     {
       "id":"116",
       "name": "Timberlea",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [108, 100, 104]
     },
     {
       "id":"117",
       "name": "Tōtara Park",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [101, 102]
     },
     {
       "id":"118",
       "name": "Trentham",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [120, 105]
     },
     {
       "id":"119",
       "name": "Upper Hutt Central",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [106, 120, 103, 102, 101]
     },
     {
       "id":"120",
       "name": "Wallaceville",
       "region": "Upper Hutt",
-      "neighbours": []
+      "neighbours": [118, 103, 119]
     },
     {
       "id":"121",
@@ -729,150 +729,144 @@
       "id":"122",
       "name": "Aotea",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [135, 123, 144, 125, 141, 139]
     },
     {
       "id":"123",
       "name": "Ascot Park",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [122, 135, 136, 144, 145]
     },
     {
       "id":"124",
       "name": "Camborne",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [140, 138, 131]
     },
     {
       "id":"125",
       "name": "Cannons Creek",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [67, 142, 141, 144]
     },
     {
       "id":"126",
       "name": "Elsdon",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [130, 139, 142]
     },
     {
       "id":"127",
       "name": "Hongoeka",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [140, 138]
     },
     {
       "id":"128",
       "name": "Judgeford",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [145, 137]
     },
     {
       "id":"129",
       "name": "Karehana Bay",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [138, 127]
     },
     {
       "id":"130",
       "name": "Kenepuru",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [126, 139, 141]
     },
     {
       "id":"131",
       "name": "Mana",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [136, 124]
     },
     {
       "id":"132",
       "name": "Moonshine Valley",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [113]
     },
     {
       "id":"133",
       "name": "Onepoto",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [142, 143]
     },
     {
       "id":"134",
       "name": "Paekākāriki Hill",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [137, 138]
     },
     {
       "id":"135",
       "name": "Papakōwhai",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [123, 122, 136]
     },
     {
       "id":"136",
       "name": "Paremata",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [135, 123, 145, 124]
     },
     {
       "id":"137",
       "name": "Pāuatahanui",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [145, 128]
     },
     {
       "id":"138",
       "name": "Plimmerton",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [140, 127, 131, 124, 134]
     },
     {
       "id":"139",
       "name": "Porirua Central",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [122, 125, 141, 130, 126, 142]
     },
     {
       "id":"140",
       "name": "Pukerua Bay",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [138, 134]
     },
     {
       "id":"141",
       "name": "Rānui",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [122, 125, 142, 139]
     },
     {
       "id":"142",
       "name": "Takapūwāhia",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [143, 139, 126]
     },
     {
       "id":"143",
       "name": "Tītahi Bay",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [133, 142]
     },
     {
       "id":"144",
       "name": "Waitangirua",
       "region": "Porirua",
-      "neighbours": []
+      "neighbours": [123, 125]
     },
     {
       "id":"145",
       "name": "Whitby",
       "region": "Porirua",
-      "neighbours": []
-    },
-    {
-      "id":"146",
-      "name": "Whitby",
-      "region": "Porirua",
-      "neighbours": []
+      "neighbours": [[136, 123, 137]]
     }
 ]
