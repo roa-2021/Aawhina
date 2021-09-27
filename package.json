@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node server",
     "build": "run-p build:client build:server",
-    "build:client": "npm run webpack -- --mode production",
+    "build:client": "npm run webpack -- --mode develop",
     "build:server": "npm run knex -- migrate:latest",
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
