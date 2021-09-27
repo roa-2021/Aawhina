@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import Container from '@mui/material/Container'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import Container from '@mui/material/Container'
-import { useAuth0 } from '@auth0/auth0-react'
-import Welcome from './Welcome'
-import Requests from './Requests'
 import Offers from './Offers'
+import Requests from './Requests'
+// import Welcome from './Welcome'
 
-
-
-function Dashboard({dispatch, users}) {
+function Dashboard({ users, currentUser }) {
   
   const { user, isAuthenticated, isLoading } = useAuth0()
-  const [currentUser, setCurrentUser] = useState({})
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
+  let history = useHistory()
 
-  useEffect(() => {
-    const thisUser = users.find(u => u.email === user.email)
-    setCurrentUser(thisUser)
-  }, [user])
-  
   const toggleOffers = () => {
     setOffers(true)
   }
@@ -30,7 +24,7 @@ function Dashboard({dispatch, users}) {
     setOffers(false)
   }
 
-  const handleChange = (event, newAlignment) => {
+  const handleChange = (newAlignment) => {
     setAlignment(newAlignment)
   }
 
@@ -57,23 +51,22 @@ function Dashboard({dispatch, users}) {
           </ToggleButtonGroup>
         </Container>
         {offers
-          ? <Offers currentUser={currentUser}/>
-          : <Requests currentUser={currentUser} />
+          ? <Offers />
+          : <Requests currentUser={currentUser}/>
         }
       </>
     )
-  }
-  return (
-    < Welcome />
-  )
+  } return (history.push('/'))
 }
+
 
 
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
     requests: globalState.requests,
-    users: globalState.users
+    users: globalState.users,
+    currentUser: globalState.currentUser
     }
   }
 
