@@ -1,7 +1,7 @@
-const path = require('path')
+// const path = require('path')
 
-const envPath = path.join(__dirname, '.env')
-require('dotenv').config({ path: envPath })
+// const envPath = path.join(__dirname, '.env')
+// require('dotenv').config({ path: envPath })
 
 const server = require('./server')
 
