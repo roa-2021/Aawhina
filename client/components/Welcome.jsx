@@ -16,6 +16,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { getUser } from '../apis/users_api'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
+import LaunchData from './LaunchData'
 
 
 
@@ -52,25 +53,25 @@ const itemData = [
   },
 ]
 
-function Welcome (props) {
+function Welcome ({currentUser}) {
   const { user, isAuthenticated, isLoading } = useAuth0();
   
-  const [profileExists, setprofileExists] = React.useState(false)
+  // const [profileExists, setprofileExists] = React.useState(false)
 
-  const checkProfile = (user) => {
-    getUser(user.email)
-    .then ((user) => {
-      if (user) {
-        setprofileExists(true)
-      }
-    })
-  }
+  // const checkProfile = (user) => {
+  //   getUser(user.email)
+  //   .then ((user) => {
+  //     if (user) {
+  //       setprofileExists(true)
+  //     }
+  //   })
+  // }
 
   if (isAuthenticated) {
-    checkProfile(user)
+    // checkProfile(user)
     return (
       <>
-     {profileExists ? < Dashboard user={user}/> : <MakeProfile user={user}/> }
+     {currentUser ? < Dashboard user={currentUser}/> : <MakeProfile user={user}/> }
     </>
     )
   }
@@ -79,6 +80,7 @@ function Welcome (props) {
   return (
 
    <>
+     <LaunchData />
       <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
         <Typography  component='h1' variant='h3'>Welcome to Āwhina!</Typography>
       </Stack>
@@ -112,5 +114,15 @@ function Welcome (props) {
 
 }
 
-export default connect()(Welcome)
+function mapState2Props (globalState) {
+  return {
+    offers: globalState.offers,
+    requests: globalState.requests,
+    users: globalState.users,
+    currentUser: globalState.currentUser
+    }
+  }
+
+
+export default connect(mapState2Props)(Welcome)
 

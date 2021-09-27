@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { useAuth0 } from '@auth0/auth0-react'
-
+import {setCurrentUserThunk} from '../actions/currentUser'
 import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
 import { getSuburbs} from '../apis/suburb_api'
@@ -112,6 +112,7 @@ function MakeProfile (props) {
 
      }  
      dispatch(postUserThunk(newUser)) 
+    //  dispatch(setCurrentUserThunk(user))
      history.push('/') 
     
      
