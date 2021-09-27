@@ -12,8 +12,7 @@ const Logout = () => {
     <Link
       // size='large' 
       // variant='contained' 
-      style={{ background: '#91A6FF' }}
-      color="#91A6FF"
+      // style={{ background: '#91A6FF' }}
       onClick={() => logout({ returnTo: window.location.origin })}
     >
       Log Out

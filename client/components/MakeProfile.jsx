@@ -68,32 +68,32 @@ function MakeProfile (props) {
   
     }  
 
-  // const [image, setImage ] = useState("")
-  // const [ url, setUrl ] = useState("")
+  const [image, setImage ] = useState("")
+  const [ url, setUrl ] = useState("")
 
 
-  // const uploadImage = () => {
-  //   const data = new FormData()
-  //   data.append("file", image)
-  //   data.append("upload_preset", "refb93xz")
-  //   data.append("cloud_name","dvctkzwbh")
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "refb93xz")
+    data.append("cloud_name","dvctkzwbh")
 
-  //   fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
-  //     method:"post",
-  //     body: data})
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       setUrl(data.url)
-  //     })
-  //     .catch(err => console.log(err))
-    
-  //   }
+    fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
+      method:"post",
+      body: data})
+      .then(resp => resp.json())
+      .then(data => {
+        setUrl(data.url)
+        alert('Image Uploaded')
+      })
+      .catch(err => console.log(err))
+    }
 
-  //   const Input = styled('input')({
-  //     display: 'none',
-  //   })
+    const Input = styled('input')({
+      display: 'none',
+    })
 
-  let history = useHistory()
+  // let history = useHistory()
 
   const handleSubmit = (e) => {
      e.preventDefault()
@@ -104,23 +104,22 @@ function MakeProfile (props) {
        suburb_id: newSuburb,
        bio: values.bio,
        gender: gender, 
+       image: url
 
      }  
-
      console.log(newUser)
      console.log(newSuburb)
-      dispatch(postUserThunk(newUser)) 
-      history.push('/') 
+      // dispatch(postUserThunk(newUser)) 
+      // history.push('/') 
     
     
     
-    //  uploadImage()
   }  
 
   const { first, last, bio} = values
 
   return (
-    <>
+  
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
@@ -128,83 +127,83 @@ function MakeProfile (props) {
       
           <Grid container spacing={2} >
 
-          <Grid item xs={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'First Name' name='first' value={first} onChange={handleChange}/>
-          </Grid>
-          <Grid item xs={6}>
-            <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
-          </Grid>
-       
-          <Grid item xs={6}>
+            <Grid item xs={6}>
+              <TextField required fullWidth id = 'outlined-required' label = 'First Name' name='first' value={first} onChange={handleChange}/>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
+            </Grid>
 
-          <InputLabel>Suburb</InputLabel>
-          <Select
-            defaultValue=''
-            onChange={handleSuburb}
-            value={newSuburb}
-            sx={{ width: '21ch' }}
-            label='Suburb'>
-             
+            <Grid item xs={14}>
+              <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+              <Button variant="outlined" onClick={uploadImage}>Upload</Button> 
+            </Grid>
 
-            <ListSubHeader>Wellington</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-            <ListSubHeader>Lower Hutt</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Lower Hutt').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-
-
-            <ListSubHeader>Upper Hutt</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Upper Hutt').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-
-            <ListSubHeader>Porirua</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Porirua').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-
-          </Select>
-          </Grid>
-          <Grid item xs={6}>
-          <InputLabel>Gender</InputLabel>
-            <Select
-              label='Gender'
-              value={gender}
-              onChange={handleGender}
-              sx={{ width: '21ch' }}>
-              <MenuItem value='female'>Female</MenuItem>
-              <MenuItem value='male'>Male</MenuItem>
-              <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
-              <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
-            </Select>
+            <Grid item xs={12}>
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
+            </Grid>
         
+            <Grid item xs={6}>
+
+            <InputLabel>Suburb</InputLabel>
+            <Select
+              defaultValue=''
+              onChange={handleSuburb}
+              value={newSuburb}
+              sx={{ width: '21ch' }}
+              label='Suburb'>
+              
+
+              <ListSubHeader>Wellington</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+              <ListSubHeader>Lower Hutt</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Lower Hutt').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+
+              <ListSubHeader>Upper Hutt</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Upper Hutt').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+              <ListSubHeader>Porirua</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Porirua').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+            </Select>
+            </Grid>
+
+            <Grid item xs={6}>
+            <InputLabel>Gender</InputLabel>
+              <Select
+                label='Gender'
+                value={gender}
+                onChange={handleGender}
+                sx={{ width: '21ch' }}>
+                <MenuItem value='female'>Female</MenuItem>
+                <MenuItem value='male'>Male</MenuItem>
+                <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
+                <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
+              </Select>
+            </Grid>
+      
+            <Grid item xs={12}>
+              <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
+            </Grid>
+
+            <Grid item xs={5} style={{textAlign: "center"}}>
+              <Button variant="outlined" onClick={handleSubmit}>Create profile</Button>
+            </Grid>
+
           </Grid>
-  
-        <Grid item xs={12}>
-          <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
-        </Grid>
-        <Grid>
-
-        {/* <input type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-          <button onClick={uploadImage}>Upload</button> 
-          <img src={url}/> */}
-
-        </Grid>
-
-          <div>
-          <Button onClick={handleSubmit}>Create profile</Button>
-          </div>
-        </Grid>
         </Box>
-        </Box>
-        </Container>
-      </>
+      </Box>
+    </Container>
+    
   )
 }
 
