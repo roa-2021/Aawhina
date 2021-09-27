@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,46 +21,61 @@ import Logout from './Logout'
 
 
 function Nav() {
+  const [auth, setAuth] = useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked)
+  }
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const logout = () => {
+    <Logout/>
+  }
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Box 
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          > */}
+  
+
           <Link href='/dashboard'>
             Āwhina
           </Link>
-          {/* </Box> */}
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Logout/>
 
-             <IconButton variant="contained" size="small" href="/requests">View Requests </IconButton>
-    
-             <IconButton variant="contained" size="small" href="/dashboard">Dashboard </IconButton>
+             <AccountCircle onClick={handleMenu}/>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <Link href='/dashboard'><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
+                <Link href='/dashboard'><MenuItem>My Profile</MenuItem></Link>
+                {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
+                <MenuItem><Logout/></MenuItem>
+
+
+              </Menu>
           </Box>
 
         </Toolbar>
