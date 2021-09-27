@@ -36,7 +36,7 @@ import Stack from '@mui/material/Stack';
 // })
 
 function Profile (props)  {
-  const { dispatch } = props
+  const { dispatch, currentUser } = props
 
   const [values, setValues] = useState({
     first: '',
@@ -44,6 +44,7 @@ function Profile (props)  {
     email: '',
     bio: '',
   })
+  console.log(currentUser)
 
   useEffect(() => {
     getSuburbs()
@@ -108,7 +109,7 @@ function Profile (props)  {
           <Grid item sx={{ mt: 7}}>
           <Avatar
               alt="Profile picture"
-              src="/images/avatar.jpeg"
+              src="https://res.cloudinary.com/dvctkzwbh/image/upload/v1632733287/hhwdbjgwxwj0jeuuhhuu.png"
               border= "1px solid"
               sx={{ width: 110, height: 110 }}
               />
@@ -286,6 +287,15 @@ function Profile (props)  {
 
 
   )}
+
+  function mapState2Props (globalState) {
+    console.log(globalState.users)
+    return {
+      currentUser: globalState.currentUser
+      
+
+    }  
+  }
   
 
-  export default connect()(Profile) 
+  export default connect(mapState2Props)(Profile) 
