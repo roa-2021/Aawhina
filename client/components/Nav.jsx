@@ -16,11 +16,20 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { connect } from 'react-redux';
 import  Link  from '@mui/material/Link'
+import { createTheme } from '@mui/material/styles'
+import { purple } from '@mui/material/colors'
 
 import Logout from './Logout'
 
 
 function Nav() {
+
+
+  // const useStyles = makeStyles({
+  //   logo: {
+  //     maxWidth: 160,
+  //   }
+  // })
   const [auth, setAuth] = useState(true)
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -41,15 +50,17 @@ function Nav() {
   }
 
 
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-  
 
+      <AppBar position="static" style={{ background: '#91A6FF' }}  >
+        <Toolbar>
+          {/* <Box sx={{ width: 30, height: 30}}>  */}
           <Link href='/dashboard'>
-            Āwhina
+          <img sx={{ width: 3, height: 3}} src='images/logofull.png' alt="logo" className='image' />
           </Link>
+          {/* </Box> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
