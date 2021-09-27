@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import { connect } from 'react-redux'
-import Requests from './Requests';
 import RequestCard from './RequestCard';
 
 function Offers ({ currentUser, offers, requests }) {
@@ -43,7 +42,7 @@ function Offers ({ currentUser, offers, requests }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} />)}
+            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} key={offer.id} />)}
             <Grid 
               item
               mt={2}
