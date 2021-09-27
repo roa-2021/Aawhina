@@ -41,6 +41,7 @@ npm run dev
 - [X] As a offerer I want to be able to offer help for a particular job
 - [ ] As a offerer I want to be able to send my details to a requester i have offered to help
 - [ ] As an offerer I want to be able to rescind my offer for help
+- [X] As an offerer I want to be able to view requests
 - [ ] As an offerer I want to be able to view requests in my area
 - [ ] As a requester I want to be able to specify when I need a job completed (by)
 - [ ] As a requester I want to be able to view any offers on my requests
