@@ -47,6 +47,7 @@ function MakeProfile (props) {
     getSuburbs()
     .then(res => setSuburbs(res)
     )
+  
   },[])
   
   const [newSuburb, setSuburb] = useState(0)
@@ -91,7 +92,6 @@ function MakeProfile (props) {
       })
       .catch(err => console.log(err))
     }
-
     const Input = styled('input')({
       display: 'none',
     })
@@ -109,16 +109,12 @@ function MakeProfile (props) {
        gender: gender, 
        spoken_languages: values.language,
        image: url
-
      }  
      dispatch(postUserThunk(newUser)) 
-    //  dispatch(setCurrentUserThunk(user))
+     dispatch(setCurrentUserThunk(user.email))
      history.push('/dashboard') 
-    
-     
     }  
-    // console.log(newUser)
-    //  console.log(newSuburb)
+
 
   const { first, last, language, bio } = values
 
@@ -225,19 +221,6 @@ function mapState2Props (globalState) {
 }
 
 export default connect(mapState2Props)(MakeProfile)
-
-// upload preset name refb93xz
-
-
-
-// <Select
-// label='Suburb'
-// value={newSuburb}
-// onChange={handleSuburb}
-// sx={{ width: '21ch' }}>
-//   {theSuburbs && theSuburbs.map(s => (
-// <MenuItem value={s.id}>{s.name}</MenuItem>
-//   ))}
 
 
 

@@ -71,6 +71,7 @@ function Welcome ({currentUser}) {
     // checkProfile(user)
     return (
       <>
+      <LaunchData />
      {currentUser ? < Dashboard user={currentUser}/> : <MakeProfile user={user}/> }
     </>
     )
