@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
+import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
+import { useHistory } from 'react-router-dom'
+import { getSuburbs} from '../apis/suburb_api'
 
 import { autocompleteClasses } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
@@ -13,6 +16,8 @@ import FormControl from '@mui/material/FormControl'
 import { grey } from '@mui/material/colors';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
+import ListSubHeader from '@mui/material/ListSubheader'
+
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField'
@@ -40,9 +45,16 @@ function Profile (props)  {
     bio: '',
   })
 
-  const [suburb, setSuburb] = useState('')
+  useEffect(() => {
+    getSuburbs()
+    .then(res => setSuburbs(res)
+    )
+  },[])
+
   const [editing, setEditing] = useState(false)
   const [gender, setGender] = useState('')
+  const [newSuburb, setSuburb] = useState(0)
+  const [theSuburbs, setSuburbs] = useState([])
   
   const handleSuburb = (e) => {
     e.preventDefault()
@@ -74,7 +86,7 @@ function Profile (props)  {
       first_name: values.first,
       last_name: values.last,
       email: user.email,
-     //  suburb_id: suburb,
+      suburb_id: newSuburb,
       bio: values.bio,
       gender: gender, 
 
@@ -138,8 +150,8 @@ function Profile (props)  {
                       onChange={handleChange}
                     />
                 </Box>
-              :<Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="large">
-                  'F.Name'
+              :<Typography sx={{mt: 2, pl:.5}}variant="body2" gutterBottom fontSize="large">
+                  First
                 </Typography>}
 
                 {editing?
@@ -161,8 +173,8 @@ function Profile (props)  {
                       onChange={handleChange}
                     />
                 </Box>
-              :<Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="large">
-                  'L.Name'
+              :<Typography sx={{mt: 2, pl: 1}}variant="body2" gutterBottom fontSize="large">
+                  Last
                 </Typography>}
               </Stack>
 
@@ -188,7 +200,7 @@ function Profile (props)  {
                 </FormControl>
               </Box>
               :<Typography sx={{mt: 0}}variant="body2" gutterBottom fontSize="large">
-                  'Gender'
+                  CurrentGender
                 </Typography>}
               </Stack>
               
@@ -201,17 +213,40 @@ function Profile (props)  {
               <Box>
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel>Suburb</InputLabel>
-              <Select
-                value={suburb}
-                label='Suburb'
-                onChange={handleSuburb}
-                sx={{ width: '21ch' }}>
-              <MenuItem >To map over suburb</MenuItem>
-              </Select>
+          <Select
+            defaultValue=''
+            onChange={handleSuburb}
+            value={newSuburb}
+            sx={{ width: '21ch' }}
+            label='Suburb'>
+             
+
+            <ListSubHeader>Wellington</ListSubHeader>
+            {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
+            <MenuItem value={s.id}>{s.name}</MenuItem>
+            ))}
+            <ListSubHeader>Lower Hutt</ListSubHeader>
+            {theSuburbs && theSuburbs.filter(s => s.region === 'Lower Hutt').map(s => (
+            <MenuItem value={s.id}>{s.name}</MenuItem>
+            ))}
+
+
+            <ListSubHeader>Upper Hutt</ListSubHeader>
+            {theSuburbs && theSuburbs.filter(s => s.region === 'Upper Hutt').map(s => (
+            <MenuItem value={s.id}>{s.name}</MenuItem>
+            ))}
+
+            <ListSubHeader>Porirua</ListSubHeader>
+            {theSuburbs && theSuburbs.filter(s => s.region === 'Porirua').map(s => (
+            <MenuItem value={s.id}>{s.name}</MenuItem>
+            ))}
+
+          </Select>
               </FormControl>
               </Box>
+
               :<Typography sx={{mt: 0}}variant="body2" gutterBottom fontSize="large">
-              'Suburb'
+              CurrentSuburb
             </Typography>}
           </Stack>
 
@@ -222,8 +257,8 @@ function Profile (props)  {
               <Typography sx={{pr: 0, mt: 0}}variant="body2" gutterBottom fontSize="large">
                 About Me:
               </Typography>
-              <Typography sx={{pr: 1, mt: 0}}variant="body2" gutterBottom fontSize="large">
-                'bio information goes here'
+              <Typography sx={{pl: .4, mt: 0}}variant="body2" gutterBottom fontSize="large">
+                Current bio information goes here
               </Typography>
               </Stack>}
             </Grid>
