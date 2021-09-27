@@ -38,6 +38,7 @@ function MakeProfile (props) {
     last: '',
     email: '',
     bio: '',
+    language: '',
   })  
   
   useEffect(() => {
@@ -93,7 +94,7 @@ function MakeProfile (props) {
       display: 'none',
     })
 
-  // let history = useHistory()
+  let history = useHistory()
 
   const handleSubmit = (e) => {
      e.preventDefault()
@@ -104,19 +105,19 @@ function MakeProfile (props) {
        suburb_id: newSuburb,
        bio: values.bio,
        gender: gender, 
+       spoken_languages: values.language,
        image: url
 
      }  
-     console.log(newUser)
-     console.log(newSuburb)
-      // dispatch(postUserThunk(newUser)) 
-      // history.push('/') 
+     dispatch(postUserThunk(newUser)) 
+     history.push('/') 
     
-    
-    
-  }  
+     
+    }  
+    // console.log(newUser)
+    //  console.log(newSuburb)
 
-  const { first, last, bio} = values
+  const { first, last, language, bio } = values
 
   return (
   
@@ -189,6 +190,10 @@ function MakeProfile (props) {
                 <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
                 <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
               </Select>
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField required fullWidth id = 'outlined-required' label = 'Languages Spoken' name='language' value={language} onChange={handleChange}/>
             </Grid>
       
             <Grid item xs={12}>
