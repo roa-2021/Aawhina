@@ -34,12 +34,11 @@ const App = (props) => {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
-        alignContent: 'flex-start'
+        alignContent: 'flex-start',
+        bgcolor: 'primary'
       }}
       >
       <Router>
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/logout' component={Logout} />
         <Route exact path='/' component={Welcome} />
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
