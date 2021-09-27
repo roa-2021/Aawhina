@@ -4,6 +4,7 @@ const db = require('./connection')
 const getAllUsers = () => {
   return db('users')
 }
+
 const getUserByEmail = (email) => {
   return db('users')
     .select()
@@ -37,6 +38,7 @@ const deleteUser = (id) => {
     .where('id', id)
     .del()
 }
+
 // const userExists = (email) => {
 //   return db('users')
 //     .count('id as n')
