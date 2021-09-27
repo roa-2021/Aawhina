@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
-import { postUserThunk } from '../actions/users'
+import { updateUserThunk } from '../actions/users'
+
 import Nav from './Nav'
 import { useHistory } from 'react-router-dom'
 import { getSuburbs} from '../apis/suburb_api'
@@ -38,12 +39,11 @@ import Stack from '@mui/material/Stack';
 function Profile (props)  {
   const { dispatch, currentUser } = props
 
-  const [values, setValues] = useState({
-    first: '',
-    last: '',
-    email: '',
-    bio: '',
-  })
+  const [values, setValues] = useState({    
+  first: '',
+  last: '',
+  bio: '',
+})  
  
 
   useEffect(() => {
@@ -82,27 +82,29 @@ function Profile (props)  {
 
   }  
 
+  let history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const updatedUser = {
       first_name: values.first,
       last_name: values.last,
-      email: user.email,
       suburb_id: newSuburb,
       bio: values.bio,
       gender: gender, 
 
     }  
-      dispatch(postUserThunk(updatedUser))  
-
+      dispatch(updateUserThunk(updatedUser))  
       // props.history.push('/profile') 
-  }
-
+      
+    }
+    
+    // console.log(updatedUser)
 
   const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
 
 
-  const { first, last, bio} = values
+  const { first, last, bio } = values
   
   return (
 
@@ -148,9 +150,10 @@ function Profile (props)  {
                     <TextField
                       label="First Name"
                       id="standard-size-small"
-                      defaultValue="F.Name"
+                      defaultValue='first name'
                       size="small"
                       variant="standard"
+                      name='first'
                       value={first}
                       onChange={handleChange}
                     />
@@ -174,7 +177,8 @@ function Profile (props)  {
                       // defaultValue={currentUser.last_name}
                       size="small"
                       variant="standard"
-                      // value={last}
+                      name='last'
+                      value={last}
                       onChange={handleChange}
                     />
                 </Box>
@@ -256,7 +260,13 @@ function Profile (props)  {
           </Stack>
 
               {editing?
-              <TextField sx={{ mt: 4 }}  fullWidth id = 'outlined-required' multiline rows={6}  label = 'About me' name='bio' value={bio} onChange={handleChange}/>
+              <TextField sx={{ mt: 4 }}  
+                fullWidth id = 'outlined-required' 
+                multiline rows={6}  
+                label = 'About me' 
+                name='bio' 
+                value={bio} 
+                onChange={handleChange}/>
               :
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
               <Typography sx={{pr: 0, mt: 0}}variant="body2" gutterBottom fontSize="large">

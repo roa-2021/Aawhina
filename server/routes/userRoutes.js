@@ -51,7 +51,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // PUT /api/v1/:id
-router.put('/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
   const id = req.params.id
   const newUser = req.body
   db.editUserProfile(id, newUser)

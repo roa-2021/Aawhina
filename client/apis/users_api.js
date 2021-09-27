@@ -27,7 +27,7 @@ export const deleteUser = (id) => {
 
 export const updateUser = (id, newDetails) => {
   return request
-    .put(`${userUrl}/${id}`)
+    .patch(`${userUrl}/${id}`)
     .send(newDetails)
     .then(res => res.body)
 }
