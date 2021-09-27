@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import Nav from './Nav'
+import Container from '@mui/material/Container'
 import { useAuth0 } from '@auth0/auth0-react'
 import Welcome from './Welcome'
 import Requests from './Requests'
@@ -37,16 +37,25 @@ const handleChange = (event, newAlignment) => {
 if (isAuthenticated) {
 return (
   <>
-    <ToggleButtonGroup 
-      size="large" 
-      color="primary"
-      value={alignment}
-      exclusive
-      onChange={handleChange}
+    <Container
+      maxWidth="md"
+      sx={{
+        mt: 3,
+        display: "flex",
+        justifyContent: "center"
+      }}
     >
-      <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
-      <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
-    </ToggleButtonGroup>
+      <ToggleButtonGroup
+        size="large"
+        color="primary"
+        value={alignment}
+        exclusive
+        onChange={handleChange}
+      >
+        <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
+        <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
+      </ToggleButtonGroup>
+    </Container>
     {offers
       ? <Offers currentUser={currentUser}/>
       : <Requests currentUser={currentUser} />
