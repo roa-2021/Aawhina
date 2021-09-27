@@ -46,7 +46,7 @@ function RequestCard ({ dispatch, request, currentUser }) {
       user_id: currentUser.id,
       notes
     }
-    postOfferThunk(dispatch(newOffer))
+    dispatch(postOfferThunk(newOffer))
     setOpenSubmit(false);
   };
 
