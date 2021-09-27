@@ -32,7 +32,7 @@ function Requests ({ currentUser, requests }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requests && requestsToShow.map(request => <RequestCard key={request.id} request={request} />)}
+            { requests && requestsToShow.map(request => <RequestCard key={request.id} request={request} currentUser={currentUser}/>)}
             <Grid 
               item
               mt={2}

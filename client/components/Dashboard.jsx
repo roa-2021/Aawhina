@@ -11,61 +11,61 @@ import Offers from './Offers'
 
 
 function Dashboard({dispatch, users}) {
-  const { user, isAuthenticated, isLoading } = useAuth0()
-
-
-  useEffect(() => {
-    const thisUser = users.find(u => u.email === user.email)
-    setCurrentUser(thisUser)
-  }, [])
   
+  const { user, isAuthenticated, isLoading } = useAuth0()
   const [currentUser, setCurrentUser] = useState({})
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
 
-const toggleOffers = () => {
-  setOffers(true)
-}
+  useEffect(() => {
+    const thisUser = users.find(u => u.email === user.email)
+    setCurrentUser(thisUser)
+  }, [user])
+  
+  const toggleOffers = () => {
+    setOffers(true)
+  }
 
-const toggleRequests = () => {
-  setOffers(false)
-}
+  const toggleRequests = () => {
+    setOffers(false)
+  }
 
-const handleChange = (event, newAlignment) => {
-  setAlignment(newAlignment);
-};
-if (isAuthenticated) {
-return (
-  <>
-    <Container
-      maxWidth="md"
-      sx={{
-        mt: 3,
-        display: "flex",
-        justifyContent: "center"
-      }}
-    >
-      <ToggleButtonGroup
-        size="large"
-        color="primary"
-        value={alignment}
-        exclusive
-        onChange={handleChange}
-      >
-        <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
-        <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
-      </ToggleButtonGroup>
-    </Container>
-    {offers
-      ? <Offers currentUser={currentUser}/>
-      : <Requests currentUser={currentUser} />
-    }
-  </>
-)
-}
-return (
-  < Welcome />
-)
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment)
+  }
+
+  if (isAuthenticated) {
+    return (
+      <>
+        <Container
+          maxWidth="md"
+          sx={{
+            mt: 3,
+            display: "flex",
+            justifyContent: "center"
+          }}
+        >
+          <ToggleButtonGroup
+            size="large"
+            color="primary"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+          >
+            <ToggleButton value='offers' onClick={toggleOffers}>My Offers</ToggleButton>
+            <ToggleButton value='requests' onClick={toggleRequests}>My Requests</ToggleButton>
+          </ToggleButtonGroup>
+        </Container>
+        {offers
+          ? <Offers currentUser={currentUser}/>
+          : <Requests currentUser={currentUser} />
+        }
+      </>
+    )
+  }
+  return (
+    < Welcome />
+  )
 }
 
 
