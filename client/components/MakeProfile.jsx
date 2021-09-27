@@ -113,7 +113,7 @@ function MakeProfile (props) {
      }  
      dispatch(postUserThunk(newUser)) 
     //  dispatch(setCurrentUserThunk(user))
-     history.push('/') 
+     history.push('/dashboard') 
     
      
     }  
