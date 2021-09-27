@@ -115,11 +115,10 @@ function MakeProfile (props) {
      history.push('/dashboard') 
     }  
 
-
   const { first, last, language, bio } = values
 
   return (
-  
+
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
