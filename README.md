@@ -32,7 +32,7 @@ npm run dev
 ## MVP User Stories:
 
 - [X] As a user I want to be able to register 
-- [] As a user I want to be able to login
+- [ ] As a user I want to be able to login
 - As a user I want to be able to create a profile page
 - As a user I want to be able to view my profile page
 - As a requester I want to be able to list a job I need help with
