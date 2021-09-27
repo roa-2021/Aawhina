@@ -44,7 +44,7 @@ function Profile (props)  {
     email: '',
     bio: '',
   })
-  console.log(currentUser)
+ 
 
   useEffect(() => {
     getSuburbs()
@@ -54,6 +54,7 @@ function Profile (props)  {
 
   const [editing, setEditing] = useState(false)
   const [gender, setGender] = useState('')
+
   const [newSuburb, setSuburb] = useState(0)
   const [theSuburbs, setSuburbs] = useState([])
   
@@ -98,6 +99,9 @@ function Profile (props)  {
   }
 
 
+  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+
+
   const { first, last, bio} = values
   
   return (
@@ -109,7 +113,7 @@ function Profile (props)  {
           <Grid item sx={{ mt: 7}}>
           <Avatar
               alt="Profile picture"
-              src="https://res.cloudinary.com/dvctkzwbh/image/upload/v1632733287/hhwdbjgwxwj0jeuuhhuu.png"
+              src={currentUser.image}
               border= "1px solid"
               sx={{ width: 110, height: 110 }}
               />
@@ -152,7 +156,7 @@ function Profile (props)  {
                     />
                 </Box>
               :<Typography sx={{mt: 2, pl:.5}}variant="body2" gutterBottom fontSize="large">
-                  First
+                  {currentUser.first_name}
                 </Typography>}
 
                 {editing?
@@ -167,15 +171,15 @@ function Profile (props)  {
                     <TextField
                       label="Last Name"
                       id="standard-size-small"
-                      defaultValue="L.Name"
+                      // defaultValue={currentUser.last_name}
                       size="small"
                       variant="standard"
-                      value={last}
+                      // value={last}
                       onChange={handleChange}
                     />
                 </Box>
               :<Typography sx={{mt: 2, pl: 1}}variant="body2" gutterBottom fontSize="large">
-                  Last
+                  {currentUser.last_name}
                 </Typography>}
               </Stack>
 
@@ -201,7 +205,7 @@ function Profile (props)  {
                 </FormControl>
               </Box>
               :<Typography sx={{mt: 0}}variant="body2" gutterBottom fontSize="large">
-                  CurrentGender
+                  {currentUser.gender}
                 </Typography>}
               </Stack>
               
@@ -247,7 +251,7 @@ function Profile (props)  {
               </Box>
 
               :<Typography sx={{mt: 0}}variant="body2" gutterBottom fontSize="large">
-              CurrentSuburb
+              {currentSuburb[0]}
             </Typography>}
           </Stack>
 
@@ -259,7 +263,7 @@ function Profile (props)  {
                 About Me:
               </Typography>
               <Typography sx={{pl: .4, mt: 0}}variant="body2" gutterBottom fontSize="large">
-                Current bio information goes here
+                {currentUser.bio}
               </Typography>
               </Stack>}
             </Grid>
@@ -287,12 +291,10 @@ function Profile (props)  {
 
 
   )}
-
   function mapState2Props (globalState) {
-    console.log(globalState.users)
     return {
-      currentUser: globalState.currentUser
-      
+      currentUser: globalState.currentUser,
+      suburb: globalState.suburb
 
     }  
   }
