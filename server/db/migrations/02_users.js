@@ -4,7 +4,7 @@ exports.up = (knex) => {
     t.string('first_name')
     t.string('last_name')
     t.string('email')
-    t.int('suburb_id')
+    t.int('suburb_id').references('suburb.id')
     t.string('bio')
     t.string('gender')
     t.string('spoken_languages')
