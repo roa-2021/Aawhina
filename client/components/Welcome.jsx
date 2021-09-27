@@ -40,6 +40,7 @@ function Welcome (props) {
 
 
   return (
+
    <>
       <Stack sx={{ pt: 10 }}direction="row" justifyContent="center">
         <Typography  component='h1' variant='h3'>Welcome</Typography>
@@ -53,5 +54,5 @@ function Welcome (props) {
 
 }
 
-export default Welcome
+export default connect()(Welcome)
 

@@ -14,7 +14,8 @@ import Login from './Login'
 import Logout from './Logout'
 import MakeRequest from './MakeRequest'
 import MakeProfile from './MakeProfile'
-import Profile from './Profile'
+import Nav from './Nav'
+import Footer from './Footer'
 
 const App = (props) => {
   const { dispatch } = props
@@ -23,20 +24,19 @@ const App = (props) => {
     dispatch(getOffersThunk())
     dispatch(getRequestsThunk())
     dispatch(getUsersThunk())
-  
   }, [])
   return (
     <>
       <CssBaseline/>
-      {/* <Nav /> */}
-      {/* <Box
+      <Nav />
+      <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '10vh',
+        minHeight: '100vh',
         alignContent: 'flex-start'
       }}
-      > */}
+      >
       <Router>
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
@@ -44,9 +44,10 @@ const App = (props) => {
         <Route exact path='/makeprofile' component={MakeProfile} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />
-        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/requests' component={Requests} />
       </Router>
-      {/* </Box> */}
+      <Footer />
+      </Box>
     </>
   )
 }

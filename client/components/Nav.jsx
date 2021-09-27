@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { connect } from 'react-redux';
+import  Link  from '@mui/material/Link'
 
 import Logout from './Logout'
 
@@ -162,15 +163,17 @@ function Nav() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          {/* <Box 
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
+          > */}
+          <Link href='/dashboard'>
             Āwhina
-          </Typography>
-          <Search>
+          </Link>
+          {/* </Box> */}
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -178,18 +181,11 @@ function Nav() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <Logout/>
+
             <IconButton
               size="large"
               edge="end"
@@ -199,10 +195,29 @@ function Nav() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <Logout/>
-              <AccountCircle />
+
             </IconButton>
+
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              // onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/requests"
+            >
+              View Requests
+            </IconButton>
+
+             <IconButton variant="contained" size="small" href="/requests">View Requests </IconButton>
+    
+             <IconButton variant="contained" size="small" href="/dashboard">Dashboard </IconButton>
           </Box>
+
+         
+
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -220,7 +235,7 @@ function Nav() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
-  );
+  )
 }
 
 export default connect()(Nav)

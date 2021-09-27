@@ -41,47 +41,46 @@ export default function RequestCard ({ request }) {
   const lightTheme = createTheme({ palette: { mode: 'light' } })
 
   return (
-      <Grid item key={request.id}>
-        <Card 
-          variant="outlined" 
-          onClick={handleClickOpen('paper')}
-        >
-          <CardContent>
-            <Typography variant="h6">
-              {`${request.title}`}
-            </Typography>
-            <Typography my={0.5}>
-              {`User ${request.user_id} would like help with ${request.details}`}
-            </Typography>
-            <Stack direction="row" spacing={1}>
-              <Chip
-              label={request.category} 
+    <Grid item>
+      <Card 
+        variant="outlined" 
+        onClick={handleClickOpen('paper')}
+      >
+        <CardContent>
+          <Typography variant="h6">
+            {`${request.title}`}
+          </Typography>
+          <Typography my={0.5}>
+            {`User ${request.user_id} would like help with ${request.details}`}
+          </Typography>
+          <Stack direction="row" spacing={1}>
+            <Chip
+            label={request.category} 
+            variant="outlined" 
+            />
+            <Chip 
+              label={request.suburb_name} 
               variant="outlined" 
-              />
-              <Chip 
-                label={request.suburb_name} 
-                variant="outlined" 
-              />
-            </Stack>
-          </CardContent>
-        </Card>
-      <div>
-        <Dialog
+            />
+          </Stack>
+        </CardContent>
+      </Card>
+      <Dialog
           open={open}
           onClose={handleClose}
           scroll={scroll}
           maxWidth="sm"
-          fullWidth="true"
+          fullWidth={true}
           aria-labelledby="scroll-dialog-title"
           aria-describedby="scroll-dialog-description"
           >
           <DialogTitle id="scroll-dialog-title">{`${request.title}`}</DialogTitle>
           <DialogContent dividers={scroll === 'paper'}>
-            <DialogContentText
+            {/* <DialogContentText
               id="scroll-dialog-description"
               ref={descriptionElementRef}
               tabIndex={-1}
-            > 
+            >  */}
               <Typography variant="body1" >
                 Description
               </Typography>
@@ -104,15 +103,14 @@ export default function RequestCard ({ request }) {
                   variant="outlined" 
                 />
               </Stack>
-              
-            </DialogContentText>
+            //display all offers on request//
+            {/* </DialogContentText> */}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Back</Button>
             <Button onClick={handleClose}>Offer to help</Button>
           </DialogActions>
         </Dialog>
-      </div>
     </Grid>
   )
 }

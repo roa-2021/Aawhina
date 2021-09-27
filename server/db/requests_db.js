@@ -4,9 +4,10 @@ const db = require('./connection')
 async function getAllRequestsAndUsersAndSuburbs () {
   return db('requests')
     .join('users', 'user_id', 'users.id')
-    .join('suburb', 'users.suburb_id', 'suburb.id')
-    .select('*', 'requests.id AS request_id', 'suburb.name AS suburb_name')
+    // .join('suburb', 'users.suburb_id', 'suburb.id')
+    .select('*', 'requests.id AS request_id')
 }
+//, 'suburb.name AS suburb_name'
 
 async function getRequestById (id) {
   return db('requests')

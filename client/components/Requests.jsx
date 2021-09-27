@@ -1,14 +1,16 @@
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import requests from '../../request.json'
 import RequestCard from './RequestCard'
+import Nav from './Nav'
+import Welcome from './Welcome'
+import { useAuth0 } from '@auth0/auth0-react'
 
-function Requests ({ user }) {
-  
-  user = {id: 1, name: "Matt"}
-  
-  const requestsToShow = user ? requests.filter(request => user.id === request.user_id) : requests
+function Requests ({ currentUser, requests }) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isAuthenticated) {
+  const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
 
   return (
     <>
@@ -16,14 +18,12 @@ function Requests ({ user }) {
         component="main"
         maxWidth="md" 
       >
-        { !user && <Box // don't show the text in this box if there's a current user. TODO: Pass that prop from dashboard
-          mt={4}
-        >
-
+       { !currentUser && <Box mt={4} >
           <Typography variant="h5" align="center">
             These neighbours of yours have requested help:
           </Typography>
-        </Box>}
+        </Box>
+        }
         <Box mt={2}>
           <Grid
             container
@@ -32,7 +32,7 @@ function Requests ({ user }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { requestsToShow.map(request => <RequestCard request={request} />)}
+            { requests && requestsToShow.map(request => <RequestCard key={request.id} request={request} />)}
             <Grid 
               item
               mt={2}
@@ -46,20 +46,21 @@ function Requests ({ user }) {
                 size="large"
                 href="/requests/new"
               >
-                Make a request
+                Make a request 
               </Button>
             </Grid>
           </Grid>
         </Box>
       </Container>
     </>)
+  }
+  return (< Welcome />)
 }
 
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
-    requests: globalState.requests,
-    users: globalState.users
+    requests: globalState.requests
   }
 }
 
