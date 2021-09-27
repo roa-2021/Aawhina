@@ -7,7 +7,7 @@ async function getAllRequestsAndUsersAndSuburbs () {
     // .join('suburb', 'users.suburb_id', 'suburb.id')
     .select('requests.*', 'users.first_name', 'users.last_name', 'users.suburb_id', 'users.image')
 }
-//, 'suburb.name AS suburb_name'
+
 
 async function getRequestById (id) {
   return db('requests')
