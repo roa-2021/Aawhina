@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
-
+import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { useAuth0 } from '@auth0/auth0-react'
+
 import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
-import { useHistory } from 'react-router-dom'
 import { getSuburbs} from '../apis/suburb_api'
+
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -12,6 +15,7 @@ import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel';
 import ListSubHeader from '@mui/material/ListSubheader'
 import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/material/styles'
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
@@ -20,9 +24,7 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
-import { styled } from '@mui/material/styles'
 
-import { useAuth0 } from '@auth0/auth0-react'
 
 
 function MakeProfile (props) {
