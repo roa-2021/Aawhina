@@ -42,18 +42,28 @@ function Nav() {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box 
+      sx={{ flexGrow: 1 }}
+    >
       <AppBar position="static">
         <Toolbar>
-  
-
-          <Link href='/dashboard'>
+          <Link 
+            href='/'
+            color="inherit"
+            sx={{
+              textDecoration: "none"
+            }}
+          >
             Āwhina
           </Link>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-
-             <AccountCircle onClick={handleMenu}/>
+          <Box sx={{ 
+            display: { 
+              xs: 'none', 
+              md: 'flex' 
+              } 
+          }}>
+            <AccountCircle onClick={handleMenu}/>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -71,16 +81,11 @@ function Nav() {
               >
                 <Link href='/dashboard'><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
                 <Link href='/dashboard'><MenuItem>My Profile</MenuItem></Link>
-                {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
-
-
               </Menu>
           </Box>
-
         </Toolbar>
       </AppBar>
-
     </Box>
   )
 }
