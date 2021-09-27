@@ -16,6 +16,7 @@ import MakeRequest from './MakeRequest'
 import MakeProfile from './MakeProfile'
 import Nav from './Nav'
 import Footer from './Footer'
+import Profile from './Profile'
 
 const App = (props) => {
   const { dispatch } = props
@@ -44,6 +45,7 @@ const App = (props) => {
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/requests/new' component={MakeRequest} />
         <Route exact path='/requests' component={Requests} />
+        <Route exact path='/profile' component={Profile} />
       </Router>
       <Footer />
       </Box>

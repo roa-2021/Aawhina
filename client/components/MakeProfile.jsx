@@ -5,7 +5,6 @@ import { postUserThunk } from '../actions/users'
 import Nav from './Nav'
 import { useHistory } from 'react-router-dom'
 import { getSuburbs} from '../apis/suburb_api'
-
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
