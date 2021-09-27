@@ -32,12 +32,14 @@ npm run dev
 ## MVP User Stories:
 
 - [X] As a user I want to be able to register 
-- [ ] As a user I want to be able to login
-- [ ] As a user I want to be able to create a profile page
-- [ ] As a user I want to be able to view my profile page
-- [ ] As a requester I want to be able to list a job I need help with
+- [X] As a user I want to be able to login
+- [X] As a user I want to be able to create a profile
+- [X] As a user I want to be able to view my profile page
+- [ ] As a user I want to be able to edit my profile
+- [X] As a requester I want to be able to list a job I need help with
 - [ ] As a requester I want to be able to delete a job
-- [ ] As a offerer I want to be able to offer help for a particular job
+- [X] As a offerer I want to be able to offer help for a particular job
+- [ ] As a offerer I want to be able to send my details to a requester i have offered to help
 - [ ] As an offerer I want to be able to rescind my offer for help
 - [ ] As an offerer I want to be able to view requests in my area
 - [ ] As a requester I want to be able to specify when I need a job completed (by)
@@ -51,6 +53,6 @@ npm run dev
 - [ ] As a user I want to be able to upload a profile picture
 - [ ] As a requester I want to be able to edit a job I need help with
 - [ ] As a helper I want to be able to gain special recognition/rewards for positive reviews on my helping.
-- [ ] As a helper I want to be able to be able to view jobs on a map
+- [ ] As a helper I want to be able to view jobs on a map
 - [ ] As a helper I want to be able to search for jobs by type
 - [ ] As a helper I want to be able to specify how long my offer for help is valid for
