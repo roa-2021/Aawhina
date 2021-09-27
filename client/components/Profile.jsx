@@ -90,9 +90,6 @@ function Profile (props)  {
   return (
 
     <>
-      <Nav/>
-
-
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Box>
