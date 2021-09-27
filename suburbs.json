@@ -1,7 +1,7 @@
 [
     {
       "id":"1",
-      "name": 1,
+      "name": "Aro Valley",
       "region": "Wellington",
       "neighbours": [22, 55, 5, 14, 40]
     },
@@ -81,7 +81,7 @@
       "id":"14",
       "name": "Highbury",
       "region": "Wellington",
-      "neighbours": [22, 1]
+      "neighbours": [21, 22, 1, 5]
     },
     {
       "id":"15",
@@ -163,7 +163,7 @@
     },
     {
       "id":"28",
-      "name": "Makara",
+      "name": "Mākara",
       "region": "Wellington",
       "neighbours": [29, 41, 21]
     },
@@ -547,7 +547,7 @@
     },
     {
       "id":"92",
-      "name": "Taita",
+      "name": "Taitā",
       "region": "Lower Hutt",
       "neighbours": [89, 91, 97, 66, 79]
     },
