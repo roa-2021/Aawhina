@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
 import { connect } from 'react-redux'
 import Requests from './Requests';
+import RequestCard from './RequestCard';
 
 function Offers ({ currentUser, offers, requests }) {
   

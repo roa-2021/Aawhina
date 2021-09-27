@@ -13,19 +13,33 @@ import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
+import TextField from '@mui/material/TextField';
 
 
 export default function RequestCard ({ request }) {
   const [open, setOpen] = React.useState(false);
+  const [openSubmit, setOpenSubmit] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
+  const [scrollSubmit, setScrollSubmit] = React.useState('paper');
   
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
+    setOpenSubmit(false)
     setScroll(scrollType);
+  };
+
+  const handleClickSubmitOpen = (scrollType) => () => {
+    setOpenSubmit(true);
+    setOpen(false);
+    setScrollSubmit(scrollType);
   };
   
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleSubmitClose = () => {
+    setOpenSubmit(false);
   };
   
   const descriptionElementRef = React.useRef(null);
@@ -41,46 +55,49 @@ export default function RequestCard ({ request }) {
   const lightTheme = createTheme({ palette: { mode: 'light' } })
 
   return (
-    <Grid item>
-      <Card 
-        variant="outlined" 
-        onClick={handleClickOpen('paper')}
-      >
-        <CardContent>
-          <Typography variant="h6">
-            {`${request.title}`}
-          </Typography>
-          <Typography my={0.5}>
-            {`User ${request.user_id} would like help with ${request.details}`}
-          </Typography>
-          <Stack direction="row" spacing={1}>
-            <Chip
-            label={request.category} 
-            variant="outlined" 
-            />
-            <Chip 
-              label={request.suburb_name} 
+      <Grid item key={request.id}>
+        <Card 
+          variant="outlined" 
+          onClick={handleClickOpen('paper')}
+        >
+          <CardContent>
+            <Typography variant="h6">
+              {`${request.title}`}
+            </Typography>
+            <Typography my={0.5}>
+              {`User ${request.user_id} would like help with ${request.details}`}
+            </Typography>
+            <Stack direction="row" spacing={1}>
+              <Chip
+              label={request.category} 
               variant="outlined" 
-            />
-          </Stack>
-        </CardContent>
-      </Card>
-      <Dialog
+              />
+              <Chip 
+                label={request.suburb_name} 
+                variant="outlined" 
+              />
+            </Stack>
+          </CardContent>
+        </Card>
+
+        {/* ------------------------------------------ */}
+        <div>
+        <Dialog
           open={open}
           onClose={handleClose}
           scroll={scroll}
           maxWidth="sm"
-          fullWidth={true}
+          fullWidth="true"
           aria-labelledby="scroll-dialog-title"
           aria-describedby="scroll-dialog-description"
           >
           <DialogTitle id="scroll-dialog-title">{`${request.title}`}</DialogTitle>
           <DialogContent dividers={scroll === 'paper'}>
-            {/* <DialogContentText
+            <DialogContentText
               id="scroll-dialog-description"
               ref={descriptionElementRef}
               tabIndex={-1}
-            >  */}
+            > 
               <Typography variant="body1" >
                 Description
               </Typography>
@@ -103,14 +120,49 @@ export default function RequestCard ({ request }) {
                   variant="outlined" 
                 />
               </Stack>
-            //display all offers on request//
-            {/* </DialogContentText> */}
+              
+            </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Back</Button>
-            <Button onClick={handleClose}>Offer to help</Button>
+            <Button onClick={handleClickSubmitOpen('paper')}>Offer to help</Button>
           </DialogActions>
         </Dialog>
+      </div>
+        {/* ----------------Submit-Form------------------- */}
+
+      <div>
+        <Dialog
+          open={openSubmit}
+          onClose={handleSubmitClose}
+          scroll={scrollSubmit}
+          maxWidth="sm"
+          fullWidth="true"
+          aria-labelledby="scroll-dialog-title"
+          aria-describedby="scroll-dialog-description"
+          >
+          {/* <DialogTitle id="scroll-dialog-title">{`${request.title}`}</DialogTitle> */}
+          <DialogTitle id="scroll-dialog-title">{`Enter your details`}</DialogTitle>
+          <DialogContent dividers={scrollSubmit === 'paper'}>
+            <DialogContentText
+              id="scroll-dialog-description"
+              ref={descriptionElementRef}
+              tabIndex={-1}
+            > 
+
+              <TextField sx={{ mt: 1, width: '61ch' }} multiline rows={4} id="outlined-basic" label="Information to be sent to requester" variant="outlined" />
+              
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClickOpen('paper')}>Back</Button>
+            <Button onClick={handleSubmitClose}>Submit Offer</Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+        {/* ------------------------------------------ */}
+
+
     </Grid>
   )
 }
