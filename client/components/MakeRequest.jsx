@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import * as React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import { postRequestThunk } from '../actions/requests'
 import { connect } from 'react-redux'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -15,16 +16,11 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
-import { useAuth0 } from '@auth0/auth0-react'
-import { postRequestThunk } from '../actions/requests'
-
 
 function MakeRequest (props) {
   const {dispatch} = props
   
   let history = useHistory()
-
-
 
   const [category, setCategory] = useState('')
   const [timeframe, setTimeframe] = useState('')
@@ -34,13 +30,10 @@ function MakeRequest (props) {
     details: '',
   })
 
-  
-
   const handleCategory = (e) => {
     e.preventDefault()
     setCategory(e.target.value)
   }
-
 
   const handleTimeframe = (e) => {
     e.preventDefault()
@@ -63,7 +56,6 @@ function MakeRequest (props) {
       category: category,
       time_frame: timeframe,
       details: values.details,
-     
     }  
      dispatch(postRequestThunk(newRequest)) 
      history.push('/Requests') 
@@ -135,7 +127,16 @@ function MakeRequest (props) {
             
         
           <Grid item sm={12}>
-            <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
+            <TextField 
+              sx={{ mt: 4 }} 
+              fullWidth 
+              id = 'outlined-required' 
+              multiline rows={6}  
+              label = 'Further Details' 
+              name='details' 
+              value={details} 
+              onChange={handleChange}
+            />
           </Grid>
         <Grid>
 
