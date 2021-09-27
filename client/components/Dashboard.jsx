@@ -51,7 +51,7 @@ function Dashboard({ users, currentUser }) {
           </ToggleButtonGroup>
         </Container>
         {offers
-          ? <Offers />
+          ? <Offers currentUser={currentUser}/>
           : <Requests currentUser={currentUser}/>
         }
       </>

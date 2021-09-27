@@ -1,9 +1,9 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import { connect } from 'react-redux'
 import { postRequestThunk } from '../actions/requests'
+import { connect } from 'react-redux'
+
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
@@ -13,13 +13,10 @@ import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-
-import Welcome from './Welcome'
-
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
-// import DatePicker from "@mui/lab/DatePicker";
-// import TimePicker from '@mui/lab/TimePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from "@mui/lab/DatePicker";
+import TimePicker from '@mui/lab/TimePicker';
 
 function MakeRequest ({ dispatch, currentUser }) {
   const { isAuthenticated } = useAuth0()
