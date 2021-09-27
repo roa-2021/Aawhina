@@ -4,6 +4,7 @@ import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Nav from './Nav'
 import { useAuth0 } from '@auth0/auth0-react'
+import Welcome from './Welcome'
 import Requests from './Requests'
 import Offers from './Offers'
 
@@ -33,7 +34,7 @@ const toggleRequests = () => {
 const handleChange = (event, newAlignment) => {
   setAlignment(newAlignment);
 };
-
+if (isAuthenticated) {
 return (
   <>
     <ToggleButtonGroup 
@@ -51,6 +52,10 @@ return (
       : <Requests currentUser={currentUser} />
     }
   </>
+)
+}
+return (
+  < Welcome />
 )
 }
 
