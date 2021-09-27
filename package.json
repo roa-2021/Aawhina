@@ -45,7 +45,13 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.95.11",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "@auth0/auth0-react": "^1.8.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.1",
+    "@mui/lab": "5.0.0-alpha.45",
+    "@mui/material": "^5.0.1",
   },
   "devDependencies": {
     "@babel/core": "7.13.1",
@@ -71,12 +77,6 @@
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "redux-thunks": "^1.0.0",
-    "@auth0/auth0-react": "^1.8.0",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.1",
-    "@mui/lab": "5.0.0-alpha.45",
-    "@mui/material": "^5.0.1",
     "authenticare": "^0.4.9",
     "date-fns": "^2.24.0",
     "dotenv": "^10.0.0"
