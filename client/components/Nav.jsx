@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { connect } from 'react-redux';
+import  Link  from '@mui/material/Link'
 
 import Logout from './Logout'
 
@@ -162,15 +163,16 @@ function Nav() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          {/* <Box 
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
-            href="/"
-          >
+          > */}
+          <Link href='/dashboard'>
             Āwhina
-          </Typography>
+          </Link>
+          {/* </Box> */}
           {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
