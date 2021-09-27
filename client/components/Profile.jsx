@@ -23,14 +23,15 @@ import Stack from '@mui/material/Stack';
 
 
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%',
-})
+// const Img = styled('img')({
+//   margin: 'auto',
+//   display: 'block',
+//   maxWidth: '100%',
+//   maxHeight: '100%',
+// })
 
-function Login ()  {
+function Profile (props)  {
+  const { dispatch } = props
 
   const [values, setValues] = useState({
     first: '',
@@ -38,24 +39,50 @@ function Login ()  {
     email: '',
     bio: '',
   })
+
   const [suburb, setSuburb] = useState('')
   const [editing, setEditing] = useState(false)
   const [gender, setGender] = useState('')
   
-  const toggleEditing = () => {
-    setEditing(!editing)    
-  }
-
+  const handleSuburb = (e) => {
+    e.preventDefault()
+    setSuburb(e.target.value)
+  }  
+  
   const handleGender =(e) => {
     e.preventDefault()
     setGender(e.target.value)
 
   }  
 
-  const handleSuburb = (e) => {
+  const toggleEditing = () => {
+    setEditing(!editing)    
+  }
+
+  const handleChange =(e) => {
     e.preventDefault()
-    setSuburb(e.target.value)
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })  
+
   }  
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const updatedUser = {
+      first_name: values.first,
+      last_name: values.last,
+      email: user.email,
+     //  suburb_id: suburb,
+      bio: values.bio,
+      gender: gender, 
+
+    }  
+      dispatch(postUserThunk(updatedUser))  
+
+      // props.history.push('/profile') 
+  }
 
 
   const { first, last, bio} = values
@@ -91,7 +118,7 @@ function Login ()  {
               </Typography> */}
 
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
-                <Typography sx={{pr: 1, mt: 2}}variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{pr: 2, mt: 2}}variant="body2" gutterBottom fontSize="large">
                   Name: 
                 </Typography>
 
@@ -110,6 +137,8 @@ function Login ()  {
                       defaultValue="F.Name"
                       size="small"
                       variant="standard"
+                      value={first}
+                      onChange={handleChange}
                     />
                 </Box>
               :<Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="large">
@@ -131,6 +160,8 @@ function Login ()  {
                       defaultValue="L.Name"
                       size="small"
                       variant="standard"
+                      value={last}
+                      onChange={handleChange}
                     />
                 </Box>
               :<Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="large">
@@ -166,7 +197,7 @@ function Login ()  {
               
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
                 <Typography sx={{pr: 1, mt: 0}}variant="body2" gutterBottom fontSize="large">
-                  Gender: 
+                  Suburb: 
                 </Typography>
 
                 {editing?
@@ -188,7 +219,7 @@ function Login ()  {
           </Stack>
 
               {editing?
-              <TextField sx={{ mt: 4 }}  fullWidth id = 'outlined-required' multiline rows={6}  label = 'About me' name='bio' value={bio} onChange={console.log('handleChange')}/>
+              <TextField sx={{ mt: 4 }}  fullWidth id = 'outlined-required' multiline rows={6}  label = 'About me' name='bio' value={bio} onChange={handleChange}/>
               :
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
               <Typography sx={{pr: 0, mt: 0}}variant="body2" gutterBottom fontSize="large">
@@ -198,14 +229,19 @@ function Login ()  {
                 'bio information goes here'
               </Typography>
               </Stack>}
-            
             </Grid>
-            <Grid item sx={{pt: 0}}>
-            <Box sx={{ "& button": { m: -2, p: 0 } }}>
-             <Button size="small" onClick={toggleEditing}>Edit</Button>
-            </Box>
-  
-            </Grid>
+
+            <Stack direction="row" item sx={{pt: 0}}>
+              <Box sx={{ "& button": { ml: 2, p: 0 } }}>
+                {editing?
+                <>
+                <Button size="small" onClick={toggleEditing}>Cancel</Button>
+                <Button size="small" onClick={handleSubmit}>Save Changes</Button>
+                </>
+                :<Button size="small" onClick={toggleEditing}>Edit Details</Button>}
+              </Box>
+            </Stack>
+
           </Grid>
           <Grid item>
             <Typography variant="subtitle1" component="div">
@@ -220,4 +256,4 @@ function Login ()  {
   )}
   
 
-  export default connect()(Login) 
+  export default connect()(Profile) 
