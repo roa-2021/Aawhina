@@ -867,6 +867,6 @@
       "id":"145",
       "name": "Whitby",
       "region": "Porirua",
-      "neighbours": [[136, 123, 137]]
+      "neighbours": [136, 123, 137]
     }
 ]
