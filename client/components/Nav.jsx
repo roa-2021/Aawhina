@@ -184,7 +184,8 @@ function Nav() {
           </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {/* <IconButton
+            <Logout/>
+            <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -203,8 +204,20 @@ function Nav() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <Logout/>
+              <AccountCircle />
+            </IconButton>
 
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              // onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/requests"
+            >
+              View Requests
             </IconButton>
 
              <IconButton variant="contained" size="small" href="/requests">View Requests </IconButton>
