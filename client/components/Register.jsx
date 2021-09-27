@@ -16,7 +16,7 @@ function Register ()  {
 
     <>
 
-  <Button variant='contained' size='large'  endIcon={<AppRegistrationIcon/>} onClick={() => loginWithRedirect({ screen_hint: 'signup' }
+  <Button variant='contained' size='large' style={{ background: '#91A6FF' }} endIcon={<AppRegistrationIcon/>} onClick={() => loginWithRedirect({ screen_hint: 'signup' }
   )}>Register</Button>
   </>
 

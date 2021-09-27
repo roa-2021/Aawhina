@@ -12,7 +12,7 @@ const Logout = () => {
     <Link
       // size='large' 
       // variant='contained' 
-      color="inherit"
+      // style={{ background: '#91A6FF' }}
       onClick={() => logout({ returnTo: window.location.origin })}
     >
       Log Out

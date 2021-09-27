@@ -15,7 +15,7 @@ function Login ()  {
 
     <>
 
-  <Button variant='contained' size='large' endIcon={<LoginIcon/>} onClick={() => loginWithRedirect()}>Log In</Button>
+  <Button variant='contained' size='large' style={{ background: '#91A6FF' }} endIcon={<LoginIcon/>} onClick={() => loginWithRedirect()}>Log In</Button>
   </>
 
   )}

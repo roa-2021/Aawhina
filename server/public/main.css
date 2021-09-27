@@ -4,3 +4,10 @@ html, body {
   background-color: #e5ebeb;
   font-family: 'Lato', sans-serif;
 }
+
+
+.image {
+  width: 300px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
