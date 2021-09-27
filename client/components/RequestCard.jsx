@@ -107,11 +107,11 @@ function RequestCard ({ dispatch, request, currentUser }) {
           >
           <DialogTitle id="scroll-dialog-title">{`${request.title}`}</DialogTitle>
           <DialogContent dividers={scroll === 'paper'}>
-            <DialogContentText
+            {/* <DialogContentText
               id="scroll-dialog-description"
               ref={descriptionElementRef}
               tabIndex={-1}
-            > 
+            >  */}
               <Typography component="h6" variant="body1" >
                 Description
               </Typography>
@@ -135,7 +135,7 @@ function RequestCard ({ dispatch, request, currentUser }) {
                 />
               </Stack>
             //display all offers on request//
-            </DialogContentText>
+            {/* </DialogContentText> */}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Back</Button>
@@ -156,11 +156,11 @@ function RequestCard ({ dispatch, request, currentUser }) {
         >
           <DialogTitle id="scroll-dialog-title">{`Enter your details`}</DialogTitle>
           <DialogContent dividers={scrollSubmit === 'paper'}>
-            <DialogContentText
+            {/* <DialogContentText
               id="scroll-dialog-description"
               ref={descriptionElementRef}
               tabIndex={-1}
-            > 
+            >  */}
               <TextField 
                 sx={{ 
                   mt: 1, 
@@ -175,7 +175,7 @@ function RequestCard ({ dispatch, request, currentUser }) {
                 value={notes}
                 onChange={handleNotesChange}
               />
-            </DialogContentText>
+            {/* </DialogContentText> */}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClickOpen('paper')}>Back</Button>
@@ -195,4 +195,4 @@ function mapState2Props (globalState) {
   }
 }
 
-export default connect()(RequestCard)
+export default connect(mapState2Props)(RequestCard)

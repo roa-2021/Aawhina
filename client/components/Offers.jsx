@@ -3,7 +3,7 @@ import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stac
 import { connect } from 'react-redux'
 import RequestCard from './RequestCard';
 
-function Offers ({ currentUser, offers, requests }) {
+function Offers ({ currentUser, offers }) {
 
   const offersToShow = currentUser ? offers.filter(offer => currentUser.id === offer.user_id) : offers
 
