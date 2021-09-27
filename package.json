@@ -19,8 +19,6 @@
     "dev:server": "nodemon server",
     "webpack": "webpack --config ./client/webpack.config.js",
     "knex": "knex --knexfile ./server/db/knexfile.js",
-    "test": "jest",
-    "test:watch": "jest --watchAll --verbose",
     "lint": "eslint --ext .js,.jsx ."
   },
   "keywords": [
@@ -45,27 +43,9 @@
     ]
   },
   "dependencies": {
-    "@auth0/auth0-react": "^1.8.0",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.1",
-    "@mui/lab": "5.0.0-alpha.45",
-    "@mui/material": "^5.0.1",
-    "authenticare": "^0.4.9",
-    "date-fns": "^2.24.0",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "knex": "^0.95.11",
-    "pg": "^8.7.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.5",
-    "react-router-dom": "^5.3.0",
-    "redux": "^4.1.1",
-    "redux-thunk": "^2.3.0",
-    "redux-thunks": "^1.0.0",
-    "sqlite3": "^4.2.0",
-    "superagent": "6.1.0"
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "@babel/core": "7.13.1",
@@ -85,6 +65,20 @@
     "sqlite3": "^4.2.0",
     "superagent": "6.1.0",
     "webpack": "5.24.0",
-    "webpack-cli": "4.5.0"
+    "webpack-cli": "4.5.0",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
+    "redux-thunks": "^1.0.0",
+    "@auth0/auth0-react": "^1.8.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.1",
+    "@mui/lab": "5.0.0-alpha.45",
+    "@mui/material": "^5.0.1",
+    "authenticare": "^0.4.9",
+    "date-fns": "^2.24.0",
+    "dotenv": "^10.0.0"
   }
 }
