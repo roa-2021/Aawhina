@@ -183,15 +183,6 @@ function Nav() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Logout/>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
 
             <IconButton
               size="large"
@@ -202,7 +193,7 @@ function Nav() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+
             </IconButton>
 
             <IconButton
@@ -242,7 +233,7 @@ function Nav() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
-  );
+  )
 }
 
 export default connect()(Nav)
