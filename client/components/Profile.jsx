@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
-import { postUserThunk } from '../actions/users'
+import { updateUserThunk } from '../actions/users'
 import Nav from './Nav'
 import { useHistory } from 'react-router-dom'
 import { getSuburbs} from '../apis/suburb_api'
@@ -26,22 +26,17 @@ import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 
-
-
-// const Img = styled('img')({
-//   margin: 'auto',
-//   display: 'block',
-//   maxWidth: '100%',
-//   maxHeight: '100%',
-// })
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Profile (props)  {
   const { dispatch } = props
+  
+
 
   const [values, setValues] = useState({
     first: '',
     last: '',
-    email: '',
+    // email: '',
     bio: '',
   })
 
@@ -80,27 +75,29 @@ function Profile (props)  {
 
   }  
 
+  let history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const updatedUser = {
       first_name: values.first,
       last_name: values.last,
-      email: user.email,
+      // email: user.email,
       suburb_id: newSuburb,
       bio: values.bio,
       gender: gender, 
 
     }  
-      dispatch(postUserThunk(updatedUser))  
-
-      // props.history.push('/profile') 
+      console.log(updatedUser)
+      dispatch(updateUserThunk(updatedUser))  
+      history.push('/profile') 
+      // setEditing(!editing)
   }
 
 
   const { first, last, bio} = values
   
   return (
-
     <>
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -141,8 +138,7 @@ function Profile (props)  {
                   autoComplete="on"
                 >
                     <TextField
-                      label="First Name"
-                      id="standard-size-small"
+                      label="Given Name"
                       defaultValue="F.Name"
                       size="small"
                       variant="standard"
@@ -151,7 +147,7 @@ function Profile (props)  {
                     />
                 </Box>
               :<Typography sx={{mt: 2, pl:.5}}variant="body2" gutterBottom fontSize="large">
-                  First
+                  Given
                 </Typography>}
 
                 {editing?
@@ -164,9 +160,8 @@ function Profile (props)  {
                   autoComplete="on"
                 >
                     <TextField
-                      label="Last Name"
-                      id="standard-size-small"
-                      defaultValue="L.Name"
+                      label="Family Name"
+                      defaultValue='last'
                       size="small"
                       variant="standard"
                       value={last}
@@ -174,7 +169,7 @@ function Profile (props)  {
                     />
                 </Box>
               :<Typography sx={{mt: 2, pl: 1}}variant="body2" gutterBottom fontSize="large">
-                  Last
+                  Family
                 </Typography>}
               </Stack>
 
@@ -287,5 +282,11 @@ function Profile (props)  {
 
   )}
   
+  function mapState2Props (globalState) {
+    // console.log(globalState.users)
+    return {
+      users: globalState.users
+    }
+  }
 
-  export default connect()(Profile) 
+  export default connect(mapState2Props)(Profile) 
