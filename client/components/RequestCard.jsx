@@ -137,7 +137,7 @@ export default function RequestCard ({ request }) {
           onClose={handleSubmitClose}
           scroll={scrollSubmit}
           maxWidth="sm"
-          fullWidth="true"
+          fullWidth={true}
           aria-labelledby="scroll-dialog-title"
           aria-describedby="scroll-dialog-description"
           >
