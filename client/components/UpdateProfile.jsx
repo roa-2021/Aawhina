@@ -43,11 +43,11 @@ function UpdateProfile (props)  {
   },[])
 
  
-  const [gender, setGender] = useState('')
+  const [gender, setGender] = useState(currentUser.gender)
   
   const [theSuburbs, setSuburbs] = useState([])
   
-  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+  // const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
   
   const [newSuburb, setSuburb] = useState()
 
@@ -215,10 +215,10 @@ console.log(props.currentUser)
                   label='Gender'
                   onChange={handleGender}
                   sx={{ width: '18ch' }}>
-                  <MenuItem value='female'>Female</MenuItem>
-                  <MenuItem value='male'>Male</MenuItem>
-                  <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
-                  <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
+                  <MenuItem value='Female'>Female</MenuItem>
+                  <MenuItem value='Male'>Male</MenuItem>
+                  <MenuItem value='Gender diverse'>Gender Diverse</MenuItem>
+                  <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
                 </Select>
                 </FormControl>
               </Box>
