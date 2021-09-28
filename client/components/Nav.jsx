@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import Logout from './Logout'
+import Login from './Login'
+import Register from './Register'
+
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Link from '@mui/material/Link'
+
 
 function Nav() {
 
@@ -39,7 +43,6 @@ function Nav() {
   }
 
 
-
   return (
     
     <Box sx={{ flexGrow: 1 }}>
@@ -59,7 +62,13 @@ function Nav() {
               md: 'flex' 
               } 
           }}>
-            <AccountCircle onClick={handleMenu}/>
+            <Box sx={{pr: 4,}} spacing={4}>
+            <Login/>
+            <Register/>
+            </Box>
+            <Box sx={{pt: 0}}>
+            <AccountCircle  fontSize='large' onClick={handleMenu}/>
+            </Box>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

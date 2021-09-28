@@ -26,7 +26,7 @@ const App = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh',
+        minHeight: '90vh',
         alignContent: 'flex-start',
         bgcolor: 'primary'
       }}

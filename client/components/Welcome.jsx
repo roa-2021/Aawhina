@@ -13,6 +13,7 @@ import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import LaunchData from './LaunchData'
 import Image from 'material-ui-image'
+import Box from '@mui/material/Box'
 
 
 function Welcome ({currentUser}) {
@@ -41,26 +42,25 @@ function Welcome ({currentUser}) {
   return (
    <>
    
-    <LaunchData />
-    <Stack sx={{ pt: 2, pr: 5}}direction="row">
+    {/* <LaunchData /> */}
+    <Stack sx={{ pt: 0, pr: 0}}direction="row">
 
       <Box
         sx={{
-          ml: 5,
-          pl: 20,
-          height: 700,
-          width: 400,
-          border: '1px dashed grey'
-        }}>
-          <Image width='400' src="./images/Screenshot.png" cover={true}/>
+          pt: 0, 
+          pr: 0, 
+          width: '50%', 
+        }}direction="row" spacing={25}justifyContent="right">
+          <Image  src="./images/Screenshot.png" cover={true} />
       </Box>
 
-      <Box sx={{border: '1px dashed grey'}} justifyContent="right">
-        <Typography  component='h1' variant='h3'>Welcome to Āwhina!</Typography>
+      <Box sx={{width: '50%' }} alignItems="center" justifyContent="center">
+        <Typography sx={{ pt: 7, pr: 0, pl: 10}} component='h1' variant='h3'>Welcome to Āwhina!</Typography>
     
-        <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
-          <Login/>
-          <Register/>
+        <Stack sx={{ pt: 9, pr: 10, pl: 10}}direction="row" spacing={25}justifyContent="right">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat orci nulla pellentesque dignissim 
+            enim sit. A lacus vestibulum sed arcu non odio. Odio facilisis mauris sit amet massa vitae. Vel facilisis volutpat est velit egestas dui id ornare arcu. Interdum varius 
+            sit amet mattis. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Odio eu feugiat pretium nibh ipsum consequat nisl..</p>
         </Stack>
       </Box>
  
