@@ -61,7 +61,7 @@ function MakeRequest ({ dispatch, currentUser }) {
       user_id: currentUser.id
     }  
     dispatch(postRequestThunk(newRequest)) 
-    history.push('/Requests') 
+    history.push('/requests') 
   }
 
   const handleCancel = (e) => {

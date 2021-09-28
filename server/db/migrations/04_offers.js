@@ -6,7 +6,7 @@ exports.up = (knex) => {
     t.integer('user_id').references('users.id')
     t.string('notes')
     t.boolean('accepted')
-    t.timestamp('created_at').defaultTo(knex.fn.now())
+    // t.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }
 

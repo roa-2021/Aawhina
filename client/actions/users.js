@@ -18,17 +18,18 @@ export function getUsersThunk () {
 
 export function postUserThunk (user) {
   return dispatch => {
+    console.log('postuserthunk', user)
     postUser(user)
       .then(response => {
         dispatch(addUser(response))
-        dispatch(setCurrentUserThunk(response))
+        dispatch(setCurrentUserThunk(user.email))
       })
   }
 }
 
 export function updateUserThunk (user) {
   return dispatch => {
-    updateUser(user)
+    updateUser(user.id, user)
       .then(response => {
         dispatch(updateUserAction(response))
       })

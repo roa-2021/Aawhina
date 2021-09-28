@@ -17,8 +17,10 @@ router.get('/', (req, res) => {
 // GET /api/v1/:email
 router.get('/:email', (req, res) => {
   const email = req.params.email
+  console.log('routes email', email)
   return db.getUserByEmail(email)
     .then(user => {
+      console.log('routes user', user)
       return res.json(user)
     })
     .catch(err => {
@@ -29,9 +31,11 @@ router.get('/:email', (req, res) => {
 // POST /api/v1
 router.post('/', (req, res) => {
   const user = req.body
+  console.log('postuserroutes', user)
   db.createUserProfile(user)
-    .then(user => {
-      return res.json(user)
+    .then(idarray => {
+      user.id = idarray[0]
+      res.json(user)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
@@ -55,8 +59,8 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
   const newUser = req.body
   db.editUserProfile(id, newUser)
-    .then((id) => {
-      return res.json(`user id number ${id} has been updated`)
+    .then((user) => {
+      return res.json(user)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)

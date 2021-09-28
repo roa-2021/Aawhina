@@ -22,15 +22,15 @@ const getUserById = (id) => {
 const createUserProfile = (user) => {
   return db('users')
     .insert(user, 'id')
-    .then(userId => {
-      return getUserById(userId[0])
-    })
 }
 
 const editUserProfile = (id, newUser) => {
   return db('users')
     .where('id', id)
     .update(newUser)
+    .then(() => {
+      return getUserById(id)
+    })
 }
 
 const deleteUser = (id) => {

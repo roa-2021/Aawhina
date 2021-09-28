@@ -71,14 +71,12 @@ function Welcome ({currentUser}) {
     // checkProfile(user)
     return (
       <>
-     {currentUser ? < Dashboard user={currentUser}/> : <MakeProfile user={user}/> }
+      <LaunchData />
+     {currentUser ? < Dashboard user={currentUser}/> : <MakeProfile /> }
     </>
     )
   }
-
-
   return (
-
    <>
      <LaunchData />
       <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
