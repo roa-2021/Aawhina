@@ -51,12 +51,12 @@ router.delete('/:id', (req, res) => {
 })
 
 // PUT /api/v1/:id
-router.patch('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const newUser = req.body
   db.editUserProfile(id, newUser)
-    .then((id) => {
-      return res.json(`user id number ${id} has been updated`)
+    .then((user) => {
+      return res.json(user)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
