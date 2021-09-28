@@ -20,38 +20,6 @@ import LaunchData from './LaunchData'
 
 
 
-function srcset(image, size, rows = 1, cols = 1) {
-  return {
-    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
-  };
-}
-
-const itemData = [
-  {
-    img: './images/neighbours.jpg',
-    title: 'Breakfast',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: './images/happy.jpg',
-  },
-  {
-    img: './images/background.png',
-    cols: 2,
-  },
-  {
-    img: './images/grocery.jpg',
-    cols: 2,
-  },
-  {
-    img: './images/apples.jpeg',
-    title: 'Fern',
-  },
-]
 
 function Welcome ({currentUser}) {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -78,38 +46,32 @@ function Welcome ({currentUser}) {
   }
   return (
    <>
-     <LaunchData />
-      <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
+
+    <LaunchData />
+    <Stack sx={{ pt: 10, pr: 20 }}direction="column">
+      <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 400, md: 167 },
+          maxWidth: { xs: 400, md: 250 },
+        }}
+        alt="Neighbours looking out their windows."
+        src="./images/Screenshot.png"
+      />
+
+    </Stack>
+    <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
         <Typography  component='h1' variant='h3'>Welcome to Āwhina!</Typography>
-      </Stack>
-      <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
-        <Login/>
-        <Register/>
-      </Stack>
-
-      <ImageList
-      sx={{ pl: 10, pb: 60, width: 680, height: 500 }}
-      variant="quilted"
-      cols={4}
-      rowHeight={121}
-    >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-
-
-
+    </Stack>
+    <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
+      <Login/>
+      <Register/>
+    </Stack>
 
     </>
-    )
-
+  )
 }
 
 function mapState2Props (globalState) {
