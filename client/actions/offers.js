@@ -33,6 +33,13 @@ export function updateOfferThunk (offer) {
   }
 }
 
+export function deleteOfferThunk (offerId) {
+  return dispatch => {
+    deleteOffer(offerId)
+      .then(() => dispatch(getOffersThunk()))
+  }
+}
+
 // ACTION CREATORS
 
 function setOffers(offers) {
