@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { deleteOfferThunk } from '../actions/offers'
+import { deleteRequestThunk } from '../actions/requests'
 import { connect } from 'react-redux'
 
 import Button from '@mui/material/Button'
@@ -9,19 +10,23 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import { DialogContentText } from '@mui/material'
 
-function MakeOfferDialog (props) {
+function RetractOfferDialog (props) {
   const { 
     dispatch, 
     open,
     offer,
     handleDialogOpen,
     handleRetractClose,
+    request
   } = props
 
   const handleSubmit = () => {
-    dispatch(deleteOfferThunk(offer.id))
+   if (request) {
+     dispatch(deleteRequestThunk(request.id))
+   } else if (offer){
+   dispatch(deleteOfferThunk(offer.id))}
     handleRetractClose()
-  };
+  }
 
   const handleNotesChange = (e) => {
     e.preventDefault()
@@ -58,4 +63,4 @@ function mapState2Props (globalState) {
   }
 }
 
-export default connect(mapState2Props)(MakeOfferDialog)
+export default connect(mapState2Props)(RetractOfferDialog)

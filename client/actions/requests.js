@@ -33,6 +33,13 @@ export function updateRequestThunk (request) {
   }
 }
 
+export function deleteRequestThunk (requestId) {
+  return dispatch => {
+    deleteRequest(requestId)
+      .then(() => dispatch(getRequestsThunk()))
+  }
+}
+
 // ACTION CREATORS
 
 function setRequests(requests) {
