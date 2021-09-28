@@ -36,8 +36,14 @@ function RequestCard ({ offers, request, currentUser }) {
     setOpenSubmit(false);
   };
 
-  let requestOffers
-  if (currentUser) {requestOffers = offers.filter(offer => offer.request_id === request.id)}
+  const requestOffers = []
+  if (currentUser) {
+    offers.map(offer => {
+      if (offer.request_id === request.id) {
+        requestOffers.push(offer)
+      }
+    })
+  }
 
   return (
     <>
@@ -47,7 +53,7 @@ function RequestCard ({ offers, request, currentUser }) {
           onClick={handleDialogOpen}
         >
           <CardHeader
-            action={ requestOffers &&
+            action={ requestOffers.length > 0 && currentUser.id === request.user_id &&
               <IconButton aria-label="offers available">
                 <CircleNotificationsIcon color="success" />
               </IconButton>
@@ -91,7 +97,7 @@ function RequestCard ({ offers, request, currentUser }) {
 
 function mapState2Props (globalState) {
   return {
-    // currentUser: globalState.currentUser,
+    currentUser: globalState.currentUser,
     offers: globalState.offers
   }
 }

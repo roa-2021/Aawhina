@@ -39,7 +39,7 @@ function RequestDialog (props) {
     setExpanded(!expanded);
   };
 
-  const someBullShit = () => {
+  const someBullShit = () => { // This fucker right here. It needs to do a thing.
     console.log(props)
   }
 
@@ -80,7 +80,7 @@ function RequestDialog (props) {
           variant="outlined"
           sx={{ mr: "auto" }}
         />
-        { currentUser && requestOffers && <>
+        { currentUser.id === request.user_id && requestOffers && <>
           <Typography onClick={handleExpandClick} >
             {`Click to see ${requestOffers.length} ${grammar}`}
           </Typography>
