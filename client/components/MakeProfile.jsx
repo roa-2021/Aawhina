@@ -112,7 +112,7 @@ function MakeProfile (props) {
      console.log(user)
      console.log(newUser)
      dispatch(postUserThunk(newUser)) 
-     dispatch(setCurrentUserThunk(user.email))
+    //  dispatch(setCurrentUserThunk(user.email))
      history.push('/') 
     }  
 

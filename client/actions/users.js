@@ -21,9 +21,8 @@ export function postUserThunk (user) {
     console.log('postuserthunk', user)
     postUser(user)
       .then(response => {
-        console.log('postuserthunk', response)
         dispatch(addUser(response))
-        // dispatch(setCurrentUserThunk(response))
+        dispatch(setCurrentUserThunk(user.email))
       })
   }
 }

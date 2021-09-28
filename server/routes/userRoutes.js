@@ -33,9 +33,9 @@ router.post('/', (req, res) => {
   const user = req.body
   console.log('postuserroutes', user)
   db.createUserProfile(user)
-    .then(user => {
-    console.log('postuserroutes', user)
-    res.json(user)
+    .then(idarray => {
+      user.id = idarray[0]
+      res.json(user)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
