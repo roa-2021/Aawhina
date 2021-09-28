@@ -12,10 +12,12 @@ import MakeOfferDialog from './MakeOfferDialog'
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
+import RetractOfferDialog from './RetractOfferDialog'
 
 function RequestCard ({ offers, request, currentUser }) {
   const [openDialog, setOpenDialog] = useState(false);
   const [openSubmit, setOpenSubmit] = useState(false);
+  const [openRetract, setOpenRetract] = useState(false);
   
   
   const handleDialogOpen = () => {
@@ -34,6 +36,15 @@ function RequestCard ({ offers, request, currentUser }) {
 
   const handleSubmitClose = () => {
     setOpenSubmit(false);
+  };
+
+  const handleRetractOpen = () => {
+    setOpenRetract(true)
+    setOpenDialog(false)
+  }
+
+  const handleRetractClose = () => {
+    setOpenRetract(false);
   };
 
   const requestOffers = []
@@ -82,6 +93,7 @@ function RequestCard ({ offers, request, currentUser }) {
         request={request}
         handleDialogClose={handleDialogClose}
         handleSubmitOpen={handleSubmitOpen} 
+        handleRetractOpen={handleRetractOpen} 
         requestOffers={requestOffers}
       />}
       { openSubmit && <MakeOfferDialog
@@ -90,6 +102,13 @@ function RequestCard ({ offers, request, currentUser }) {
         handleDialogOpen={handleDialogOpen}
         handleDialogClose={handleDialogClose}
         handleSubmitClose={handleSubmitClose} 
+      />}
+       { openRetract && <RetractOfferDialog
+        open={openRetract}
+        request={request}
+        handleDialogOpen={handleDialogOpen}
+        handleDialogClose={handleDialogClose}
+        handleRetractClose={handleRetractClose} 
       />}
     </>
   )
