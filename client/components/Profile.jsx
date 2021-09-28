@@ -54,9 +54,13 @@ function Profile (props)  {
 
   const [editing, setEditing] = useState(false)
   const [gender, setGender] = useState('')
-
-  const [newSuburb, setSuburb] = useState(0)
+  
   const [theSuburbs, setSuburbs] = useState([])
+  
+  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+
+//  const sub = currentUser.suburb_id
+  const [newSuburb, setSuburb] = useState('')
   
   const handleSuburb = (e) => {
     e.preventDefault()
@@ -87,21 +91,22 @@ function Profile (props)  {
   const handleSubmit = (e) => {
     e.preventDefault()
     const updatedUser = {
+      id: currentUser.id,
       first_name: values.first,
       last_name: values.last,
+      email: currentUser.email,
       suburb_id: newSuburb,
       bio: values.bio,
       gender: gender, 
+      spoken_languages: currentUser.spoken_languages,
+      image: currentUser.image
 
     }  
       dispatch(updateUserThunk(updatedUser))  
-      // props.history.push('/profile') 
-      
-    }
-    
-    // console.log(updatedUser)
-
-  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+      history.push('/profile') 
+  
+  }
+  
 
 
   const { first, last, bio } = values
@@ -154,6 +159,7 @@ function Profile (props)  {
                       size="small"
                       variant="standard"
                       name='first'
+                      display='hellllllo'
                       value={first}
                       onChange={handleChange}
                     />
@@ -174,6 +180,7 @@ function Profile (props)  {
                     <TextField
                       label="Last Name"
                       id="standard-size-small"
+                      autoComplete='lastnameplz'
                       // defaultValue={currentUser.last_name}
                       size="small"
                       variant="standard"

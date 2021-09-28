@@ -26,7 +26,7 @@ export function postUserThunk (user) {
 
 export function updateUserThunk (user) {
   return dispatch => {
-    updateUser(user)
+    updateUser(user.id, user)
       .then(response => {
         dispatch(updateUserAction(response))
       })
