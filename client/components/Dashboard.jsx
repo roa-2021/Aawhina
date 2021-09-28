@@ -7,7 +7,7 @@ import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Offers from './Offers'
 import Requests from './Requests'
-// import Welcome from './Welcome'
+import Welcome from './Welcome'
 
 function Dashboard({ users, currentUser }) {
   
@@ -51,12 +51,13 @@ function Dashboard({ users, currentUser }) {
           </ToggleButtonGroup>
         </Container>
         {offers
-          ? <Offers />
+          ? <Offers currentUser={currentUser}/>
           : <Requests currentUser={currentUser}/>
         }
       </>
     )
-  } return (<Welcome/>)
+
+  } return (<Welcome />)
 }
 
 
