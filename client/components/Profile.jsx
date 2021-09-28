@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
 
 import { getSuburbs} from '../apis/suburb_api'
 
@@ -28,6 +30,14 @@ function Profile (props)  {
   const [theSuburbs, setSuburbs] = useState([])
   
   const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+
+  let history = useHistory()
+
+  const handleCock = (e) => {
+    e.preventDefault() 
+      history.push('/update')
+
+  }
   
   return (
 
@@ -102,7 +112,7 @@ function Profile (props)  {
 
             <Stack direction="row" item sx={{pt: 0}}>
               <Box sx={{ "& button": { ml: 2, p: 0 } }}>
-              <Button size="small">Edit Details</Button>
+              <Button onClick={handleCock}size="small">Edit Details</Button>
               </Box>
             </Stack>
 
