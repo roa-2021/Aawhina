@@ -26,10 +26,17 @@ export function postOfferThunk (offer) {
 
 export function updateOfferThunk (offer) {
   return dispatch => {
-    updateOffer(offer)
+    updateOffer(offer.id, offer)
       .then(response => {
         dispatch(updateOfferAction(response))
       })
+  }
+}
+
+export function deleteOfferThunk (offerId) {
+  return dispatch => {
+    deleteOffer(offerId)
+      .then(() => dispatch(getOffersThunk()))
   }
 }
 

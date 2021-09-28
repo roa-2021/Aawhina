@@ -33,10 +33,10 @@ function Profile (props)  {
 
   let history = useHistory()
 
+
   const handleCock = (e) => {
     e.preventDefault() 
       history.push('/profile/edit')
-
   }
   
   return (
