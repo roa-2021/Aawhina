@@ -39,10 +39,14 @@ function RequestCard ({ dispatch, offers, currentUser, request }) {
   return (
     <>
       <Grid item>
-        <Badge badgeContent={requestOffers && requestOffers.length} color="primary">
+        <Badge 
+          badgeContent={requestOffers && requestOffers.length} 
+          color="success"
+        >
           <Card
             variant="outlined"
             onClick={handleDialogOpen}
+            fullWidth={true}
           >
             <CardContent>
               <Typography variant="h6">
@@ -60,8 +64,8 @@ function RequestCard ({ dispatch, offers, currentUser, request }) {
                   variant="outlined" />
               </Stack>
             </CardContent>
-          </Card>
-        </Badge>
+        </Card>
+          </Badge>
       </Grid>
       { openDialog && <RequestDialog
         open={openDialog}
