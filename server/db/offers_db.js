@@ -4,7 +4,7 @@ const db = require('./connection')
 const getAllOffersAndUsers = () => {
   return db('offers')
     .join('users', 'user_id', 'users.id')
-    .select('*', 'offers.id AS offer_id')
+    .select('*', 'offers.id as id', 'users.id AS user_id')
 }
 
 const getOfferById = (id) => {

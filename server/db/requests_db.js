@@ -4,8 +4,8 @@ const db = require('./connection')
  function getAllRequestsAndUsersAndSuburbs () {
   return db('requests')
     .join('users', 'user_id', 'users.id')
-    // .join('suburb', 'users.suburb_id', 'suburb.id')
-    .select('requests.*', 'users.first_name', 'users.last_name', 'users.suburb_id', 'users.image')
+    .join('suburb', 'users.suburb_id', 'suburb.id')
+    .select('*', 'requests.id AS id ', 'users.id AS user_id', 'suburb.id AS suburb_id', 'suburb.name AS suburb_name')
 }
 
 

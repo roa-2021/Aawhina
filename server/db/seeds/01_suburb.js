@@ -1,8 +1,4 @@
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  // return knex('suburb').del()
-  // .then(function () {
-  // Inserts seed entries
   return knex('suburb').insert([
     { id: 1, name: "Aro Valley", region: "Wellington", neighbours: "22, 55, 5, 14, 40" },
     { id: 2, name: "Berhampore", region: "Wellington", neighbours: "57, 37, 31, 51, 17, 12, 25, 33" },
@@ -151,5 +147,3 @@ exports.seed = function (knex) {
     { id: 145, name: "Whitby", region: "Porirua", neighbours: "136, 123, 137" }
   ])
 }
-//   )
-// }

@@ -1,25 +1,18 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+import { getUser } from '../apis/users_api'
+
 import Login from './Login'
 import Dashboard from './Dashboard'
 import MakeProfile from './MakeProfile'
 import Register from './Register'
-import Link from 'react-router-dom'
-import Logout from './Logout'
-import Nav from './Nav'
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
-import { useAuth0 } from '@auth0/auth0-react'
-import { getUser } from '../apis/users_api'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import LaunchData from './LaunchData'
 import Image from 'material-ui-image'
-
-
 
 
 function Welcome ({currentUser}) {
