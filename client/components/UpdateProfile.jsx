@@ -35,28 +35,57 @@ import Stack from '@mui/material/Stack'
 function UpdateProfile (props)  {
   const { dispatch, currentUser } = props
 
-  const [values, setValues] = useState({    
-  first: currentUser.first_name,
-  last: currentUser.last_name,
-  bio: currentUser.bio,
-})  
- 
-
+  
   useEffect(() => {
     getSuburbs()
     .then(res => setSuburbs(res)
     )
   },[])
 
-  const [editing, setEditing] = useState(false)
+ 
   const [gender, setGender] = useState('')
   
   const [theSuburbs, setSuburbs] = useState([])
   
   const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+  
+  const [newSuburb, setSuburb] = useState()
 
-//  const sub = currentUser.suburb_id
-  const [newSuburb, setSuburb] = useState('')
+  const [values, setValues] = useState({    
+  first: currentUser.first_name,
+  last: currentUser.last_name,
+  bio: currentUser.bio,
+  })
+
+  const [image, setImage ] = useState("")
+  const [ url, setUrl ] = useState("")
+  // const [img, setImg] = useState ('')
+
+
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "refb93xz")
+    data.append("cloud_name","dvctkzwbh")
+
+    fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
+      method:"post",
+      body: data})
+      .then(resp => resp.json())
+      .then(data => {
+        setUrl(data.url)
+      })
+      .catch(err => console.log(err))
+    }
+
+  const Input = styled('input')({
+    display: 'none',
+  })
+
+
+
+// console.log(values)
+console.log(props.currentUser)
   
   const handleSuburb = (e) => {
     e.preventDefault()
@@ -72,7 +101,6 @@ function UpdateProfile (props)  {
   const handleChange =(e) => {
     e.preventDefault()
     setValues({
-      ...values,
       [e.target.name]: e.target.value
     })  
 
@@ -91,17 +119,16 @@ function UpdateProfile (props)  {
       bio: values.bio,
       gender: gender, 
       spoken_languages: currentUser.spoken_languages,
-      image: currentUser.image
+      image: url
     }  
 
     console.log(updatedUser)
       dispatch(updateUserThunk(updatedUser)) 
-      dispatch(getUsersThunk()) 
-      // setEditing(false)
       history.push('/profile') 
       
     }
     
+    // dispatch(getUsersThunk()) 
     
     
     const { first, last, bio } = values
@@ -121,16 +148,20 @@ function UpdateProfile (props)  {
               sx={{ width: 110, height: 110 }}
               />
           </Grid>
-          <Button sx={{ml: 1}}size="small">Edit Photo</Button>
-        </Box>
-        <Grid item xs={12} sm container>
-          <Grid item xs container direction="column" spacing={2}>
-            <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" component="div" fontSize="h5.fontSize">
-                Update Profile
-              </Typography>
-              <Divider sx={{width: '23ch'}}/>
 
+            <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+            <Button variant="outlined" onClick={uploadImage}>Upload</Button> 
+        </Box>
+          <Grid item xs={12} sm container>
+            <Grid item xs container direction="column" spacing={2}>
+              <Grid item xs>
+                <Typography gutterBottom variant="subtitle1" component="div" fontSize="h5.fontSize">
+                  Update Profile
+                </Typography>
+
+              
+
+              <Divider sx={{width: '23ch'}}/>
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
 
 
@@ -149,7 +180,6 @@ function UpdateProfile (props)  {
                       size="small"
                       variant="standard"
                       name='first'
-                      display='hellllllo'
                       value={first}
                       onChange={handleChange}
                     />
@@ -167,8 +197,6 @@ function UpdateProfile (props)  {
                     <TextField
                       label="Last Name"
                       id="standard-size-small"
-                      autoComplete='lastnameplz'
-                      defaultValue={currentUser.last_name}
                       size="small"
                       variant="standard"
                       name='last'
@@ -185,7 +213,6 @@ function UpdateProfile (props)  {
                 <Select
                   value={gender}
                   label='Gender'
-                  // defaultValue={currentUser}
                   onChange={handleGender}
                   sx={{ width: '18ch' }}>
                   <MenuItem value='female'>Female</MenuItem>
