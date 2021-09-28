@@ -38,7 +38,7 @@ const App = () => {
           <Route exact path='/requests/new' component={MakeRequest} />
           <Route exact path='/requests' component={Requests} />
           <Route exact path='/profile' component={Profile} />
-          <Route exact path='/update' component={UpdateProfile} />
+          <Route exact path='/profile/edit' component={UpdateProfile} />
 
 
         </Router>
