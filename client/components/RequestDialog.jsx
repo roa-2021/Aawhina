@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { updateOfferThunk } from '../actions/offers'
 
 import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
@@ -12,7 +13,11 @@ import Typography from '@mui/material/Typography'
 import Collapse from '@mui/material/Collapse'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import IconButton from '@mui/material/IconButton'
-import { Card, CardActions, CardContent, Stack, Divider } from '@mui/material'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import Stack from '@mui/material/Stack'
+import Divider from '@mui/material/Divider'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -26,6 +31,7 @@ const ExpandMore = styled((props) => {
 
 function RequestDialog (props) {
   const { 
+    dispatch,
     currentUser, 
     request, 
     open, 
@@ -39,8 +45,12 @@ function RequestDialog (props) {
     setExpanded(!expanded);
   };
 
-  const someBullShit = () => { // This fucker right here. It needs to do a thing.
-    console.log(props)
+  const handleAccept = (offerToUpdate) => {
+    newOffer = {
+      ...offerToUpdate,
+      accepted: true
+    }
+    dispatch(updateOfferThunk(newOffer))
   }
 
   const grammar = requestOffers?.length > 1 ? 'offers' : 'offer'
@@ -107,9 +117,9 @@ function RequestDialog (props) {
               </CardContent>
               {/* <CardActions> */}
                 <Button 
-                  variant="outlined" 
+                  variant="contained" 
                   color="secondary"
-                  onClick={someBullShit} // TODO: WIRE THIS FUCKER UP
+                  onClick={() => handleAccept(offer)}
                 >
                     Accept Offer
                 </Button>
