@@ -56,7 +56,10 @@ function OfferCard ({ offer, requests, currentUser }) {
           />
           <CardContent>
             <Typography>
-              {`You've offered āwhina to ${request.user_id} with ${request.details}`}
+              {`You've offered āwhina to user ${request.user_id} who requested ${request.title}. `}
+            </Typography>
+            <Typography>
+              {` ${request.details}`}
             </Typography>
             <Stack direction="row" spacing={1} mt={2}>
               <Chip

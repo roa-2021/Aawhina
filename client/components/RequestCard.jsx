@@ -62,7 +62,7 @@ function RequestCard ({ offers, request, currentUser }) {
           />
           <CardContent>
             <Typography>
-              {`User ${request.user_id} would like help with ${request.details}`}
+              { request.details }
             </Typography>
             <Stack direction="row" spacing={1} mt={2}>
               <Chip
