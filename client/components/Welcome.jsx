@@ -58,9 +58,9 @@ function Welcome ({currentUser}) {
         <Typography sx={{ pt: 7, pr: 0, pl: 10}} component='h1' variant='h3'>Welcome to Āwhina!</Typography>
     
         <Stack sx={{ pt: 9, pr: 10, pl: 10}}direction="row" spacing={25}justifyContent="right">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat orci nulla pellentesque dignissim 
-            enim sit. A lacus vestibulum sed arcu non odio. Odio facilisis mauris sit amet massa vitae. Vel facilisis volutpat est velit egestas dui id ornare arcu. Interdum varius 
-            sit amet mattis. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Odio eu feugiat pretium nibh ipsum consequat nisl..</p>
+          <p>Āwhina.
+            {/* Initially born out of the want for a place to connect with neighbours who need  */}
+          </p>
         </Stack>
       </Box>
  

@@ -13,6 +13,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Link from '@mui/material/Link'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
 
 
 function Nav() {
@@ -62,13 +64,15 @@ function Nav() {
               md: 'flex' 
               } 
           }}>
-            <Box sx={{pr: 4,}} spacing={4}>
+            <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
             <Login/>
             <Register/>
-            </Box>
-            <Box sx={{pt: 0}}>
-            <AccountCircle  fontSize='large' onClick={handleMenu}/>
-            </Box>
+            </Stack>
+            {/* <Box sx={{my: 'auto'}}> */}
+            <IconButton color='inherit'  onClick={handleMenu}>
+            <AccountCircle  fontSize='large'/>
+            </IconButton>
+            {/* </Box> */}
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -89,6 +93,7 @@ function Nav() {
                 {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
               </Menu>
+
           </Box>
         </Toolbar>
       </AppBar>
