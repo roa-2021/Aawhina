@@ -119,7 +119,8 @@ function MakeProfile (props) {
   const { first, last, language, bio } = values
 
   return (
-
+<>
+<LaunchData />
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
@@ -207,7 +208,7 @@ function MakeProfile (props) {
         </Box>
       </Box>
     </Container>
-    
+    </>
   )
 }
 
