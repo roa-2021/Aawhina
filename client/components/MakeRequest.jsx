@@ -4,6 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { postRequestThunk } from '../actions/requests'
 import { connect } from 'react-redux'
 
+import Welcome from './Welcome'
+
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
