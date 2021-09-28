@@ -21,7 +21,7 @@ export function postUserThunk (user) {
     postUser(user)
       .then(response => {
         dispatch(addUser(response))
-        dispatch(setCurrentUserThunk(response))
+        dispatch(setCurrentUserThunk(user.email))
       })
   }
 }
@@ -31,6 +31,7 @@ export function updateUserThunk (user) {
     updateUser(user.id, user)
       .then(response => {
         dispatch(updateUserAction(response))
+        dispatch(setCurrentUserThunk(user.email))
       })
   }
 }
