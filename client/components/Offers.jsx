@@ -3,6 +3,8 @@ import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stac
 import { connect } from 'react-redux'
 import RequestCard from './RequestCard';
 
+
+
 function Offers ({ currentUser, offers }) {
 
   const offersToShow = currentUser ? offers.filter(offer => currentUser.id === offer.user_id) : offers
@@ -30,7 +32,8 @@ function Offers ({ currentUser, offers }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} key={offer.id} />)}
+            TODO: Insert OfferCard and some logic
+            {/* { offersToShow && offersToShow.map(offer => <RequestCard request={offer} key={offer.id} />)} */}
             <Grid 
               item
               my={2}

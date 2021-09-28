@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { postOfferThunk } from '../actions/offers'
 import { connect } from 'react-redux'
 
+import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
 import Chip from '@mui/material/Chip'
 import Dialog from '@mui/material/Dialog'
@@ -11,6 +12,17 @@ import DialogTitle from '@mui/material/DialogTitle'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props
+  return <IconButton {...other} />
+})(({ theme, expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
+
 function RequestDialog (props) {
   const { 
     currentUser, 
@@ -19,6 +31,13 @@ function RequestDialog (props) {
     handleDialogClose, 
     handleSubmitOpen 
   } = props
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  const grammar = requestOffers.length > 1 ? 'offers' : 'offer'
 
   return (
     <Dialog
@@ -58,8 +77,32 @@ function RequestDialog (props) {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleDialogClose}>Back</Button>
-        { currentUser.id !== request.user_id && <Button onClick={handleSubmitOpen}>Offer to help</Button>}
-      </DialogActions>
+          { currentUser.id !== request.user_id && <Button onClick={handleSubmitOpen}>Offer to help</Button>}
+          { currentUser.id === request.id && <Button></Button> }
+          <Chip
+            label={request.category}
+            variant="outlined" 
+          />
+          <Chip
+            label={request.suburb_name}
+            variant="outlined" 
+          />
+          <Typography>
+            {`Click to see ${requestOffers.length} ${grammar}`}
+          </Typography>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </DialogActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <DialogContent>
+        </DialogContent>
+      </Collapse>
     </Dialog>
   )
 }
