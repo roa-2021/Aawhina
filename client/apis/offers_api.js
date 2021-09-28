@@ -32,5 +32,5 @@ export const updateOffer = (id, newDetails) => {
   return request
     .put(`${offersUrl}/${id}`)
     .send(newDetails)
-    .then(res => res.body)
+    .then(() => getOffer(id))
 }

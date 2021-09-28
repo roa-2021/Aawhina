@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-import Container from '@mui/material/Container'
-import ToggleButton from '@mui/material/ToggleButton'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+
 import Offers from './Offers'
 import Requests from './Requests'
 import Welcome from './Welcome'
 
-function Dashboard({ users, currentUser }) {
+import Container from '@mui/material/Container'
+import ToggleButton from '@mui/material/ToggleButton'
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+
+function Dashboard({ currentUser }) {
   
-  const { user, isAuthenticated, isLoading } = useAuth0()
+  const { isAuthenticated } = useAuth0()
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
-  let history = useHistory()
 
   const toggleOffers = () => {
     setOffers(true)
@@ -24,8 +24,8 @@ function Dashboard({ users, currentUser }) {
     setOffers(false)
   }
 
-  const handleChange = (newAlignment) => {
-    setAlignment(newAlignment)
+  const handleChange = (e) => {
+    setAlignment(e.target.value)
   }
 
   if (isAuthenticated) {
@@ -51,12 +51,11 @@ function Dashboard({ users, currentUser }) {
           </ToggleButtonGroup>
         </Container>
         {offers
-          ? <Offers currentUser={currentUser}/>
+          ? <Offers />
           : <Requests currentUser={currentUser}/>
         }
       </>
     )
-
   } return (<Welcome />)
 }
 
