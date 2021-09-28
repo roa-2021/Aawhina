@@ -48,20 +48,9 @@ const itemData = [
 
 function Welcome ({currentUser}) {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  
-  // const [profileExists, setprofileExists] = React.useState(false)
-
-  // const checkProfile = (user) => {
-  //   getUser(user.email)
-  //   .then ((user) => {
-  //     if (user) {
-  //       setprofileExists(true)
-  //     }
-  //   })
-  // }
 
   if (isAuthenticated) {
-    // checkProfile(user)
+  
     return (
       <>
       <LaunchData />
