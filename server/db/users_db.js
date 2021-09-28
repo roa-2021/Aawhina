@@ -22,9 +22,6 @@ const getUserById = (id) => {
 const createUserProfile = (user) => {
   return db('users')
     .insert(user, 'id')
-    .then(userId => {
-      return getUserById(userId[0])
-    })
 }
 
 const editUserProfile = (id, newUser) => {

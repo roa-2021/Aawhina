@@ -1,7 +1,7 @@
 const db = require('./connection')
 
 // many requests to one user
-async function getAllRequestsAndUsersAndSuburbs () {
+ function getAllRequestsAndUsersAndSuburbs () {
   return db('requests')
     .join('users', 'user_id', 'users.id')
     // .join('suburb', 'users.suburb_id', 'suburb.id')
@@ -9,19 +9,19 @@ async function getAllRequestsAndUsersAndSuburbs () {
 }
 
 
-async function getRequestById (id) {
+ function getRequestById (id) {
   return db('requests')
     .where('requests.id', id)
     .first()
 }
 
-async function deleteRequest (id, user) {
+ function deleteRequest (id, user) {
     return db('requests')
       .where('id', id)
       .del()
   }
 
-async function createRequest (request, user) {
+ function createRequest (request, user) {
   // request.added_by_user = user.id
   return db('requests')
     .insert(request, 'id')
@@ -30,7 +30,7 @@ async function createRequest (request, user) {
     })
 }
 
-async function editRequest (newRequest, user) {
+ function editRequest (newRequest, user) {
   return db('requests')
   .where('id', id)
   .update(newRequest)

@@ -34,7 +34,6 @@ function MakeProfile (props) {
   const [theSuburbs, setSuburbs] = useState([])
   const [gender, setGender] = useState('')
   
-  
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -47,6 +46,7 @@ function MakeProfile (props) {
     getSuburbs()
     .then(res => setSuburbs(res)
     )
+  
   },[])
   
   const [newSuburb, setSuburb] = useState(0)
@@ -91,7 +91,6 @@ function MakeProfile (props) {
       })
       .catch(err => console.log(err))
     }
-
     const Input = styled('input')({
       display: 'none',
     })
@@ -109,21 +108,18 @@ function MakeProfile (props) {
        gender: gender, 
        spoken_languages: values.language,
        image: url
-
      }  
+     console.log(user)
+     console.log(newUser)
      dispatch(postUserThunk(newUser)) 
-    //  dispatch(setCurrentUserThunk(user))
-     history.push('/dashboard') 
-    
-     
+    //  dispatch(setCurrentUserThunk(user.email))
+     history.push('/') 
     }  
-    // console.log(newUser)
-    //  console.log(newSuburb)
 
   const { first, last, language, bio } = values
 
   return (
-  
+
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' variant='h5'>Create Profile</Typography>
@@ -211,7 +207,7 @@ function MakeProfile (props) {
         </Box>
       </Box>
     </Container>
-    
+  
   )
 }
 
@@ -225,19 +221,6 @@ function mapState2Props (globalState) {
 }
 
 export default connect(mapState2Props)(MakeProfile)
-
-// upload preset name refb93xz
-
-
-
-// <Select
-// label='Suburb'
-// value={newSuburb}
-// onChange={handleSuburb}
-// sx={{ width: '21ch' }}>
-//   {theSuburbs && theSuburbs.map(s => (
-// <MenuItem value={s.id}>{s.name}</MenuItem>
-//   ))}
 
 
 
