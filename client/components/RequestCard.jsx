@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { styled } from '@mui/material/styles'
-import Badge from '@mui/material/Badge'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
@@ -14,22 +12,8 @@ import MakeOfferDialog from './MakeOfferDialog'
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
-import Collapse from '@mui/material/Collapse'
-import CardActions from '@mui/material/CardActions'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props
-  return <IconButton {...other} />
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
-function RequestCard ({ offers, request }) {
+function RequestCard ({ offers, request, currentUser }) {
   const [openDialog, setOpenDialog] = useState(false);
   const [openSubmit, setOpenSubmit] = useState(false);
   
@@ -52,67 +36,54 @@ function RequestCard ({ offers, request }) {
     setOpenSubmit(false);
   };
 
-
-
-  const requestOffers = offers.filter(offer => offer.request_id === request.id)
-  // const grammar = requestOffers.length > 1 ? 'offers' : 'offer'
+  let requestOffers
+  if (currentUser) {requestOffers = offers.filter(offer => offer.request_id === request.id)}
 
   return (
     <>
       <Grid item>
-          <Card
-            variant="outlined"
-            onClick={handleDialogOpen}
-          >
-            <CardHeader
-              action={ requestOffers &&
-                <IconButton aria-label="offers available">
-                  <CircleNotificationsIcon color="success" />
-                </IconButton>
-              }
-              title={`${request.title}`}
-            />
-            <CardContent>
-              <Typography>
-                {`User ${request.user_id} would like help with ${request.details}`}
-              </Typography>
-              <Stack direction="row" spacing={1} mt={2}>
-                <Chip
-                  label={request.category}
-                  variant="outlined" 
-                />
-                <Chip
-                  label={request.suburb_name}
-                  variant="outlined" 
-                />
-              </Stack>
-            </CardContent>
-            {/* <CardActions disableSpacing>
-              <Typography>
-                {`Click to see ${requestOffers.length} ${grammar}`}
-              </Typography>
-              <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-              </CardContent>
-            </Collapse> */}
+        <Card
+          variant="outlined"
+          onClick={handleDialogOpen}
+        >
+          <CardHeader
+            action={ requestOffers &&
+              <IconButton aria-label="offers available">
+                <CircleNotificationsIcon color="success" />
+              </IconButton>
+            }
+            title={`${request.title}`}
+          />
+          <CardContent>
+            <Typography>
+              {`User ${request.user_id} would like help with ${request.details}`}
+            </Typography>
+            <Stack direction="row" spacing={1} mt={2}>
+              <Chip
+                label={request.category}
+                variant="outlined" 
+              />
+              <Chip
+                label={request.suburb_name}
+                variant="outlined" 
+              />
+            </Stack>
+          </CardContent>
         </Card>
       </Grid>
-      {}
+      { openDialog && <RequestDialog
+        open={openDialog}
+        request={request}
+        handleDialogClose={handleDialogClose}
+        handleSubmitOpen={handleSubmitOpen} 
+        requestOffers={requestOffers}
+      />}
       { openSubmit && <MakeOfferDialog
         open={openSubmit}
         request={request}
+        handleDialogOpen={handleDialogOpen}
         handleDialogClose={handleDialogClose}
         handleSubmitClose={handleSubmitClose} 
-        requestOffers={requestOffers}
       />}
     </>
   )
@@ -120,7 +91,7 @@ function RequestCard ({ offers, request }) {
 
 function mapState2Props (globalState) {
   return {
-    currentUser: globalState.currentUser,
+    // currentUser: globalState.currentUser,
     offers: globalState.offers
   }
 }
