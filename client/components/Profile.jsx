@@ -35,7 +35,7 @@ function Profile (props)  {
 
   const handleCock = (e) => {
     e.preventDefault() 
-      history.push('/update')
+      history.push('/profile/edit')
 
   }
   
