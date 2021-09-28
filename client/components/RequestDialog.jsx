@@ -37,7 +37,8 @@ function RequestDialog (props) {
     open, 
     handleDialogClose, 
     handleSubmitOpen,
-    requestOffers
+    requestOffers,
+    handleRetractOpen
   } = props
   const [expanded, setExpanded] = useState(false);
 
@@ -104,7 +105,16 @@ function RequestDialog (props) {
           </ExpandMore>
         </>}
         { currentUser.id !== request.user_id && <Button onClick={handleSubmitOpen}>Offer to help</Button>}
-        <Button onClick={handleDialogClose}>Back</Button>
+
+        { currentUser.id === request.user_id && <Button 
+        variant="contained" 
+        color="secondary"
+        onClick={handleRetractOpen}>
+          Remove Request
+      </Button>}
+
+      <Button onClick={handleDialogClose}>Back</Button>
+
       </DialogActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <DialogContent>
@@ -123,6 +133,7 @@ function RequestDialog (props) {
                 >
                     Accept Offer
                 </Button>
+               
               {/* </CardActions> */}
             </Card>)
           })}
