@@ -26,7 +26,8 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack'
+import Alert from '@mui/material/Alert'
 
 
 
@@ -103,9 +104,11 @@ function Profile (props)  {
       image: currentUser.image
 
     }  
+
+    console.log(updatedUser)
       dispatch(updateUserThunk(updatedUser))  
-      // history.push('/profile') 
-      setEditing(false)
+      // setEditing(false)
+      history.push('/dashboard') 
   
   }
   
