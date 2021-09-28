@@ -17,6 +17,7 @@ import { getUser } from '../apis/users_api'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import LaunchData from './LaunchData'
+import Image from 'material-ui-image'
 
 
 
@@ -46,30 +47,31 @@ function Welcome ({currentUser}) {
   }
   return (
    <>
-
+   
     <LaunchData />
-    <Stack sx={{ pt: 10, pr: 20 }}direction="column">
+    <Stack sx={{ pt: 2, pr: 5}}direction="row">
+
       <Box
-        component="img"
         sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 400, md: 167 },
-          maxWidth: { xs: 400, md: 250 },
-        }}
-        alt="Neighbours looking out their windows."
-        src="./images/Screenshot.png"
-      />
+          ml: 5,
+          pl: 20,
+          height: 700,
+          width: 400,
+          border: '1px dashed grey'
+        }}>
+          <Image width='400' src="./images/Screenshot.png" cover={true}/>
+      </Box>
 
-    </Stack>
-    <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
+      <Box sx={{border: '1px dashed grey'}} justifyContent="right">
         <Typography  component='h1' variant='h3'>Welcome to Āwhina!</Typography>
+    
+        <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
+          <Login/>
+          <Register/>
+        </Stack>
+      </Box>
+ 
     </Stack>
-    <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
-      <Login/>
-      <Register/>
-    </Stack>
-
     </>
   )
 }
