@@ -4,14 +4,14 @@ exports.seed = function(knex) {
   //   .then(function () {
       // Inserts seed entries
       return knex('requests').insert([
-        {id: 1, user_id: 1, title: 'I need help 1', category: 'groceries', details: 'an unimportant string about post 1', time_frame: 'whenever', created_at: '2021-09-26'},
-        {id: 2, user_id: 2, title: 'I need help 2', category: 'childcare', details: 'an unimportant string about post 2', time_frame: 'whenever', created_at: '2021-09-26'},
-        {id: 3, user_id: 3, title: 'I need help 3', category: 'groceries', details: 'an unimportant string about post 3', time_frame: 'whenever', created_at: '2021-09-26'},
-        {id: 4, user_id: 4, title: 'I need help 4', category: 'groceries', details: 'an unimportant string about post 4', time_frame: 'whenever', created_at: '2021-09-26'}
-        // {id: 5, user_id: 5, title: 'I need help 5', category: 'childcare', details: 'an unimportant string about post 5', time_frame: 'whenever', created_at: '2021-09-26'},
-        // {id: 6, user_id: 6, title: 'I need help 6', category: 'groceries', details: 'an unimportant string about post 6', time_frame: 'whenever', created_at: '2021-09-26'},
-        // {id: 7, user_id: 7, title: 'I need help 7', category: 'childcare', details: 'an unimportant string about post 7', time_frame: 'whenever', created_at: '2021-09-26'},
-        // {id: 8, user_id: 8, title: 'I need help 8', category: 'groceries', details: 'an unimportant string about post 8', time_frame: 'whenever', created_at: '2021-09-26'},
+        {id: 1, user_id: 1, title: 'Help with the shopping', category: 'groceries', details: 'Kia ora, can someone please pick up my groceries for me', time_frame: 'whenever', created_at: '2021-09-26'},
+        {id: 2, user_id: 2, title: 'Pick up the kids', category: 'childcare', details: 'can someone take me to get the kids on Tuesday', time_frame: 'This week', created_at: '2021-09-26'},
+        {id: 3, user_id: 3, title: 'lift to the shops', category: 'Transport', details: 'I would like a lift to the mall.', time_frame: 'Tomorrow', created_at: '2021-09-26'},
+        {id: 4, user_id: 4, title: 'Support to the supermarket', category: 'Buddying', details: 'Thursday morning, Kilbirnie please.', time_frame: 'This week', created_at: '2021-09-26'},
+        {id: 5, user_id: 5, title: 'Pool transport', category: 'Transport', details: 'Hello there, I am looking for a neighbour to drop me to Kilbirnie pool', time_frame: 'ongoing', created_at: '2021-09-26'},
+        {id: 6, user_id: 6, title: 'Countdown shop', category: 'groceries', details: 'Hi, loookig for soneone to do my groceries as I cant leave the house right now', time_frame: 'Ongoing', created_at: '2021-09-26'},
+        {id: 7, user_id: 7, title: 'Help with clothes shopping ', category: 'Buddying', details: 'Hello, I need some help getting to the shops and while I am there.', time_frame: 'whenever', created_at: '2021-09-26'},
+        {id: 8, user_id: 8, title: 'Weekly shop', category: 'groceries', details: 'I cant get to the supermarket since my injury, need someone to help with the shopping.', time_frame: 'Today', created_at: '2021-09-26'},
         // {id: 9, user_id: 9, title: 'I need help 9', category: 'childcare', details: 'an unimportant string about post 9', time_frame: 'whenever', created_at: '2021-09-26'},
         // {id: 10, user_id: 10 ,title: 'I need help 10', category: 'groceries', details: 'an unimportant string about post 10', time_frame: 'whenever', created_at: '2021-09-26'},
         // {id: 11, user_id: 11 ,title: 'I need help 11', category: 'childcare', details: 'an unimportant string about post 11', time_frame: 'whenever', created_at: '2021-09-26'},
