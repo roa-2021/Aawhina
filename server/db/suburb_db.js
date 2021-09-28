@@ -1,10 +1,10 @@
 const db = require('./connection')
 
-async function getAllSuburbs () {
+ function getAllSuburbs () {
   return db('suburb')
 }
 
-async function getSuburb (id) {
+ function getSuburb (id) {
   return db('suburb')
     .where('suburb.id', id)
     .first()

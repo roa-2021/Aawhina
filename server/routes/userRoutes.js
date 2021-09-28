@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
   const user = req.body
   db.createUserProfile(user)
     .then(user => {
-      return res.json(user)
+    res.json(user)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
