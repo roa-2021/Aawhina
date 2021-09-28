@@ -32,6 +32,7 @@ export function updateUserThunk (user) {
     updateUser(user.id, user)
       .then(response => {
         dispatch(updateUserAction(response))
+        dispatch(setCurrentUserThunk(user.email))
       })
   }
 }

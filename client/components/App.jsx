@@ -12,6 +12,7 @@ import MakeProfile from './MakeProfile'
 import MakeRequest from './MakeRequest'
 import Nav from './Nav'
 import Profile from './Profile'
+import UpdateProfile from './UpdateProfile'
 import Requests from './Requests'
 import Welcome from './Welcome'
 
@@ -37,6 +38,9 @@ const App = () => {
           <Route exact path='/requests/new' component={MakeRequest} />
           <Route exact path='/requests' component={Requests} />
           <Route exact path='/profile' component={Profile} />
+          <Route exact path='/profile/edit' component={UpdateProfile} />
+
+
         </Router>
         <Footer />
       </Box>
