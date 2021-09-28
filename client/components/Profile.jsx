@@ -102,7 +102,6 @@ function Profile (props)  {
       gender: gender, 
       spoken_languages: currentUser.spoken_languages,
       image: currentUser.image
-
     }  
 
     console.log(updatedUser)
