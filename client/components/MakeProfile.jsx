@@ -34,7 +34,6 @@ function MakeProfile (props) {
   const [theSuburbs, setSuburbs] = useState([])
   const [gender, setGender] = useState('')
   
-  
   const [values, setValues] = useState({
     first: '',
     last: '',
@@ -110,9 +109,11 @@ function MakeProfile (props) {
        spoken_languages: values.language,
        image: url
      }  
+     console.log(user)
+     console.log(newUser)
      dispatch(postUserThunk(newUser)) 
      dispatch(setCurrentUserThunk(user.email))
-     history.push('/dashboard') 
+     history.push('/') 
     }  
 
   const { first, last, language, bio } = values
