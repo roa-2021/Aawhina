@@ -1,4 +1,5 @@
 import { getUsers, getUser, postUser, updateUser, deleteUser} from '../apis/users_api'
+import {setCurrentUserThunk} from './currentUser'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const ADD_USER = 'ADD_USER'
@@ -20,6 +21,7 @@ export function postUserThunk (user) {
     postUser(user)
       .then(response => {
         dispatch(addUser(response))
+        dispatch(setCurrentUserThunk(response))
       })
   }
 }

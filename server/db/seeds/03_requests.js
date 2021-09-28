@@ -1,7 +1,7 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('requests').del()
-    .then(function () {
+  // return knex('requests').del()
+  //   .then(function () {
       // Inserts seed entries
       return knex('requests').insert([
         {id: 1, user_id: 1, title: 'I need help 1', category: 'groceries', details: 'an unimportant string about post 1', time_frame: 'whenever', created_at: '2021-09-26'},
@@ -39,5 +39,6 @@ exports.seed = function(knex) {
         // {id: 33, user_id: 33 ,title: 'I need help 33', category: 'groceries', details: 'an unimportant string about post 33', time_frame: 'whenever', created_at: '2021-09-26'},
         // {id: 34, user_id: 34 ,title: 'I need help 34', category: 'groceries', details: 'an unimportant string about post 34', time_frame: 'whenever', created_at: '2021-09-26'}
       ])
-    })
-  }
+    }
+  //   )
+  // }
