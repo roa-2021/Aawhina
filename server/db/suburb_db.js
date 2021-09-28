@@ -2,6 +2,21 @@ const db = require('./connection')
 
 async function getAllSuburbs () {
   return db('suburb')
+    .then(response => {
+      suburbsArr = []
+      response.map(suburb => {
+        // console.log(suburb)
+        newSuburb = {
+          ...suburb,
+          neighbours: suburb.neighbours.split(',')
+        }
+        newSuburb.neighbours.map((s, i) => {
+          newSuburb.neighbours[i] = parseInt(s)
+        })
+        suburbsArr.push(newSuburb)
+      })
+      return suburbsArr
+    })
 }
 
 async function getSuburb (id) {
