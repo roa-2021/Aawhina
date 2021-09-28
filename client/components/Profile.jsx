@@ -5,6 +5,7 @@ import { updateUserThunk } from '../actions/users'
 import Nav from './Nav'
 import { useHistory } from 'react-router-dom'
 import { getSuburbs} from '../apis/suburb_api'
+import { Link } from 'react-router-dom'
 
 import { autocompleteClasses } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
@@ -40,9 +41,9 @@ function Profile (props)  {
   const { dispatch, currentUser } = props
 
   const [values, setValues] = useState({    
-  first: '',
-  last: '',
-  bio: '',
+  first: currentUser.first_name,
+  last: currentUser.last_name,
+  bio: currentUser.bio,
 })  
  
 
@@ -103,7 +104,8 @@ function Profile (props)  {
 
     }  
       dispatch(updateUserThunk(updatedUser))  
-      history.push('/profile') 
+      // history.push('/profile') 
+      setEditing(false)
   
   }
   
@@ -155,7 +157,7 @@ function Profile (props)  {
                     <TextField
                       label="First Name"
                       id="standard-size-small"
-                      defaultValue='first name'
+                      // defaultValue={currentUser.first_name}
                       size="small"
                       variant="standard"
                       name='first'
@@ -206,6 +208,7 @@ function Profile (props)  {
                 <Select
                   value={gender}
                   label='Gender'
+                  // defaultValue={currentUser}
                   onChange={handleGender}
                   sx={{ width: '21ch' }}>
                   <MenuItem value='female'>Female</MenuItem>
@@ -290,7 +293,7 @@ function Profile (props)  {
                 {editing?
                 <>
                 <Button size="small" onClick={toggleEditing}>Cancel</Button>
-                <Button size="small" onClick={handleSubmit}>Save Changes</Button>
+               <Button size="small" onClick={handleSubmit}>Save Changes</Button>
                 </>
                 :<Button size="small" onClick={toggleEditing}>Edit Details</Button>}
               </Box>
