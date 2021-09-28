@@ -1,32 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
-import Chip from '@mui/material/Chip'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import Typography from '@mui/material/Typography'
-import Collapse from '@mui/material/Collapse'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import IconButton from '@mui/material/IconButton'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Stack from '@mui/material/Stack'
-import Divider from '@mui/material/Divider'
-
-// const ExpandMore = styled((props) => {
-//   const { expand, ...other } = props
-//   return <IconButton {...other} />
-// })(({ theme, expand }) => ({
-//   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-//   transition: theme.transitions.create('transform', {
-//     duration: theme.transitions.duration.shortest,
-//   }),
-// }));
 
 function OfferDialog (props) {
   const { 
@@ -38,16 +18,6 @@ function OfferDialog (props) {
     currentUser
   } = props
   
-  // const [expanded, setExpanded] = useState(false);
-
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
-
-  
-
-  // const grammar = requestOffers?.length > 1 ? 'offers' : 'offer'
-
   return (
     <Dialog
       open={open}

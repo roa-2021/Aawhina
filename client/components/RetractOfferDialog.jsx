@@ -7,7 +7,6 @@ import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
-import TextField from '@mui/material/TextField';
 import { DialogContentText } from '@mui/material'
 
 function MakeOfferDialog (props) {
@@ -16,18 +15,10 @@ function MakeOfferDialog (props) {
     open,
     offer,
     handleDialogOpen,
-    handleDialogClose,
     handleRetractClose,
   } = props
 
-  // const [notes, setNotes] = useState('')
-
   const handleSubmit = () => {
-    // const newOffer = {
-    //   request_id: request.id,
-    //   user_id: currentUser.id,
-    //   notes
-    // }
     dispatch(deleteOfferThunk(offer.id))
     handleRetractClose()
   };
@@ -48,7 +39,7 @@ function MakeOfferDialog (props) {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">Are you sure?</DialogTitle>
-      <DialogContent dividers={true}>
+      <DialogContent >
         <DialogContentText id="alert-dialog-description">
           This action can't be undone.
         </DialogContentText>

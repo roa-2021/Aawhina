@@ -10,13 +10,9 @@ import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import RequestDialog from './RequestDialog'
-import MakeOfferDialog from './MakeOfferDialog'
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
-
-// Put an cancellation alert here like in the dialog docs.
 
 function OfferCard ({ offer, requests, currentUser }) {
   const [openDialog, setOpenDialog] = useState(false);
