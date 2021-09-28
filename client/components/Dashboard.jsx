@@ -24,8 +24,8 @@ function Dashboard({ users, currentUser }) {
     setOffers(false)
   }
 
-  const handleChange = (newAlignment) => {
-    setAlignment(newAlignment)
+  const handleChange = (e) => {
+    setAlignment(e.target.value)
   }
 
   if (isAuthenticated) {
