@@ -56,7 +56,7 @@ function Dashboard({ users, currentUser }) {
         }
       </>
     )
-  } return (<Welcome />)
+  } return (<Welcome/>)
 }
 
 
