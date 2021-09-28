@@ -79,7 +79,7 @@ function RequestCard ({ dispatch, request, currentUser }) {
             {`${request.title}`}
           </Typography>
           <Typography my={0.5}>
-            {`User ${request.user_id} would like help with ${request.details}`}
+            { request.details}
           </Typography>
           <Stack direction="row" spacing={1}>
             <Chip
@@ -134,7 +134,7 @@ function RequestCard ({ dispatch, request, currentUser }) {
                   variant="outlined" 
                 />
               </Stack>
-            //display all offers on request//
+           
             {/* </DialogContentText> */}
           </DialogContent>
           <DialogActions>
