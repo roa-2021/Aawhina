@@ -24,12 +24,17 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
+// import { makeStyles } from '@material-ui/core'
 
+// const useStyles = makeStyles({
+
+// })
 
 
 function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
+  // const classes = useStyles()
   
   const [theSuburbs, setSuburbs] = useState([])
   const [gender, setGender] = useState('')
@@ -122,25 +127,25 @@ function MakeProfile (props) {
 
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-        <Typography  component='h1' variant='h5'>Create Profile</Typography>
+        <Typography  component='h1' color='primary' variant='h5'>Create Profile</Typography>
         <Box sx={{mt:3}} component='form'>
       
           <Grid container spacing={2} >
 
             <Grid item xs={6}>
-              <TextField required fullWidth id = 'outlined-required' label = 'First Name' name='first' value={first} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'First Name' name='first' value={first} onChange={handleChange}/>
             </Grid>
             <Grid item xs={6}>
-              <TextField required fullWidth id = 'outlined-required' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
             </Grid>
 
             <Grid item xs={14}>
-              <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-              <Button variant="outlined" onClick={uploadImage}>Upload</Button> 
+              <input label = 'image uploader' color='primary' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+              <Button variant="outlined" color = 'primary' onClick={uploadImage}>Upload</Button> 
             </Grid>
 
             <Grid item xs={12}>
-              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' color='primary' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
             </Grid>
         
             <Grid item xs={6}>
@@ -148,6 +153,7 @@ function MakeProfile (props) {
             <InputLabel>Suburb</InputLabel>
             <Select
               defaultValue=''
+              color='primary'
               onChange={handleSuburb}
               value={newSuburb}
               sx={{ width: '21ch' }}
@@ -182,6 +188,7 @@ function MakeProfile (props) {
               <Select
                 label='Gender'
                 value={gender}
+                color='primary'
                 onChange={handleGender}
                 sx={{ width: '21ch' }}>
                 <MenuItem value='female'>Female</MenuItem>
@@ -192,15 +199,15 @@ function MakeProfile (props) {
             </Grid>
 
             <Grid item xs={12}>
-              <TextField required fullWidth id = 'outlined-required' label = 'Languages Spoken' name='language' value={language} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'Languages Spoken' name='language' value={language} onChange={handleChange}/>
             </Grid>
       
             <Grid item xs={12}>
-              <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
+              <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' color='primary' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
             </Grid>
 
             <Grid item xs={5} style={{textAlign: "center"}}>
-              <Button variant="outlined" onClick={handleSubmit}>Create profile</Button>
+              <Button variant="outlined" color='primary' onClick={handleSubmit}>Create profile</Button>
             </Grid>
 
           </Grid>

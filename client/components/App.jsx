@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles'
+import { purple } from '@material-ui/core/colors'
 
 import Dashboard from './Dashboard'
 import Footer from './Footer'
@@ -15,10 +17,34 @@ import Profile from './Profile'
 import UpdateProfile from './UpdateProfile'
 import Requests from './Requests'
 import Welcome from './Welcome'
+import { fontWeight } from '@mui/lab/node_modules/@mui/system'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#91A6FF'
+    },
+    secondary: purple,
+  },
+  typography: {
+    // fontFamily: 'Domine',
+    // fontFamily: 'Josefin Sans',
+    // fontFamily: 'Lato',
+    // fontFamily: 'Lobster',
+    // fontFamily: 'Lora',
+    fontFamily: 'Merriweather',
+    
+
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightHeavy: 700,
+  }
+})
 
 const App = () => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <LaunchData />
       <CssBaseline/>
       <Nav />
@@ -44,7 +70,7 @@ const App = () => {
         </Router>
         <Footer />
       </Box>
-    </>
+    </ThemeProvider>
   )
 }
 
