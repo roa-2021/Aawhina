@@ -75,8 +75,8 @@ function Nav() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <Link href='/dashboard'><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
-                <Link href='/profile'><MenuItem>My Profile</MenuItem></Link>
+                <Link href='/dashboard'><MenuItem color='secondary' onClick={handleClose}>Dashboard</MenuItem></Link>
+                <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
                 {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
               </Menu>

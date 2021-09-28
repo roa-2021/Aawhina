@@ -6,11 +6,8 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration'
 
-
-
 function Register ()  {
   const { loginWithRedirect } = useAuth0()
- 
 
   return (
 
