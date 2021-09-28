@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 
 import { getSuburbs} from '../apis/suburb_api'
-
+import { useAuth0 } from '@auth0/auth0-react'
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -19,7 +19,7 @@ import Stack from '@mui/material/Stack'
 
 function Profile (props)  {
   const { dispatch, currentUser } = props
- 
+  const { isAuthenticated } = useAuth0()
 
   useEffect(() => {
     getSuburbs()
@@ -38,7 +38,7 @@ function Profile (props)  {
     e.preventDefault() 
       history.push('/profile/edit')
   }
-  
+  if (isAuthenticated) {
   return (
 
     <>
@@ -125,9 +125,10 @@ function Profile (props)  {
       </Grid>
     </Container>
     </>
+)
+} return (<Welcome />)
+}
 
-
-  )}
   function mapState2Props (globalState) {
     return {
       currentUser: globalState.currentUser,
@@ -138,3 +139,4 @@ function Profile (props)  {
   
 
   export default connect(mapState2Props)(Profile) 
+  
