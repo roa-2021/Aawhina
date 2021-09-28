@@ -24,15 +24,24 @@ const theme = createTheme({
     primary: {
       main: '#91A6FF'
     },
-    secondary: purple,
+    secondary: {
+      main: '#3358FF'
+    },
+    overrides: {
+      MuiButton: {
+        raisedPrimary: {
+          color: 'white',
+        },
+      },
+    }
   },
   typography: {
     // fontFamily: 'Domine',
     // fontFamily: 'Josefin Sans',
     // fontFamily: 'Lato',
     // fontFamily: 'Lobster',
-    // fontFamily: 'Lora',
-    fontFamily: 'Merriweather',
+    fontFamily: 'Lora',
+    // fontFamily: 'Merriweather',
     
 
     fontWeightLight: 400,

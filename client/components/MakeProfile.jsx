@@ -127,25 +127,25 @@ function MakeProfile (props) {
 
     <Container component='main' maxWidth='xs'>
       <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-        <Typography  component='h1' color='primary' variant='h5'>Create Profile</Typography>
+        <Typography  component='h1' color='secondary' focused variant='h5'>Create Profile</Typography>
         <Box sx={{mt:3}} component='form'>
       
           <Grid container spacing={2} >
 
             <Grid item xs={6}>
-              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'First Name' name='first' value={first} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' focused label = 'First Name' name='first' value={first} onChange={handleChange}/>
             </Grid>
             <Grid item xs={6}>
-              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'Last Name' name='last' value={last} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' focused label = 'Last Name' name='last' value={last} onChange={handleChange}/>
             </Grid>
 
             <Grid item xs={14}>
-              <input label = 'image uploader' color='primary' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+              <input label = 'image uploader' color='primary' focused type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
               <Button variant="outlined" color = 'primary' onClick={uploadImage}>Upload</Button> 
             </Grid>
 
             <Grid item xs={12}>
-              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' color='primary' defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
+              <TextField sx={{mt:3 }} required fullWidth id='outlined-required' color='primary' focused defaultValue={user.email} label='Email' name='email' onChange={handleChange}/>
             </Grid>
         
             <Grid item xs={6}>
@@ -153,7 +153,8 @@ function MakeProfile (props) {
             <InputLabel>Suburb</InputLabel>
             <Select
               defaultValue=''
-              color='primary'
+              
+              color='primary' 
               onChange={handleSuburb}
               value={newSuburb}
               sx={{ width: '21ch' }}
@@ -188,7 +189,7 @@ function MakeProfile (props) {
               <Select
                 label='Gender'
                 value={gender}
-                color='primary'
+                color='primary' focused
                 onChange={handleGender}
                 sx={{ width: '21ch' }}>
                 <MenuItem value='female'>Female</MenuItem>
@@ -199,15 +200,15 @@ function MakeProfile (props) {
             </Grid>
 
             <Grid item xs={12}>
-              <TextField required fullWidth id = 'outlined-required' color='primary' label = 'Languages Spoken' name='language' value={language} onChange={handleChange}/>
+              <TextField required fullWidth id = 'outlined-required' color='primary' focused label = 'Languages Spoken' name='language' value={language} onChange={handleChange}/>
             </Grid>
       
             <Grid item xs={12}>
-              <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' color='primary' multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
+              <TextField sx={{ mt: 4 }} required fullWidth id = 'outlined-required' color='primary' focused multiline rows={6}  label = 'About you' name='bio' value={bio} onChange={handleChange}/>
             </Grid>
 
             <Grid item xs={5} style={{textAlign: "center"}}>
-              <Button variant="outlined" color='primary' onClick={handleSubmit}>Create profile</Button>
+              <Button variant="outlined" color='primary' focused onClick={handleSubmit}>Create profile</Button>
             </Grid>
 
           </Grid>
