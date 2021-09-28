@@ -18,8 +18,10 @@ export function getUsersThunk () {
 
 export function postUserThunk (user) {
   return dispatch => {
+    console.log('postuserthunk', user)
     postUser(user)
       .then(response => {
+        console.log('postuserthunk', response)
         dispatch(addUser(response))
         // dispatch(setCurrentUserThunk(response))
       })

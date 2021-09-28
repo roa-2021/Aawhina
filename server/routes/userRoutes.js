@@ -17,8 +17,10 @@ router.get('/', (req, res) => {
 // GET /api/v1/:email
 router.get('/:email', (req, res) => {
   const email = req.params.email
+  console.log('routes email', email)
   return db.getUserByEmail(email)
     .then(user => {
+      console.log('routes user', user)
       return res.json(user)
     })
     .catch(err => {
@@ -29,8 +31,10 @@ router.get('/:email', (req, res) => {
 // POST /api/v1
 router.post('/', (req, res) => {
   const user = req.body
+  console.log('postuserroutes', user)
   db.createUserProfile(user)
     .then(user => {
+    console.log('postuserroutes', user)
     res.json(user)
     })
     .catch(error => {

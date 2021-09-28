@@ -6,8 +6,10 @@ export const SET_USER = 'SET_USER'
 
 export function setCurrentUserThunk (email) {
   return dispatch => {
-    getUser(email)
+    console.log('thunk email', email)
+      getUser(email)
       .then(response => { 
+        console.log('thunk response', response)
         dispatch(setCurrentUser(response))
       })
   }
