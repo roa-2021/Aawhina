@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography align='center' variant="body2" color="text.secondary">
       {'Copyright © '}
       <Link color="inherit" href="https://aawhina.herokuapp.com//">
        Āwhina
@@ -31,8 +31,8 @@ export default function Footer() {
         : theme.palette.grey[800],
     }}
   >
-    <Container maxWidth="sm">
-      <Typography variant="body1">
+    <Container maxWidth="sm" sx={{mx: 'auto'}}>
+      <Typography align='center' variant="body1">
        Made by Jo, Matt, Phill and Zoe
       </Typography>
       <Copyright />

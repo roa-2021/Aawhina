@@ -41,10 +41,10 @@ function Profile (props)  {
  
   return (
     <>
-    <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '80vh', height: '70vh', flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Box>
-          <Grid item sx={{ mt: 7 }}>
+    <Container sx={{ fontSize: 'h9.fontSize', p: 2, margin: 'auto', mt: 12, ml: 63, minWidth: '20vh', minHeight: '70vh', flexGrow: 1 }}>
+      <Grid container spacing={9}>
+
+          <Grid item sx={{ mt: 1.5 }}>
           <Avatar
               alt="Profile picture"
               src={currentUser.image}
@@ -52,57 +52,53 @@ function Profile (props)  {
               sx={{ width: 110, height: 110 }}
               />
           </Grid>
-        </Box>
+  
         <Grid item xs={12} sm container spacing={0}>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-              <Typography gutterBottom variant="subtitle1" color='secondary' component="div" fontSize="h5.fontSize">
+              <Typography gutterBottom variant="subtitle1" color='primary' component="div" fontSize="h5.fontSize">
                 Profile
               </Typography>
               <Divider sx={{width: '23ch'}}/>
-              {/* <Typography sx={{mt: 2}}variant="body2" gutterBottom fontSize="h6.fontSize">
-                About me:
-              </Typography> */}
-
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
-                <Typography sx={{fontWeight: 'bold', pr: 3.2, mt: 5}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{fontWeight: 'bold', pr: 3.2, mt: 5}} color='primary' variant="body2" gutterBottom fontSize="large">
                   Name: 
                 </Typography>
 
-                <Typography sx={{mt: 5, pl:.5}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{mt: 5, pl:.5}} color='primary' variant="body2" gutterBottom fontSize="large">
                   {currentUser.first_name}
                 </Typography>
 
-               <Typography sx={{mt: 5, pl: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+               <Typography sx={{mt: 5, pl: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
                   {currentUser.last_name}
                 </Typography>
               </Stack>
 
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
-                <Typography sx={{fontWeight: 'bold', pr: 2, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{fontWeight: 'bold', pr: 2, mt: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
                   Gender: 
                 </Typography>
 
-                <Typography sx={{mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{mt: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
                   {currentUser.gender}
                 </Typography>
               </Stack>
               
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
-                <Typography sx={{fontWeight: 'bold', pr: 1, pr: 2, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{fontWeight: 'bold', pr: 1, pr: 2, mt: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
                   Suburb: 
                 </Typography>
 
-               <Typography sx={{mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+               <Typography sx={{mt: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
               {currentSuburb[0]}
             </Typography>
           </Stack>
 
               <Stack sx={{ pr: 0 }} direction="row" justifyContent="">
-              <Typography sx={{fontWeight: 'bold', pr: 4, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+              <Typography sx={{fontWeight: 'bold', pr: 4, mt: 1}} color='primary' variant="body2" gutterBottom fontSize="large">
                 About Me:
               </Typography>
-              <Typography sx={{pl: .4, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+              <Typography sx={{pl: 0, mt: 1, pr: 20}} color='primary' variant="body2" gutterBottom fontSize="large">
                 {currentUser.bio}
               </Typography>
               </Stack>
