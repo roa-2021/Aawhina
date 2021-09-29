@@ -94,7 +94,7 @@ function MakeRequest ({ dispatch, currentUser }) {
                 <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
               </Grid>
               <Grid item sm={12}>
-               // <InputLabel>Category</InputLabel>
+                {/* <InputLabel>Category</InputLabel> */}
                 <TextField
                   value={category}
                   className={classes.root}
