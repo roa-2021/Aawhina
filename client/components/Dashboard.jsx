@@ -12,6 +12,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 
 function Dashboard({ currentUser }) {
   
+ 
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
 
@@ -26,6 +27,8 @@ function Dashboard({ currentUser }) {
   const handleChange = (e) => {
     setAlignment(e.target.value)
   }
+
+ 
     return (
       <>
         <Container
@@ -53,6 +56,7 @@ function Dashboard({ currentUser }) {
         }
       </>
     )
+ 
 }
 
 

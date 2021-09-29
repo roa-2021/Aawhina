@@ -20,9 +20,8 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
 
-function MakeRequest ({ dispatch, currentUser, requests, users }) {
+function MakeRequest ({ dispatch, currentUser }) {
 
-  
   let history = useHistory()
 
   const [category, setCategory] = useState('')
@@ -129,6 +128,7 @@ function MakeRequest ({ dispatch, currentUser, requests, users }) {
       </>
     )
   } 
+
 function mapState2Props (globalState) {
   return {
     currentUser: globalState.currentUser,

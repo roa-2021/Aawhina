@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react'
 
 import Logout from './Logout'
 import Login from './Login'
@@ -17,8 +18,9 @@ import IconButton from '@mui/material/IconButton'
 import Stack from '@mui/material/Stack'
 
 
-function Nav({ currentUser }) {
 
+function Nav({ currentUser }) {
+  const { user, isAuthenticated } = useAuth0();
 
   // const useStyles = makeStyles({
   //   logo: {
@@ -40,68 +42,64 @@ function Nav({ currentUser }) {
     setAnchorEl(null)
   }
 
-  const logout = () => {
-    <Logout/>
+
+  // if (isAuthenticated)
+    return (
+      <Box sx={{ flexGrow: 1, zIndex: 10 }}>
+
+        <AppBar position="static" sx={{ background: '#91A6FF' }}  >
+          <Toolbar>
+            {/* <Box sx={{ width: 30, height: 30}}>  */}
+            <Link href='/'>
+            <img sx={{ width: 3, height: 3}} src='images/logofull.png' alt="logo" className='image' />
+
+            </Link>
+            {/* </Box> */}
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ 
+              display: { 
+                xs: 'none', 
+                md: 'flex' 
+                } 
+            }}>
+
+            {!isAuthenticated ?
+              <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
+                <Login/>
+                <Register/>
+              </Stack> :
+
+              <IconButton color='inherit'  onClick={handleMenu}>
+              <AccountCircle  fontSize='large'/>
+              </IconButton> }
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <Link href='/dashboard'><MenuItem color='secondary' onClick={handleClose}>Dashboard</MenuItem></Link>
+                  <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
+                  {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
+                  <MenuItem><Logout/></MenuItem>
+                    </Menu>
+                    
+
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    )
   }
-
-
-  return (
-    
-    <Box sx={{ flexGrow: 1, zIndex: 10 }}>
-
-      <AppBar position="static" sx={{ background: '#91A6FF' }}  >
-        <Toolbar>
-          {/* <Box sx={{ width: 30, height: 30}}>  */}
-          <Link href='/'>
-          <img sx={{ width: 3, height: 3}} src='images/logofull.png' alt="logo" className='image' />
-
-          </Link>
-          {/* </Box> */}
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ 
-            display: { 
-              xs: 'none', 
-              md: 'flex' 
-              } 
-          }}>
-
-            { !currentUser ? 
-            <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
-              <Login/>
-              <Register/>
-            </Stack> :
-
-            <IconButton color='inherit'  onClick={handleMenu}>
-            <AccountCircle  fontSize='large'/>
-            </IconButton> }
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <Link href='/dashboard'><MenuItem color='secondary' onClick={handleClose}>Dashboard</MenuItem></Link>
-                <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
-                {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
-                <MenuItem><Logout/></MenuItem>
-                  </Menu>
-                  
-
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  )
-}
 function mapState2Props (globalState) {
   return {
     currentUser: globalState.currentUser
