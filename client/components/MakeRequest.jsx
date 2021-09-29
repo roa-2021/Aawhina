@@ -20,8 +20,8 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
 
-function MakeRequest ({ dispatch, currentUser }) {
-  const { isAuthenticated } = useAuth0()
+function MakeRequest ({ dispatch, currentUser, requests, users }) {
+
   
   let history = useHistory()
 
@@ -61,7 +61,7 @@ function MakeRequest ({ dispatch, currentUser }) {
       user_id: currentUser.id
     }  
     dispatch(postRequestThunk(newRequest)) 
-    history.push('/requests') 
+    history.push('/dashboard') 
   }
 
   const handleCancel = (e) => {
@@ -71,7 +71,6 @@ function MakeRequest ({ dispatch, currentUser }) {
 
   const { title, details } = values
 
-  if (isAuthenticated) {
     return (
       <>
         <Container component='main' maxWidth='xs'>
@@ -129,12 +128,11 @@ function MakeRequest ({ dispatch, currentUser }) {
         </Container>
       </>
     )
-  } return (< Welcome />)
-}
-
+  } 
 function mapState2Props (globalState) {
   return {
-    currentUser: globalState.currentUser
+    currentUser: globalState.currentUser,
+    requests: globalState.requests
   }
 }
 
