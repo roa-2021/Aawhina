@@ -24,9 +24,9 @@ const deleteOffer = (id) => {
 const createOffer = (offer) => {
   return db('offers')
     .insert(offer, 'id')
-    .then(offerId => {
-      return getOfferById(offerId[0])
-    })
+    // .then(offerId => {
+    //   return getOfferById(offerId[0])
+    // })
 }
 
 const editOffer = (id, newOffer) => {

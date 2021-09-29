@@ -30,8 +30,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const offer = req.body
   db.createOffer(offer)
-    .then(offer => {
-      return res.json(offer)
+  .then(idarray => {
+    offer.id = idarray[0]
+    res.json(offer)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
