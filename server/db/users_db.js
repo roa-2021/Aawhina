@@ -39,14 +39,6 @@ const deleteUser = (id) => {
     .del()
 }
 
-// const userExists = (email) => {
-//   return db('users')
-//     .count('id as n')
-//     .where('email', email)
-//     .then(count => {
-//       return count[0].n > 0
-//     })
-// }
 
 module.exports = {
   getAllUsers,

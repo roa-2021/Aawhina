@@ -53,11 +53,11 @@ function MakeRequest ({ dispatch, currentUser }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     const newRequest = {
+      user_id: currentUser.id,
       title: values.title,
       category: category,
-      time_frame: timeframe,
       details: values.details,
-      user_id: currentUser.id
+      time_frame: timeframe
     }  
     dispatch(postRequestThunk(newRequest)) 
     history.push('/dashboard') 

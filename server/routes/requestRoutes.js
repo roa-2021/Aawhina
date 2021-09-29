@@ -30,8 +30,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const request = req.body
   db.createRequest(request)
-    .then(request => {
-      return res.json(request)
+  .then(idarray => {
+    request.id = idarray[0]
+    res.json(request)
     })
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
