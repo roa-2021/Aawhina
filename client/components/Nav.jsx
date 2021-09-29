@@ -52,7 +52,7 @@ function Nav({ currentUser }) {
       <AppBar position="static" sx={{ background: '#91A6FF' }}  >
         <Toolbar>
           {/* <Box sx={{ width: 30, height: 30}}>  */}
-          <Link href='/dashboard'>
+          <Link href='/'>
           <img sx={{ width: 3, height: 3}} src='images/logofull.png' alt="logo" className='image' />
 
           </Link>

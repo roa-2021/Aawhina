@@ -12,7 +12,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 
 function Dashboard({ currentUser }) {
   
-  const { isAuthenticated } = useAuth0()
+ 
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
 
@@ -28,7 +28,7 @@ function Dashboard({ currentUser }) {
     setAlignment(e.target.value)
   }
 
-  if (isAuthenticated) {
+ 
     return (
       <>
         <Container
@@ -56,7 +56,7 @@ function Dashboard({ currentUser }) {
         }
       </>
     )
-  } return (<Welcome />)
+ 
 }
 
 

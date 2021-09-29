@@ -38,10 +38,7 @@ function Profile (props)  {
     e.preventDefault() 
       history.push('/profile/edit')
   }
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  else if (isAuthenticated) {
+ 
   return (
     <>
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
@@ -127,7 +124,6 @@ function Profile (props)  {
     </Container>
     </>
 )
-} return (<Welcome />)
 }
 
   function mapState2Props (globalState) {

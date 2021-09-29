@@ -19,8 +19,7 @@ import CardContent from '@mui/material/CardContent'
 
 
 function Welcome ({currentUser}) {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  
+
   return(
     <>
   <LaunchData />
