@@ -62,9 +62,11 @@ function UpdateProfile (props)  {
   
   const [theSuburbs, setSuburbs] = useState([])
   
-  // const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
   
-  const [newSuburb, setSuburb] = useState()
+  // console.log(currentSuburb)
+
+  const [newSuburb, setSuburb] = useState(currentUser.suburb_id)
 
   const [values, setValues] = useState({    
   first: currentUser.first_name,
@@ -149,10 +151,10 @@ function UpdateProfile (props)  {
     }
     
     // dispatch(getUsersThunk()) 
-    const callback = () => {
-      uploadImage()
-      handleSubmit()
 
+    const handleClick = (e) => {
+      e.preventDefault() 
+        history.push('/profile')
     }
 
     
@@ -161,167 +163,168 @@ function UpdateProfile (props)  {
     
     // <LaunchData />
     return (
-      
       <>
-    <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Box>
-          <Grid item sx={{ mt: 7}}>
-          <Avatar
-              alt="Profile picture"
-              src={currentUser.image}
-              border= "1px solid"
-              sx={{ width: 110, height: 110 }}
-              />
-          </Grid>
-        </Box>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom color='primary' variant="subtitle1" component="div" fontSize="h5.fontSize">
-                  Update Profile
-                </Typography>
+      
+  <Container sx={{ margin: 'auto', mb: 10, width: '55vh', flexGrow: 1 }}>
+    <Box sx={{ pr: 0, mt: 0}} container spacing={2}>
 
-              
-
-              <Divider sx={{width: '23ch'}}/>
-              <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
+      <Grid item sx={{ position: 'relative', right: 160, top: 110, mt: 3, mr: 4}}>
+        <Avatar
+        alt="Profile picture"
+        src={currentUser.image}
+        border= "1px solid"
+        sx={{ width: 110, height: 110 }}
+        />
+      </Grid>
 
 
-                  <Box
-                  component="form"
-                  sx={{
-                    '& .MuiTextField-root': { m: 1, width: '22ch' },
-                  }}
-                  noValidate
-                  autoComplete="on"
-                >
-                    <TextField
-                      label="First Name"
-                      id="standard-size-small"
-                      // defaultValue={currentUser.first_name}
-                      size="small"
-                      variant="standard"
-                      color='primary' focused
-                      name='first'
-                      value={first}
-                      onChange={handleChange}
-                    />
-                </Box>
+      <Grid item xs container direction="column" spacing={2}>
 
-               
-              <Box
-                  component="form"
-                  sx={{
-                    '& .MuiTextField-root': { m: 1, width: '22ch' },
-                  }}
-                  noValidate
-                  autoComplete="on"
-                >
-                    <TextField
-                      label="Last Name"
-                      id="standard-size-small"
-                      size="small"
-                      color='primary' focused
-                      variant="standard"
-                      name='last'
-                      value={last}
-                      onChange={handleChange}
-                    />
-                </Box>
-              </Stack>
-
-              <Stack sx={{ pl: 0, pr: 0 }}direction="row" justifyContent="centre">
-              <Box>
-                <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
-                {/* <InputLabel>Gender</InputLabel> */}
-                <TextField
-                  value={gender}
-                  label='Gender'
-                  className={classes.root}
-                  onChange={handleGender}
-                  sx={{ width: '18ch' }}
-                    select>
-                  <MenuItem value='Female'>Female</MenuItem>
-                  <MenuItem value='Male'>Male</MenuItem>
-                  <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
-                  <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
-                </TextField>
-                </FormControl>
-              </Box>
+        <Typography gutterBottom color='primary' variant="subtitle1" component="div" fontSize="h5.fontSize">
+        Update Profile
+        </Typography>
 
 
 
-              <Box>
-              <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
-              {/* <InputLabel>Suburb</InputLabel> */}
-          <TextField
-            defaultValue=''
-            onChange={handleSuburb}
-            value={newSuburb}
-            className={classes.root}
-            sx={{ width: '18ch' }}
-            label='Suburb'
-            select
+          <Divider sx={{width: '23ch'}}/>
+          <Stack sx={{ pr: 0, pb: .5,  }}direction="row" justifyContent="">
+
+
+            <Box
+              component="form"
+              sx={{
+                '& .MuiTextField-root': { m: 1, width: '22ch' },
+              }}
+              noValidate
+              autoComplete="on"
             >
-             
+              <TextField
+                label="First Name"
+                id="standard-size-small"
+                // defaultValue={currentUser.first_name}
+                size="small"
+                variant="standard"
+                color='primary' focused
+                name='first'
+                value={first}
+                onChange={handleChange}
+              />
+            </Box>
 
-            <ListSubHeader>Wellington</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-            <ListSubHeader>Lower Hutt</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Lower Hutt').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
 
-
-            <ListSubHeader>Upper Hutt</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Upper Hutt').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-
-            <ListSubHeader>Porirua</ListSubHeader>
-            {theSuburbs && theSuburbs.filter(s => s.region === 'Porirua').map(s => (
-            <MenuItem value={s.id}>{s.name}</MenuItem>
-            ))}
-
-          </TextField>
-
-          <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-            <Button variant="outlined" onClick={callback}>Update Photo</Button> 
-              </FormControl>
-              </Box>
+            <Box
+            component="form"
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '22ch' },
+            }}
+            noValidate
+            autoComplete="on"
+            >
+              <TextField
+                label="Last Name"
+                id="standard-size-small"
+                size="small"
+                color='primary' focused
+                variant="standard"
+                name='last'
+                value={last}
+                onChange={handleChange}
+              />
+            </Box>
           </Stack>
 
-              <TextField sx={{ mt: 4 }}  
-                fullWidth id = 'outlined-required' 
-                multiline rows={6}  
-                label = 'About me' 
-                name='bio' 
-                color='primary' focused
-                value={bio} 
-                onChange={handleChange}/>
-            </Grid>
+          <Stack sx={{mt: 2}} direction="row" justifyContent="centre" spacing={2.3}>
+            <Box sx={6}>
+              {/* <FormControl variant="standard" sx={{ m: 1, width: '20ch' }}> */}
+              {/* <InputLabel>Gender</InputLabel> */}
+              <TextField
+              value={gender}
+              label='Gender'
+              color='primary' focused
+              onChange={handleGender}
+              sx={{ width: '22ch' }}
+              className={classes.root}
+              select>
+              <MenuItem value='Female'>Female</MenuItem>
+              <MenuItem value='Male'>Male</MenuItem>
+              <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
+              <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
+              </TextField>
+              {/* </FormControl> */}
+            </Box>
 
-            <Stack direction="row" item sx={{pt: 0,}}>
-              <Box sx={{ "& button": { ml: 2, p: 0 } }}>
-                <>
-                <Button size="small">Cancel</Button>
-               <Button size="small" onClick={handleSubmit}>Save Changes</Button>
-                </>
-              </Box>
-            </Stack>
 
-          </Grid>
-          <Grid item>
-            <Typography variant="subtitle1" component="div">
-            </Typography>
-          </Grid>
+
+            <Box sx={6}>
+              {/* <FormControl variant="standard" sx={{ m: 1, width: '22ch' }}> */}
+              {/* <InputLabel>Suburb</InputLabel> */}
+              <TextField
+              defaultValue=''
+              onChange={handleSuburb}
+              value={newSuburb}
+              className={classes.root}
+              sx={{ width: '22ch' }}
+              label='Suburb'
+              select>
+
+              <ListSubHeader>Wellington</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+              <ListSubHeader>Lower Hutt</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Lower Hutt').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+
+              <ListSubHeader>Upper Hutt</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Upper Hutt').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+              <ListSubHeader>Porirua</ListSubHeader>
+              {theSuburbs && theSuburbs.filter(s => s.region === 'Porirua').map(s => (
+              <MenuItem value={s.id}>{s.name}</MenuItem>
+              ))}
+
+              </TextField>
+            </Box>
+          </Stack>
+
+
+          <Stack direction='row'spacing={1} sx={{mt: 3.5}}>
+
+            <input className='button' label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+            <Button variant="outlined" onClick={uploadImage}>Update Photo</Button> 
+
+          </Stack>
+
+          <Box xs={12}>
+            <TextField sx={{ mt: 4 }}  
+            fullWidth id = 'outlined-required' 
+            multiline rows={6}  
+            label = 'About me' 
+            name='bio' 
+            color='primary' focused
+            value={bio} 
+            onChange={handleChange}/>
+            {/* </Grid> */}
+          </Box>
+{/* <Stack direction="row" item sx={{pt: 0,}}> */}
+          <Box sx={{ "& button": { ml: 2, mt: 2, p: 0 } }}>
+            <Button size="small" onClick={handleSubmit}>Save Changes</Button>
+            <Button size="small" onClick={handleClick}>Cancel</Button>
+          </Box>
+{/* </Stack> */}
+
         </Grid>
+        <Grid item>
+        <Typography variant="subtitle1" component="div">
+        </Typography>
       </Grid>
-    </Container>
-    </>
+    </Box>
+  </Container>
+</>
 
 
   )}
