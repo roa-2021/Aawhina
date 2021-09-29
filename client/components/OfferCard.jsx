@@ -1,41 +1,31 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
+import OfferDialog from './OfferDialog'
+import RetractOfferDialog from './RetractOfferDialog'
+
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import RequestDialog from './RequestDialog'
-import MakeOfferDialog from './MakeOfferDialog'
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
-import RetractOfferDialog from './RetractOfferDialog'
 
-function RequestCard ({ offers, request, currentUser }) {
+function OfferCard ({ offer, requests, currentUser }) {
   const [openDialog, setOpenDialog] = useState(false);
-  const [openSubmit, setOpenSubmit] = useState(false);
   const [openRetract, setOpenRetract] = useState(false);
   
   
   const handleDialogOpen = () => {
     setOpenDialog(true)
-    setOpenSubmit(false)
+    setOpenRetract(false)
   }
   
   const handleDialogClose = () => {
     setOpenDialog(false);
-  };
-
-  const handleSubmitOpen = () => {
-    setOpenSubmit(true)
-    setOpenDialog(false)
-  }
-
-  const handleSubmitClose = () => {
-    setOpenSubmit(false);
   };
 
   const handleRetractOpen = () => {
@@ -47,14 +37,7 @@ function RequestCard ({ offers, request, currentUser }) {
     setOpenRetract(false);
   };
 
-  const requestOffers = []
-  if (currentUser) {
-    offers.map(offer => {
-      if (offer.request_id === request.id) {
-        requestOffers.push(offer)
-      }
-    })
-  }
+  const request = requests.find(request => request.id === offer.request_id)
 
   return (
     <>
@@ -64,7 +47,7 @@ function RequestCard ({ offers, request, currentUser }) {
           onClick={handleDialogOpen}
         >
           <CardHeader
-            action={ requestOffers.length > 0 && currentUser.id === request.user_id &&
+            action={ offer.accepted &&
               <IconButton aria-label="offers available">
                 <CircleNotificationsIcon color="success" />
               </IconButton>
@@ -73,7 +56,10 @@ function RequestCard ({ offers, request, currentUser }) {
           />
           <CardContent>
             <Typography>
-              { request.details }
+              {`You've offered āwhina to user ${request.user_id} who requested ${request.title}. `}
+            </Typography>
+            <Typography>
+              {` ${request.details}`}
             </Typography>
             <Stack direction="row" spacing={1} mt={2}>
               <Chip
@@ -88,24 +74,16 @@ function RequestCard ({ offers, request, currentUser }) {
           </CardContent>
         </Card>
       </Grid>
-      { openDialog && <RequestDialog
+      { openDialog && <OfferDialog
         open={openDialog}
+        offer={offer}
         request={request}
         handleDialogClose={handleDialogClose}
-        handleSubmitOpen={handleSubmitOpen} 
         handleRetractOpen={handleRetractOpen} 
-        requestOffers={requestOffers}
       />}
-      { openSubmit && <MakeOfferDialog
-        open={openSubmit}
-        request={request}
-        handleDialogOpen={handleDialogOpen}
-        handleDialogClose={handleDialogClose}
-        handleSubmitClose={handleSubmitClose} 
-      />}
-       { openRetract && <RetractOfferDialog
+      { openRetract && <RetractOfferDialog
         open={openRetract}
-        request={request}
+        offer={offer}
         handleDialogOpen={handleDialogOpen}
         handleDialogClose={handleDialogClose}
         handleRetractClose={handleRetractClose} 
@@ -117,8 +95,9 @@ function RequestCard ({ offers, request, currentUser }) {
 function mapState2Props (globalState) {
   return {
     currentUser: globalState.currentUser,
-    offers: globalState.offers
+    // offers: globalState.offers,
+    requests: globalState.requests
   }
 }
 
-export default connect(mapState2Props)(RequestCard)
+export default connect(mapState2Props)(OfferCard)

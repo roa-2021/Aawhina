@@ -1,15 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { Container, Typography, Box, Card, Grid, Chip, Button, CardContent, Stack } from '@mui/material'
+import React from 'react'
+
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Grid from '@mui/material/Grid'
+import Chip from '@mui/material/Chip'
+import Button from '@mui/material/Button'
+import CardContent from '@mui/material/CardContent'
+import Stack from'@mui/material/Stack'
+
 import { connect } from 'react-redux'
-import RequestCard from './RequestCard';
+import OfferCard from './OfferCard';
+import LaunchData from './LaunchData'
+
+
 
 function Offers ({ currentUser, offers }) {
 
   const offersToShow = currentUser ? offers.filter(offer => currentUser.id === offer.user_id) : offers
+  let languageMore = offersToShow.length >= 1 ? 'more ' : ''
 
   return (
     <>
-      <Container 
+    <LaunchData />
+      <Container
         component="main"
         maxWidth="md" 
       >
@@ -30,7 +45,7 @@ function Offers ({ currentUser, offers }) {
             aligncards="stretch"
             rowSpacing={2} 
           >
-            { offersToShow && offersToShow.map(offer => <RequestCard request={offer} key={offer.id} />)}
+            { offersToShow?.map(offer => <OfferCard offer={offer} key={offer.id} />)}
             <Grid 
               item
               my={2}
@@ -45,7 +60,7 @@ function Offers ({ currentUser, offers }) {
                 size="large"
                 href="/requests"
               >
-                Explore requests for help
+                {`Explore ${languageMore}requests for help`}
               </Button>
             </Grid>
           </Grid>
@@ -58,7 +73,8 @@ function mapState2Props (globalState) {
   return {
     offers: globalState.offers,
     requests: globalState.requests,
-    users: globalState.users
+    users: globalState.users,
+    currentUser: globalState.currentUser
   }
 }
 

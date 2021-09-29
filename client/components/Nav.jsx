@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import Logout from './Logout'
+import Login from './Login'
+import Register from './Register'
+
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import { connect } from 'react-redux';
-import  Link  from '@mui/material/Link'
-import { createTheme } from '@mui/material/styles'
-import { purple } from '@mui/material/colors'
-
-import Logout from './Logout'
+import Link from '@mui/material/Link'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
 
 
 function Nav() {
@@ -50,12 +45,11 @@ function Nav() {
   }
 
 
-
   return (
     
     <Box sx={{ flexGrow: 1 }}>
 
-      <AppBar position="static" style={{ background: '#91A6FF' }}  >
+      <AppBar position="static" sx={{ background: '#91A6FF' }}  >
         <Toolbar>
           {/* <Box sx={{ width: 30, height: 30}}>  */}
           <Link href='/dashboard'>
@@ -70,7 +64,15 @@ function Nav() {
               md: 'flex' 
               } 
           }}>
-            <AccountCircle onClick={handleMenu}/>
+            <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
+            <Login/>
+            <Register/>
+            </Stack>
+            {/* <Box sx={{my: 'auto'}}> */}
+            <IconButton color='inherit'  onClick={handleMenu}>
+            <AccountCircle  fontSize='large'/>
+            </IconButton>
+            {/* </Box> */}
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -86,11 +88,12 @@ function Nav() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <Link href='/dashboard'><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
-                <Link href='/profile'><MenuItem>My Profile</MenuItem></Link>
+                <Link href='/dashboard'><MenuItem color='secondary' onClick={handleClose}>Dashboard</MenuItem></Link>
+                <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
                 {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
               </Menu>
+
           </Box>
         </Toolbar>
       </AppBar>

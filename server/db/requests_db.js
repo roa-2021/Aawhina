@@ -5,7 +5,7 @@ const db = require('./connection')
   return db('requests')
     .join('users', 'user_id', 'users.id')
     .join('suburb', 'users.suburb_id', 'suburb.id')
-    .select('requests.*', 'requests.id AS request_id', 'users.first_name', 'users.last_name', 'users.suburb_id', 'users.id as user_id', 'users.image', 'suburb.id AS suburb_id', 'suburb.name AS suburb_name', 'suburb.neighbours')
+    .select('*', 'requests.id AS id ', 'users.id AS user_id', 'suburb.id AS suburb_id', 'suburb.name AS suburb_name')
 }
 
 
