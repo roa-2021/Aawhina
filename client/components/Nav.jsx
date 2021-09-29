@@ -17,7 +17,7 @@ import IconButton from '@mui/material/IconButton'
 import Stack from '@mui/material/Stack'
 
 
-function Nav() {
+function Nav({ currentUser }) {
 
 
   // const useStyles = makeStyles({
@@ -47,7 +47,7 @@ function Nav() {
 
   return (
     
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, zIndex: 10 }}>
 
       <AppBar position="static" sx={{ background: '#91A6FF' }}  >
         <Toolbar>
@@ -64,10 +64,11 @@ function Nav() {
               md: 'flex' 
               } 
           }}>
+            { currentUser && 
             <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
-            <Login/>
-            <Register/>
-            </Stack>
+              <Login/>
+              <Register/>
+            </Stack>}
             {/* <Box sx={{my: 'auto'}}> */}
             <IconButton color='inherit'  onClick={handleMenu}>
             <AccountCircle  fontSize='large'/>
@@ -100,6 +101,10 @@ function Nav() {
     </Box>
   )
 }
+function mapState2Props (globalState) {
+  return {
+    currentUser: globalState.currentUser
+  }
+}
 
-export default connect()(Nav)
-
+export default connect(mapState2Props)(Nav)
