@@ -68,6 +68,7 @@ const App = () => {
       >
         <Router>
           <Route exact path='/' component={Welcome} />
+          
           <Route exact path='/makeprofile' component={MakeProfile} />
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/requests/new' component={MakeRequest} />
