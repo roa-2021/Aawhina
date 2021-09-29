@@ -13,6 +13,7 @@ const db = require('./connection')
         newSuburb.neighbours.map((s, i) => {
           newSuburb.neighbours[i] = parseInt(s)
         })
+        console.log(newSuburb)
         suburbsArr.push(newSuburb)
       })
       return suburbsArr

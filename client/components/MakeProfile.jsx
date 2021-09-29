@@ -53,6 +53,8 @@ function MakeProfile (props) {
     )
   
   },[])
+
+  console.log(theSuburbs)
   
   const [newSuburb, setSuburb] = useState(0)
 
