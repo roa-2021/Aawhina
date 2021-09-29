@@ -64,16 +64,14 @@ function Nav({ currentUser }) {
               md: 'flex' 
               } 
           }}>
-            { currentUser && 
+            { !currentUser ? 
             <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
               <Login/>
               <Register/>
-            </Stack>}
-            {/* <Box sx={{my: 'auto'}}> */}
+            </Stack> :
             <IconButton color='inherit'  onClick={handleMenu}>
             <AccountCircle  fontSize='large'/>
-            </IconButton>
-            {/* </Box> */}
+            </IconButton> }
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -93,7 +91,8 @@ function Nav({ currentUser }) {
                 <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
                 {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
-              </Menu>
+                  </Menu>
+                  
 
           </Box>
         </Toolbar>
