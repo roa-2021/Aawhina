@@ -21,13 +21,12 @@ const db = require('./connection')
       .del()
   }
 
- function createRequest (request, user) {
-  // request.added_by_user = user.id
+ function createRequest (request) {
   return db('requests')
     .insert(request, 'id')
-    .then(requestId => {
-      return getRequestById(requestId[0])
-    })
+    // .then(requestId => {
+    //   return getRequestById(requestId[0])
+    // })
 }
 
  function editRequest (newRequest, user) {
@@ -36,11 +35,7 @@ const db = require('./connection')
   .update(newRequest)
 }
 
-// function authorizeUpdate (request, user) {
-//   if (request.added_by_user !== user.id) {
-//     throw new Error('Unauthorized')
-//   }
-// }
+
 
 module.exports = {
   deleteRequest,

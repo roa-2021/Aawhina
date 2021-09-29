@@ -15,10 +15,6 @@ import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from "@mui/lab/DatePicker";
-import TimePicker from '@mui/lab/TimePicker';
 
 function MakeRequest ({ dispatch, currentUser }) {
 
@@ -53,11 +49,11 @@ function MakeRequest ({ dispatch, currentUser }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     const newRequest = {
+      user_id: currentUser.id,
       title: values.title,
       category: category,
-      time_frame: timeframe,
       details: values.details,
-      user_id: currentUser.id
+      time_frame: timeframe
     }  
     dispatch(postRequestThunk(newRequest)) 
     history.push('/dashboard') 
@@ -70,64 +66,64 @@ function MakeRequest ({ dispatch, currentUser }) {
 
   const { title, details } = values
 
-    return (
-      <>
-        <Container component='main' maxWidth='xs'>
-          <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <Typography  component='h1' variant='h5'>Create a Request</Typography>
-            <Box sx={{mt:3}} component='form'>
-              <Grid container spacing={2} >
-                <Grid item sm={12}>
-                  <TextField sx={{mt:3 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
-                </Grid>
-                <Grid item sm={12}>
-                  <InputLabel>Category</InputLabel>
-                  <Select
-                    value={category}
-                    label='Category'
-                    onChange={handleCategory}
-                    sx={{ width: '46ch' }}
-                  >
-                    <MenuItem value='Groceries'>Groceries</MenuItem>
-                    <MenuItem value='Transport'>Transport</MenuItem>
-                    <MenuItem value='Childcare'>Childcare</MenuItem>
-                    <MenuItem value='Meal Preperation'>Meal Preperation</MenuItem>
-                    <MenuItem value='Indoor Tasks'>Indoor Tasks</MenuItem>
-                    <MenuItem value='Outdoor Tasks'>Outdoor Tasks</MenuItem>
-                    <MenuItem value='Buddying'>Buddying</MenuItem>
-                    <MenuItem value='Other'>Other</MenuItem>
-                  </Select>
-                </Grid>
-                <Grid item sm={12}>
-                  <InputLabel>Date to be completed by</InputLabel>
-                  <Select
-                    value={timeframe}
-                    label='timeframe'
-                    onChange={handleTimeframe}
-                    sx={{ width: '46ch' }}
-                  >
-                    <MenuItem value='Today'>Today</MenuItem>
-                    <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
-                    <MenuItem value='This week'>This week</MenuItem>
-                    <MenuItem value='Next week'>Next week</MenuItem>
-                    <MenuItem value='Ongoing'>Ongoing</MenuItem>
-                    <MenuItem value='Other'>Other</MenuItem>
-                  </Select>
-                </Grid>
-                <Grid item sm={12}>
-                  <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
-                </Grid>
-                <Grid>
-                  <Button onClick={handleSubmit}>Create</Button>
-                  <Button onClick={handleCancel}>Cancel</Button> 
-                </Grid>
+  return (
+    <>
+      <Container component='main' maxWidth='xs'>
+        <Box sx={{ mt: 4, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <Typography  component='h1' variant='h5'>Create a Request</Typography>
+          <Box sx={{my: 2}} component='form'>
+            <Grid container spacing={2} >
+              <Grid item sm={12}>
+                <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
               </Grid>
-            </Box>
+              <Grid item sm={12}>
+                <InputLabel>Category</InputLabel>
+                <Select
+                  value={category}
+                  label='Category'
+                  onChange={handleCategory}
+                  sx={{ width: '46ch' }}
+                >
+                  <MenuItem value='Groceries'>Groceries</MenuItem>
+                  <MenuItem value='Transport'>Transport</MenuItem>
+                  <MenuItem value='Childcare'>Childcare</MenuItem>
+                  <MenuItem value='Meal Preperation'>Meal Preparation</MenuItem>
+                  <MenuItem value='Indoor Tasks'>Indoor Tasks</MenuItem>
+                  <MenuItem value='Outdoor Tasks'>Outdoor Tasks</MenuItem>
+                  <MenuItem value='Buddying'>Buddying</MenuItem>
+                  <MenuItem value='Other'>Other</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item sm={12}>
+                <InputLabel>Date to be completed by</InputLabel>
+                <Select
+                  value={timeframe}
+                  label='timeframe'
+                  onChange={handleTimeframe}
+                  sx={{ width: '46ch' }}
+                >
+                  <MenuItem value='Today'>Today</MenuItem>
+                  <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
+                  <MenuItem value='This week'>This week</MenuItem>
+                  <MenuItem value='Next week'>Next week</MenuItem>
+                  <MenuItem value='Ongoing'>Ongoing</MenuItem>
+                  <MenuItem value='Other'>Other</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item sm={12}>
+                <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
+              </Grid>
+              <Grid item sm={12}>
+                <Button onClick={handleSubmit}>Create</Button>
+                <Button onClick={handleCancel}>Cancel</Button> 
+              </Grid>
+            </Grid>
           </Box>
-        </Container>
-      </>
-    )
-  } 
+        </Box>
+      </Container>
+    </>
+  )
+} 
 
 function mapState2Props (globalState) {
   return {
