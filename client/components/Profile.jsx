@@ -19,13 +19,8 @@ import Stack from '@mui/material/Stack'
 
 function Profile (props)  {
   const { dispatch, currentUser } = props
-  const { user, isAuthenticated } = useAuth0()
+  const { user, isLoading, isAuthenticated } = useAuth0()
 
-  // useEffect(() => {
-  //   if (user) {
-  //     dispatch(setCurrentUserThunk(user.email))
-  //   }
-  // }, [user])
 
   useEffect(() => {
     getSuburbs()
@@ -43,11 +38,12 @@ function Profile (props)  {
     e.preventDefault() 
       history.push('/profile/edit')
   }
-  if (isAuthenticated) {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  else if (isAuthenticated) {
   return (
-
     <>
-  
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Box>
