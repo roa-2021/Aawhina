@@ -77,7 +77,7 @@ function RequestDialog (props) {
           <Typography component="h6" variant="body1">
             Timeframe
           </Typography>
-          <Typography variant="body2" gutterBottom >
+          <Typography variant="body2" gutterBottom sx={{ mb: 1 }}>
             {`${request.time_frame}`}
           </Typography>
         <Stack direction="row" spacing={1} mt={1}>
@@ -102,15 +102,14 @@ function RequestDialog (props) {
             >
             <ExpandMoreIcon />
           </ExpandMore>
+          <Typography onClick={handleExpandClick} sx={{ flexGrow: 2}} >
           <Typography onClick={handleExpandClick} >
             {`Click to see ${requestOffers.length} ${grammar}`}
           </Typography>
         </>}
         { currentUser.id !== request.user_id && <Button onClick={handleSubmitOpen}>Offer to help</Button>}
-
         { currentUser.id === request.user_id && <Button 
         variant="outlined" 
-        color="secondary"
         onClick={handleRetractOpen}>
           Remove Request
       </Button>}
@@ -127,16 +126,16 @@ function RequestDialog (props) {
               <CardContent>
                 {`Your neighbour, ${offer.first_name}, has offered āwhina. They left you this note: ${offer.notes}`}
               </CardContent>
-              {/* <CardActions> */}
+              <CardActions sx={{display: "flex", flexDirection: "row" }}>
                 <Button 
-                  variant="contained" 
-                  color="secondary"
+                  variant="outlined" 
+                  sx={{alignItems:"flex-end"}}
                   onClick={() => handleAccept(offer)}
                 >
                     Accept Offer
                 </Button>
                
-              {/* </CardActions> */}
+              </CardActions>
             </Card>)
           })}
           </Stack>
