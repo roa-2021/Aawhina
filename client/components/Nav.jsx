@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Logout from './Logout'
 import Login from './Login'
 import Register from './Register'
-
+import Profile from './Profile'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-
+import Welcome from './Welcome'
 import { getSuburbs} from '../apis/suburb_api'
 import { useAuth0 } from '@auth0/auth0-react'
 import Avatar from '@mui/material/Avatar';
@@ -19,7 +19,13 @@ import Stack from '@mui/material/Stack'
 
 function Profile (props)  {
   const { dispatch, currentUser } = props
-  const { isAuthenticated } = useAuth0()
+  const { user, isAuthenticated } = useAuth0()
+
+  // useEffect(() => {
+  //   if (user) {
+  //     dispatch(setCurrentUserThunk(user.email))
+  //   }
+  // }, [user])
 
   useEffect(() => {
     getSuburbs()
@@ -36,12 +42,12 @@ function Profile (props)  {
   const handleCock = (e) => {
     e.preventDefault() 
       history.push('/profile/edit')
-
   }
   if (isAuthenticated) {
   return (
 
     <>
+  
     <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '67.3vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Box>
