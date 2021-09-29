@@ -172,7 +172,7 @@ function UpdateProfile (props)  {
 
 
           <Divider sx={{width: '23ch'}}/>
-          <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
+          <Stack sx={{ pr: 0, pb: .5,  }}direction="row" justifyContent="">
 
 
             <Box
@@ -218,7 +218,7 @@ function UpdateProfile (props)  {
             </Box>
           </Stack>
 
-          <Stack direction="row" justifyContent="centre" spacing={2.3}>
+          <Stack sx={{mt: 2}} direction="row" justifyContent="centre" spacing={2.3}>
             <Box sx={6}>
               {/* <FormControl variant="standard" sx={{ m: 1, width: '20ch' }}> */}
               <InputLabel>Gender</InputLabel>
@@ -278,8 +278,6 @@ function UpdateProfile (props)  {
           <Stack direction='row'spacing={1} sx={{mt: 3.5}}>
 
             <input className='button' label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-
-
             <Button variant="outlined" onClick={uploadImage}>Update Photo</Button> 
 
           </Stack>
