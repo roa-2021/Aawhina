@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
+import { getSuburb } from '../apis/suburb_api'
+import { getUser } from '../apis/users_api'
 
 import RequestCard from './RequestCard'
 import Welcome from './Welcome'
@@ -10,11 +12,45 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
+import { Link } from '@mui/material'
 
-function Requests ({ currentUser, requests }) {
-  const { isAuthenticated } = useAuth0();
+function Requests ({ currentUser, requests, users }) {
+  const { user, isAuthenticated } = useAuth0();
+  
+  const [isFiltered, setIsFiltered] = useState(false)
+  const [suburb, setSuburb] = useState(null) // the suburb of the user returned from Auth0
+  const [requestsToShow, setRequestsToShow] = useState(requests)
 
-  const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
+  useEffect(() => {
+    if (user) {
+      const setUser = users.find(dbUser => user.email === dbUser.email)
+      getSuburb(setUser.suburb_id)
+        .then(res => setSuburb(res))
+    }},[user])
+
+  if (currentUser) {
+    const userRequests = requests.filter(request => currentUser.id === request.user_id)
+    setRequestsToShow(userRequests)
+  }
+
+  const handleFilter = () => {
+    //  // sets currentUser without currentUser because reasons
+    // const userNeighbours = suburbs.find(suburb => suburb.id === user.suburb_id).neighbours // gets the neighbours of the current user's (not currentUser!) suburb
+    console.log(localSuburbs)
+    const localSuburbs = [suburb.id, ...suburb.neighbours] // creates a suburb array of current suburb and neighbours
+    // filter requests for those with suburb in localSuburbs
+    const requestArray = []
+    localSuburbs.map(suburb => {
+      // console.log(suburb)
+      requests.map(request => {
+        if (suburb.id === request.suburb_id) {
+          requestArray.push(request)
+        }
+      })
+    })
+    setRequestsToShow(requestArray)
+    setIsFiltered(!true)
+  }
 
   if (isAuthenticated) {
     return (
@@ -24,12 +60,21 @@ function Requests ({ currentUser, requests }) {
           maxWidth="md"
           sx={{ mb: 2 }}
         >
-        { !currentUser && <Box mt={4} >
+        { !currentUser && 
+          <Box mt={4} >
             <Typography variant="h5" align="center">
-              These neighbours of yours have requested help:
+              These neighbours of yours have requested help:<br />
+            <Link 
+              variant="body2"
+              underline="hover"
+              onClick={handleFilter}
+              align="center"
+              >
+              { isFiltered ? "Remove Filter" : "Filter requests to those nearest you"}
+            </Link>
             </Typography>
           </Box>
-          }
+        }
           <Box mt={2}>
             <Grid
               container
@@ -65,7 +110,8 @@ function Requests ({ currentUser, requests }) {
 
 function mapState2Props (globalState) {
   return {
-    requests: globalState.requests
+    requests: globalState.requests,
+    users: globalState.users
   }
 }
 
