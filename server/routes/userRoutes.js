@@ -29,7 +29,6 @@ router.get('/:email', (req, res) => {
 // POST /api/v1
 router.post('/', (req, res) => {
   const user = req.body
-  console.log('postuserroutes', user)
   db.createUserProfile(user)
     .then(idarray => {
       user.id = idarray[0]
