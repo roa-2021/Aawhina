@@ -52,7 +52,7 @@ function Dashboard({ currentUser }) {
         </Container>
         {offers
           ? <Offers />
-          : <Requests />
+          : <Requests currentUser={currentUser} />
         }
       </>
     )
