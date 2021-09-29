@@ -80,21 +80,20 @@ function RequestDialog (props) {
           <Typography variant="body2" gutterBottom >
             {`${request.time_frame}`}
           </Typography>
+        <Stack direction="row" spacing={1} mt={1}>
+          <Chip
+            label={request.category}
+            variant="outlined"
+          />
+          <Chip
+            label={request.suburb_name}
+            variant="outlined"
+            sx={{ mr: "auto" }}
+          />
+        </Stack>
       </DialogContent>
       <DialogActions>
-        <Chip
-          label={request.category}
-          variant="outlined" 
-        />
-        <Chip
-          label={request.suburb_name}
-          variant="outlined"
-          sx={{ mr: "auto" }}
-        />
-        { currentUser.id === request.user_id && requestOffers && <>
-          <Typography onClick={handleExpandClick} >
-            {`Click to see ${requestOffers.length} ${grammar}`}
-          </Typography>
+        { currentUser.id === request.user_id && requestOffers.length > 0 && <>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
@@ -103,11 +102,14 @@ function RequestDialog (props) {
             >
             <ExpandMoreIcon />
           </ExpandMore>
+          <Typography onClick={handleExpandClick} >
+            {`Click to see ${requestOffers.length} ${grammar}`}
+          </Typography>
         </>}
         { currentUser.id !== request.user_id && <Button onClick={handleSubmitOpen}>Offer to help</Button>}
 
         { currentUser.id === request.user_id && <Button 
-        variant="contained" 
+        variant="outlined" 
         color="secondary"
         onClick={handleRetractOpen}>
           Remove Request

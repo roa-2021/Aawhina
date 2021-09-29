@@ -11,9 +11,9 @@ const LaunchData = ({ dispatch }) => {
   const { user } = useAuth0()
   
   useEffect(() => {
-    dispatch(getOffersThunk())
-    dispatch(getRequestsThunk())
     dispatch(getUsersThunk())
+    dispatch(getRequestsThunk())
+    dispatch(getOffersThunk())
   }, [])
 
   useEffect(() => {
