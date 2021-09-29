@@ -5,7 +5,6 @@ const db = require('./connection')
     .then(response => {
       suburbsArr = []
       response.map(suburb => {
-        // console.log(suburb)
         newSuburb = {
           ...suburb,
           neighbours: suburb.neighbours.split(',')
@@ -13,7 +12,6 @@ const db = require('./connection')
         newSuburb.neighbours.map((s, i) => {
           newSuburb.neighbours[i] = parseInt(s)
         })
-        console.log(newSuburb)
         suburbsArr.push(newSuburb)
       })
       return suburbsArr
