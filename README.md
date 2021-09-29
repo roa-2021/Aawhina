@@ -35,23 +35,23 @@ npm run dev
 - [X] As a user I want to be able to login
 - [X] As a user I want to be able to create a profile
 - [X] As a user I want to be able to view my profile page
-- [ ] As a user I want to be able to edit my profile
+- [x] As a user I want to be able to edit my profile
 - [X] As a requester I want to be able to list a job I need help with
-- [ ] As a requester I want to be able to delete a job
+- [x] As a requester I want to be able to delete a job
 - [X] As a offerer I want to be able to offer help for a particular job
-- [ ] As a offerer I want to be able to send my details to a requester i have offered to help
-- [ ] As an offerer I want to be able to rescind my offer for help
+- [x] As a offerer I want to be able to send my details to a requester i have offered to help
+- [x] As an offerer I want to be able to rescind my offer for help
 - [X] As an offerer I want to be able to view requests
-- [ ] As an offerer I want to be able to view requests in my area
-- [ ] As a requester I want to be able to specify when I need a job completed (by)
-- [ ] As a requester I want to be able to view any offers on my requests
+- [x] As an offerer I want to be able to view requests in my area
+- [x] As a requester I want to be able to specify when I need a job completed (by)
+- [x] As a requester I want to be able to view any offers on my requests
 
 
 ## Stretch user stories:
 
 - [ ] As a user I want to be able to register as a helper or helpee
 - [ ] As a user I want to be able to login using Facebook
-- [ ] As a user I want to be able to upload a profile picture
+- [x] As a user I want to be able to upload a profile picture
 - [ ] As a requester I want to be able to edit a job I need help with
 - [ ] As a helper I want to be able to gain special recognition/rewards for positive reviews on my helping.
 - [ ] As a helper I want to be able to view jobs on a map
