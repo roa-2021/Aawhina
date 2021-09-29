@@ -52,6 +52,7 @@ npm run dev
 - [ ] As a user I want to be able to register as a helper or helpee
 - [ ] As a user I want to be able to login using Facebook
 - [x] As a user I want to be able to upload a profile picture
+- [x] As a user I want to be able to edit my profile picture
 - [ ] As a requester I want to be able to edit a job I need help with
 - [ ] As a helper I want to be able to gain special recognition/rewards for positive reviews on my helping.
 - [ ] As a helper I want to be able to view jobs on a map
