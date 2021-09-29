@@ -41,10 +41,10 @@ function Profile (props)  {
  
   return (
     <>
-    <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '80vh', height: '70vh', flexGrow: 1, border: '1px dashed pink'}}>
+    <Container sx={{ p: 2, margin: 'auto', mt: 10, width: '80vh', height: '70vh', flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Box>
-          <Grid item sx={{ mt: 7, border: '1px dashed blue'}}>
+          <Grid item sx={{ mt: 7 }}>
           <Avatar
               alt="Profile picture"
               src={currentUser.image}
@@ -65,7 +65,7 @@ function Profile (props)  {
               </Typography> */}
 
               <Stack sx={{ pr: 0 }}direction="row" justifyContent="">
-                <Typography sx={{fontWeight: 'bold', pr: 2, mt: 5}} color='secondary' variant="body2" gutterBottom fontSize="large">
+                <Typography sx={{fontWeight: 'bold', pr: 3.2, mt: 5}} color='secondary' variant="body2" gutterBottom fontSize="large">
                   Name: 
                 </Typography>
 
@@ -99,7 +99,7 @@ function Profile (props)  {
           </Stack>
 
               <Stack sx={{ pr: 0 }} direction="row" justifyContent="">
-              <Typography sx={{fontWeight: 'bold', pr: 3, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
+              <Typography sx={{fontWeight: 'bold', pr: 4, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
                 About Me:
               </Typography>
               <Typography sx={{pl: .4, mt: 1}} color='secondary' variant="body2" gutterBottom fontSize="large">
@@ -108,7 +108,7 @@ function Profile (props)  {
               </Stack>
             </Grid>
 
-            <Stack direction="row" item sx={{pt: 0}}>
+            <Stack direction="row" item sx={{pt: 2, }}>
               <Box sx={{ "& button": { ml: 2, p: 0 } }}>
               <Button color='primary' onClick={handleCock}size="small">Edit Details</Button>
               </Box>
