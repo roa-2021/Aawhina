@@ -33,7 +33,6 @@ function Welcome ({currentUser}) {
   return (
    <>
    
-    {/* <LaunchData /> */}
     <Stack sx={{ pt: 0, pr: 0}}direction="row">
 
       <Box
