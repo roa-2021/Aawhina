@@ -58,56 +58,61 @@ function UpdateProfile (props)  {
   })
 
   const [image, setImage ] = useState("")
-  const [ url, setUrl ] = useState("")
+  const [ url, setUrl ] = useState(currentUser.image)
   // const [img, setImg] = useState ('')
 
-
+  
   const uploadImage = () => {
     const data = new FormData()
     data.append("file", image)
     data.append("upload_preset", "refb93xz")
     data.append("cloud_name","dvctkzwbh")
-
+    
     fetch('https://api.cloudinary.com/v1_1/dvctkzwbh/image/upload',{
       method:"post",
       body: data})
       .then(resp => resp.json())
       .then(data => {
         setUrl(data.url)
+        
       })
       .catch(err => console.log(err))
     }
+    
+    
+    
+    
 
-  const Input = styled('input')({
-    display: 'none',
-  })
-
-
-
-// console.log(values)
-console.log(props.currentUser)
-  
-  const handleSuburb = (e) => {
-    e.preventDefault()
-    setSuburb(e.target.value)
-  }  
-  
+    const Input = styled('input')({
+      display: 'none',
+    })
+    
+    
+    
+    
+    console.log(props.currentUser)
+    
+    const handleSuburb = (e) => {
+      e.preventDefault()
+      setSuburb(e.target.value)
+    }  
+    
   const handleGender =(e) => {
     e.preventDefault()
     setGender(e.target.value)
-
+    
   }  
-
+  
   const handleChange =(e) => {
     e.preventDefault()
     setValues({
       [e.target.name]: e.target.value
     })  
-
+    
   }  
 
   let history = useHistory()
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     const updatedUser = {
@@ -121,7 +126,7 @@ console.log(props.currentUser)
       spoken_languages: currentUser.spoken_languages,
       image: url
     }  
-
+    
     console.log(updatedUser)
       dispatch(updateUserThunk(updatedUser)) 
       history.push('/profile') 
@@ -129,6 +134,12 @@ console.log(props.currentUser)
     }
     
     // dispatch(getUsersThunk()) 
+    const callback = () => {
+      uploadImage()
+      handleSubmit()
+
+    }
+
     
     
     const { first, last, bio } = values
@@ -148,9 +159,6 @@ console.log(props.currentUser)
               sx={{ width: 110, height: 110 }}
               />
           </Grid>
-
-            <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
-            <Button variant="outlined" onClick={uploadImage}>Upload</Button> 
         </Box>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
@@ -262,6 +270,9 @@ console.log(props.currentUser)
             ))}
 
           </Select>
+
+          <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
+            <Button variant="outlined" onClick={callback}>Update Photo</Button> 
               </FormControl>
               </Box>
           </Stack>
