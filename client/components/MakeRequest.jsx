@@ -98,7 +98,7 @@ function MakeRequest ({ dispatch, currentUser }) {
             <Box sx={{mt:3}} component='form'>
               <Grid container spacing={2} >
                 <Grid item sm={12}>
-                  <TextField sx={{mt:3 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
+                  <TextField sx={{mt:3 }} color='primary' focused required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
                 </Grid>
                 <Grid item sm={12}>
                   <InputLabel>Category</InputLabel>
@@ -139,7 +139,7 @@ function MakeRequest ({ dispatch, currentUser }) {
                   </TextField>
                 </Grid>
                 <Grid item sm={12}>
-                  <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
+                  <TextField sx={{ mt: 4 }} color='primary' focused fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
                 </Grid>
                 <Grid>
                   <Button onClick={handleSubmit}>Create</Button>
