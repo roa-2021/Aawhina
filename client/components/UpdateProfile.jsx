@@ -43,11 +43,11 @@ function UpdateProfile (props)  {
   },[])
 
  
-  const [gender, setGender] = useState(currentUser.gender)
+  const [gender, setGender] = useState('')
   
   const [theSuburbs, setSuburbs] = useState([])
   
-  // const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
+  const currentSuburb = theSuburbs.filter(s => s.id === currentUser.suburb_id).map(s => s.name)
   
   const [newSuburb, setSuburb] = useState()
 
@@ -155,7 +155,7 @@ console.log(props.currentUser)
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom color='primary' variant="subtitle1" component="div" fontSize="h5.fontSize">
+                <Typography gutterBottom variant="subtitle1" component="div" fontSize="h5.fontSize">
                   Update Profile
                 </Typography>
 
@@ -179,7 +179,6 @@ console.log(props.currentUser)
                       // defaultValue={currentUser.first_name}
                       size="small"
                       variant="standard"
-                      color='primary' focused
                       name='first'
                       value={first}
                       onChange={handleChange}
@@ -199,7 +198,6 @@ console.log(props.currentUser)
                       label="Last Name"
                       id="standard-size-small"
                       size="small"
-                      color='primary' focused
                       variant="standard"
                       name='last'
                       value={last}
@@ -215,13 +213,12 @@ console.log(props.currentUser)
                 <Select
                   value={gender}
                   label='Gender'
-                  color='primary' focused
                   onChange={handleGender}
                   sx={{ width: '18ch' }}>
-                  <MenuItem value='Female'>Female</MenuItem>
-                  <MenuItem value='Male'>Male</MenuItem>
-                  <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
-                  <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
+                  <MenuItem value='female'>Female</MenuItem>
+                  <MenuItem value='male'>Male</MenuItem>
+                  <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
+                  <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
                 </Select>
                 </FormControl>
               </Box>
@@ -235,7 +232,6 @@ console.log(props.currentUser)
             defaultValue=''
             onChange={handleSuburb}
             value={newSuburb}
-            color='primary' focused
             sx={{ width: '18ch' }}
             label='Suburb'
             >
@@ -271,12 +267,11 @@ console.log(props.currentUser)
                 multiline rows={6}  
                 label = 'About me' 
                 name='bio' 
-                color='primary' focused
                 value={bio} 
                 onChange={handleChange}/>
             </Grid>
 
-            <Stack direction="row" item sx={{pt: 0,}}>
+            <Stack direction="row" item sx={{pt: 0}}>
               <Box sx={{ "& button": { ml: 2, p: 0 } }}>
                 <>
                 <Button size="small">Cancel</Button>
