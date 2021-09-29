@@ -64,11 +64,13 @@ function Nav({ currentUser }) {
               md: 'flex' 
               } 
           }}>
+
             { !currentUser ? 
             <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
               <Login/>
               <Register/>
             </Stack> :
+
             <IconButton color='inherit'  onClick={handleMenu}>
             <AccountCircle  fontSize='large'/>
             </IconButton> }
