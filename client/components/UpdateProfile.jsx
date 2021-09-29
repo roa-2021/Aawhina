@@ -29,12 +29,27 @@ import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack'
+import { makeStyles } from '@material-ui/core'
 
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
 
 
 function UpdateProfile (props)  {
   const { dispatch, currentUser } = props
-
+  const classes = useStyles()
   
   useEffect(() => {
     getSuburbs()
@@ -221,18 +236,20 @@ function UpdateProfile (props)  {
           <Stack sx={{mt: 2}} direction="row" justifyContent="centre" spacing={2.3}>
             <Box sx={6}>
               {/* <FormControl variant="standard" sx={{ m: 1, width: '20ch' }}> */}
-              <InputLabel>Gender</InputLabel>
-              <Select
+              {/* <InputLabel>Gender</InputLabel> */}
+              <TextField
               value={gender}
               label='Gender'
               color='primary' focused
               onChange={handleGender}
-              sx={{ width: '22ch' }}>
+              sx={{ width: '22ch' }}
+              className={classes.root}
+              select>
               <MenuItem value='Female'>Female</MenuItem>
               <MenuItem value='Male'>Male</MenuItem>
               <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
               <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
-              </Select>
+              </TextField>
               {/* </FormControl> */}
             </Box>
 
@@ -240,15 +257,15 @@ function UpdateProfile (props)  {
 
             <Box sx={6}>
               {/* <FormControl variant="standard" sx={{ m: 1, width: '22ch' }}> */}
-              <InputLabel>Suburb</InputLabel>
-              <Select
+              {/* <InputLabel>Suburb</InputLabel> */}
+              <TextField
               defaultValue=''
               onChange={handleSuburb}
               value={newSuburb}
-              color='primary' focused
+              className={classes.root}
               sx={{ width: '22ch' }}
               label='Suburb'
-              >
+              select>
 
               <ListSubHeader>Wellington</ListSubHeader>
               {theSuburbs && theSuburbs.filter(s => s.region === 'Wellington').map(s => ( 
@@ -270,7 +287,7 @@ function UpdateProfile (props)  {
               <MenuItem value={s.id}>{s.name}</MenuItem>
               ))}
 
-              </Select>
+              </TextField>
             </Box>
           </Stack>
 

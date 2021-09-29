@@ -48,20 +48,20 @@ function MakeOfferDialog (props) {
     >
       <DialogTitle id="scroll-dialog-title">{`Enter your details`}</DialogTitle>
       <DialogContent dividers={true}>
-          <TextField 
-            sx={{ 
-              mt: 1, 
-              width: '61ch' 
-              }} 
-            multiline 
-            rows={4} 
-            id="outlined-basic" 
-            label="Information to be sent to requester" 
-            variant="outlined"
-            name="notes"
-            value={notes}
-            onChange={handleNotesChange}
-          />
+        <TextField 
+          sx={{ 
+            mt: 1, 
+            width: '100%'
+          }} 
+          multiline 
+          rows={4} 
+          id="outlined-basic" 
+          label="Information to be sent to requester" 
+          variant="outlined"
+          name="notes"
+          value={notes}
+          onChange={handleNotesChange}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleDialogOpen}>Back</Button>

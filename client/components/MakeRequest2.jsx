@@ -91,7 +91,7 @@ function MakeRequest ({ dispatch, currentUser }) {
           <Box sx={{my: 2}} component='form'>
             <Grid container spacing={2} >
               <Grid item sm={12}>
-                <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' color='primary' focused name='title' value={title} onChange={handleChange}/>
+                <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
               </Grid>
               <Grid item sm={12}>
                 {/* <InputLabel>Category</InputLabel> */}
@@ -113,24 +113,23 @@ function MakeRequest ({ dispatch, currentUser }) {
                 </TextField>
               </Grid>
               <Grid item sm={12}>
-                {/* <InputLabel>Date to be completed by</InputLabel> */}
-                <TextField
+                <InputLabel>Date to be completed by</InputLabel>
+                <Select
                   value={timeframe}
-                  label='To be completed by'
+                  label='timeframe'
                   onChange={handleTimeframe}
-                  className={classes.root}
                   sx={{ width: '46ch' }}
-                  select>
+                >
                   <MenuItem value='Today'>Today</MenuItem>
                   <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
                   <MenuItem value='This week'>This week</MenuItem>
                   <MenuItem value='Next week'>Next week</MenuItem>
                   <MenuItem value='Ongoing'>Ongoing</MenuItem>
                   <MenuItem value='Other'>Other</MenuItem>
-                </TextField>
+                </Select>
               </Grid>
               <Grid item sm={12}>
-                <TextField sx={{ mt: 4 }} color='primary' focused fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
+                <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
               </Grid>
               <Grid item sm={12}>
                 <Button onClick={handleSubmit}>Create</Button>
