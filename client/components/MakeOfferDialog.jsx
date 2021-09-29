@@ -46,7 +46,7 @@ function MakeOfferDialog (props) {
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
     >
-      <DialogTitle id="scroll-dialog-title">{`Enter your details`}</DialogTitle>
+      <DialogTitle id="scroll-dialog-title">{`Enter a note with your contact details`}</DialogTitle>
       <DialogContent dividers={true}>
         <TextField 
           sx={{ 

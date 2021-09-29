@@ -54,9 +54,7 @@ router.put('/:id', (req, res) => {
   const id = req.params.id
   const newOffer = req.body
   db.editOffer(id, newOffer)
-    .then((id) => {
-      return res.json(`offer id number ${id} has been updated`)
-    })
+    .then(() => db.getOfferById(id))
     .catch(error => {
       res.status(500).json(`error did not work: ${error.message}`)
     })

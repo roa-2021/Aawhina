@@ -52,6 +52,7 @@ function RequestDialog (props) {
       accepted: true
     }
     dispatch(updateOfferThunk(newOffer))
+    handleDialogClose()
   }
 
   const grammar = requestOffers?.length > 1 ? 'offers' : 'offer'

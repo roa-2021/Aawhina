@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
 
 import Offers from './Offers'
 import Requests from './Requests'
-import Welcome from './Welcome'
 
 import Container from '@mui/material/Container'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
+import Typography from '@mui/material/Typography'
 
 function Dashboard({ currentUser }) {
   
- 
   const [offers, setOffers] = useState(true)
   const [alignment, setAlignment] = useState('offers');
 
