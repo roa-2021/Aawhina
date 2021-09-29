@@ -3,7 +3,7 @@ exports.up = (knex) => {
     t.increments('id').primary()
     t.string('name')
     t.string('region')
-    t.string('neighbours')
+    t.specificType('neighbours', 'integer ARRAY')
   })
 }
 
