@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import Logout from './Logout'
+import Login from './Login'
+import Register from './Register'
+import Profile from './Profile'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,6 +13,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Link from '@mui/material/Link'
+import IconButton from '@mui/material/IconButton'
+import Stack from '@mui/material/Stack'
+
 
 function Nav() {
 
@@ -39,7 +45,6 @@ function Nav() {
   }
 
 
-
   return (
     
     <Box sx={{ flexGrow: 1 }}>
@@ -59,7 +64,15 @@ function Nav() {
               md: 'flex' 
               } 
           }}>
-            <AccountCircle onClick={handleMenu}/>
+            <Stack sx={{pt: 0, pr: 2,}} direction='row' spacing={1}>
+            <Login/>
+            <Register/>
+            </Stack>
+            {/* <Box sx={{my: 'auto'}}> */}
+            <IconButton color='inherit'  onClick={handleMenu}>
+            <AccountCircle  fontSize='large'/>
+            </IconButton>
+            {/* </Box> */}
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -75,11 +88,12 @@ function Nav() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <Link href='/dashboard'><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
-                <Link href='/profile'><MenuItem>My Profile</MenuItem></Link>
+                <Link href='/dashboard'><MenuItem color='secondary' onClick={handleClose}>Dashboard</MenuItem></Link>
+                <Link href='/profile'><MenuItem color='secondary' >My Profile</MenuItem></Link>
                 {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                 <MenuItem><Logout/></MenuItem>
               </Menu>
+
           </Box>
         </Toolbar>
       </AppBar>

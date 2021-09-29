@@ -12,56 +12,15 @@ import Stack from '@mui/material/Stack'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import LaunchData from './LaunchData'
+import Image from 'material-ui-image'
+import Box from '@mui/material/Box'
 
-function srcset(image, size, rows = 1, cols = 1) {
-  return {
-    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-    srcSet: `${image}?w=${size * cols}&h=${
-      size * rows
-    }&fit=crop&auto=format&dpr=2 2x`,
-  };
-}
-
-const itemData = [
-  {
-    img: './images/neighbours.jpg',
-    title: 'Breakfast',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: './images/happy.jpg',
-  },
-  {
-    img: './images/background.png',
-    cols: 2,
-  },
-  {
-    img: './images/grocery.jpg',
-    cols: 2,
-  },
-  {
-    img: './images/apples.jpeg',
-    title: 'Fern',
-  },
-]
 
 function Welcome ({currentUser}) {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  
-  // const [profileExists, setprofileExists] = React.useState(false)
-
-  // const checkProfile = (user) => {
-  //   getUser(user.email)
-  //   .then ((user) => {
-  //     if (user) {
-  //       setprofileExists(true)
-  //     }
-  //   })
-  // }
 
   if (isAuthenticated) {
-    // checkProfile(user)
+  
     return (
       <>
       <LaunchData />
@@ -71,34 +30,32 @@ function Welcome ({currentUser}) {
   }
   return (
    <>
-     <LaunchData />
-      <Stack sx={{ pt: 10, pr: 20 }}direction="row" justifyContent="right">
-        <Typography  component='h1' variant='h3'>Welcome to Āwhina!</Typography>
-      </Stack>
-      <Stack sx={{ pt: 20, pr: 17 }}direction="row" spacing={25}justifyContent="right">
-        <Login/>
-        <Register/>
-      </Stack>
+   
+    {/* <LaunchData /> */}
+    <Stack sx={{ pt: 0, pr: 0}}direction="row">
 
-      <ImageList
-      sx={{ pl: 10, pb: 60, width: 680, height: 500 }}
-      variant="quilted"
-      cols={4}
-      rowHeight={121}
-    >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+      <Box
+        sx={{
+          pt: 0, 
+          pr: 0, 
+          width: '50%', 
+        }}direction="row" spacing={25}justifyContent="right">
+          <Image  src="./images/Screenshot.png" cover={true} />
+      </Box>
+
+      <Box sx={{width: '50%' }} alignItems="center" justifyContent="center">
+        <Typography sx={{ pt: 7, pr: 0, pl: 10}} component='h1' variant='h3'>Welcome to Āwhina!</Typography>
+    
+        <Stack sx={{ pt: 9, pr: 10, pl: 10}}direction="row" spacing={25}justifyContent="right">
+          <p>Āwhina.
+            {/* Initially born out of the want for a place to connect with neighbours who need  */}
+          </p>
+        </Stack>
+      </Box>
+ 
+    </Stack>
     </>
   )
-
 }
 
 function mapState2Props (globalState) {
