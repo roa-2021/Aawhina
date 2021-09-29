@@ -19,7 +19,15 @@ function Requests ({ currentUser, requests, users }) {
   
   const [isFiltered, setIsFiltered] = useState(false)
   const [suburb, setSuburb] = useState(null) // the suburb of the user returned from Auth0
-  const [requestsToShow, setRequestsToShow] = useState(requests)
+  const [requestsToShow, setRequestsToShow] = useState([])
+  
+  useEffect(() => {
+    setRequestsToShow(requests)
+    if (currentUser) {
+      const userRequests = requests.filter(request => currentUser.id === request.user_id)
+      setRequestsToShow(userRequests)
+    }
+  },[requests])
 
   useEffect(() => {
     if (user) {
@@ -28,31 +36,28 @@ function Requests ({ currentUser, requests, users }) {
         .then(res => setSuburb(res))
     }},[user])
 
-  if (currentUser) {
-    const userRequests = requests.filter(request => currentUser.id === request.user_id)
-    setRequestsToShow(userRequests)
-  }
 
   const handleFilter = () => {
-    //  // sets currentUser without currentUser because reasons
-    // const userNeighbours = suburbs.find(suburb => suburb.id === user.suburb_id).neighbours // gets the neighbours of the current user's (not currentUser!) suburb
-    console.log(localSuburbs)
+    if (!isFiltered) {
     const localSuburbs = [suburb.id, ...suburb.neighbours] // creates a suburb array of current suburb and neighbours
-    // filter requests for those with suburb in localSuburbs
-    const requestArray = []
+    let requestArray = []
     localSuburbs.map(suburb => {
-      // console.log(suburb)
       requests.map(request => {
-        if (suburb.id === request.suburb_id) {
-          requestArray.push(request)
+        console.log('suburb_id:',suburb,'request_suburb:',request.suburb_id,'request_id:',request.id)
+        if (suburb === request.suburb_id) {
+          requestArray = [...requestArray, request]
+          console.log(requestArray)
         }
       })
     })
     setRequestsToShow(requestArray)
-    setIsFiltered(!true)
+  } else {
+    setRequestsToShow(requests)
+    }
+    setIsFiltered(!isFiltered)
   }
-
-  if (isAuthenticated) {
+  
+  // if (isAuthenticated) {
     return (
       <>
         <Container 
@@ -105,7 +110,7 @@ function Requests ({ currentUser, requests, users }) {
         </Container>
       </>
     )
-  } return (<Welcome />)
+  // } return (<Welcome />)
 }
 
 function mapState2Props (globalState) {
