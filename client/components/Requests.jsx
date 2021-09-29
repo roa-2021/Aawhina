@@ -18,8 +18,9 @@ function Requests ({ currentUser, requests, users }) {
   const { user, isAuthenticated } = useAuth0();
   
   const [isFiltered, setIsFiltered] = useState(false)
-  const [suburb, setSuburb] = useState(null) // the suburb of the user returned from Auth0
+  const [suburb, setSuburb] = useState(null)
   const [requestsToShow, setRequestsToShow] = useState([])
+  // const [reduxUsers, setReduxUsers] = useState(null)   <-- removing for now pray that I don't need it
   
   useEffect(() => {
     setRequestsToShow(requests)
@@ -29,12 +30,16 @@ function Requests ({ currentUser, requests, users }) {
     }
   },[requests])
 
+  // useEffect(() => {
+  //   setReduxUsers(users)
+  // },[users])
+
   useEffect(() => {
-    if (user) {
+    if (users?.length > 0) {
       const setUser = users.find(dbUser => user.email === dbUser.email)
       getSuburb(setUser.suburb_id)
         .then(res => setSuburb(res))
-    }},[user])
+    }},[users])
 
 
   const handleFilter = () => {
@@ -90,7 +95,7 @@ function Requests ({ currentUser, requests, users }) {
               { requestsToShow?.map(request => <RequestCard key={request.id} request={request} />)}
               <Grid 
                 item
-                mt={2}
+                mt={1}
                 sx={{
                   display: 'flex',
                   justifyContent: 'center'
