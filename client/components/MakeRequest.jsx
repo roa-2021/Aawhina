@@ -21,8 +21,7 @@ import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
 
 function MakeRequest ({ dispatch, currentUser }) {
-  const { isAuthenticated } = useAuth0()
-  
+
   let history = useHistory()
 
   const [category, setCategory] = useState('')
@@ -71,7 +70,6 @@ function MakeRequest ({ dispatch, currentUser }) {
 
   const { title, details } = values
 
-  if (isAuthenticated) {
     return (
       <>
         <Container component='main' maxWidth='xs'>
@@ -129,8 +127,7 @@ function MakeRequest ({ dispatch, currentUser }) {
         </Container>
       </>
     )
-  } return (< Welcome />)
-}
+  } 
 
 function mapState2Props (globalState) {
   return {
