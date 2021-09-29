@@ -79,8 +79,7 @@ function RequestDialog (props) {
           </Typography>
           <Typography variant="body2" gutterBottom sx={{ mb: 1 }}>
             {`${request.time_frame}`}
-          </Typography >
-        {/* <Divider /> */}
+          </Typography>
         <Stack direction="row" spacing={1} mt={1}>
           <Chip
             label={request.category}
@@ -104,6 +103,7 @@ function RequestDialog (props) {
             <ExpandMoreIcon />
           </ExpandMore>
           <Typography onClick={handleExpandClick} sx={{ flexGrow: 2}} >
+          <Typography onClick={handleExpandClick} >
             {`Click to see ${requestOffers.length} ${grammar}`}
           </Typography>
         </>}
@@ -114,7 +114,7 @@ function RequestDialog (props) {
           Remove Request
       </Button>}
 
-      <Button onClick={handleDialogClose}>Back</Button>
+                 <Button onClick={handleDialogClose}>Back</Button>
 
       </DialogActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

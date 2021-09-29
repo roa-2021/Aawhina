@@ -52,13 +52,12 @@ function Dashboard({ currentUser }) {
         </Container>
         {offers
           ? <Offers />
-          : <Requests currentUser={currentUser}/>
+          : <Requests />
         }
       </>
     )
  
 }
-
 
 
 function mapState2Props (globalState) {

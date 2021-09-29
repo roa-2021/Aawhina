@@ -49,14 +49,14 @@ function MakeRequest ({ dispatch, currentUser }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     const newRequest = {
+      user_id: currentUser.id,
       title: values.title,
       category: category,
-      time_frame: timeframe,
       details: values.details,
-      user_id: currentUser.id
+      time_frame: timeframe
     }  
     dispatch(postRequestThunk(newRequest)) 
-    history.push('/requests') 
+    history.push('/dashboard') 
   }
 
   const handleCancel = (e) => {
@@ -127,7 +127,8 @@ function MakeRequest ({ dispatch, currentUser }) {
 
 function mapState2Props (globalState) {
   return {
-    currentUser: globalState.currentUser
+    currentUser: globalState.currentUser,
+    requests: globalState.requests
   }
 }
 
