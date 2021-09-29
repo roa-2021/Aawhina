@@ -19,9 +19,27 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import TimePicker from '@mui/lab/TimePicker';
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
+
 
 function MakeRequest ({ dispatch, currentUser }) {
   const { isAuthenticated } = useAuth0()
+  const classes = useStyles()
   
   let history = useHistory()
 
@@ -84,11 +102,13 @@ function MakeRequest ({ dispatch, currentUser }) {
                 </Grid>
                 <Grid item sm={12}>
                   <InputLabel>Category</InputLabel>
-                  <Select
+                  <TextField
                     value={category}
+                    className={classes.root}
                     label='Category'
                     onChange={handleCategory}
                     sx={{ width: '46ch' }}
+                    select
                   >
                     <MenuItem value='Groceries'>Groceries</MenuItem>
                     <MenuItem value='Transport'>Transport</MenuItem>
@@ -98,15 +118,17 @@ function MakeRequest ({ dispatch, currentUser }) {
                     <MenuItem value='Outdoor Tasks'>Outdoor Tasks</MenuItem>
                     <MenuItem value='Buddying'>Buddying</MenuItem>
                     <MenuItem value='Other'>Other</MenuItem>
-                  </Select>
+                  </TextField>
                 </Grid>
                 <Grid item sm={12}>
                   <InputLabel>Date to be completed by</InputLabel>
-                  <Select
+                  <TextField
                     value={timeframe}
                     label='timeframe'
+                    className={classes.root}
                     onChange={handleTimeframe}
                     sx={{ width: '46ch' }}
+                    select
                   >
                     <MenuItem value='Today'>Today</MenuItem>
                     <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
@@ -114,7 +136,7 @@ function MakeRequest ({ dispatch, currentUser }) {
                     <MenuItem value='Next week'>Next week</MenuItem>
                     <MenuItem value='Ongoing'>Ongoing</MenuItem>
                     <MenuItem value='Other'>Other</MenuItem>
-                  </Select>
+                  </TextField>
                 </Grid>
                 <Grid item sm={12}>
                   <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>

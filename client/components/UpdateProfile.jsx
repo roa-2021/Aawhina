@@ -29,11 +29,28 @@ import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack'
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
 
 
 
 function UpdateProfile (props)  {
   const { dispatch, currentUser } = props
+  const classes = useStyles()
 
   
   useEffect(() => {
@@ -210,16 +227,17 @@ console.log(props.currentUser)
               <Box>
                 <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
                 <InputLabel>Gender</InputLabel>
-                <Select
+                <TextField
                   value={gender}
                   label='Gender'
                   onChange={handleGender}
-                  sx={{ width: '18ch' }}>
+                  sx={{ width: '18ch' }}
+                  select>
                   <MenuItem value='female'>Female</MenuItem>
                   <MenuItem value='male'>Male</MenuItem>
                   <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
                   <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
-                </Select>
+                </TextField>
                 </FormControl>
               </Box>
 
@@ -228,12 +246,14 @@ console.log(props.currentUser)
               <Box>
               <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
               <InputLabel>Suburb</InputLabel>
-          <Select
+          <TextField
             defaultValue=''
             onChange={handleSuburb}
             value={newSuburb}
             sx={{ width: '18ch' }}
             label='Suburb'
+            className={classes.root}
+            select
             >
              
 
@@ -257,12 +277,13 @@ console.log(props.currentUser)
             <MenuItem value={s.id}>{s.name}</MenuItem>
             ))}
 
-          </Select>
+          </TextField>
               </FormControl>
               </Box>
           </Stack>
 
               <TextField sx={{ mt: 4 }}  
+              select
                 fullWidth id = 'outlined-required' 
                 multiline rows={6}  
                 label = 'About me' 
