@@ -6,7 +6,9 @@ function getAllSuburbs () {
     .then(response => {
       suburbsArr = []
       response.map(suburb => {
+
         newSuburb = convertNeighboursStringToArray(suburb)
+        
         suburbsArr.push(newSuburb)
       })
       return suburbsArr
