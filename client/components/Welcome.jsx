@@ -20,21 +20,12 @@ import CardContent from '@mui/material/CardContent'
 
 function Welcome ({currentUser}) {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isAuthenticated) {
   
-    return (
-      <>
-      <LaunchData />
-     {currentUser ? < Dashboard user={currentUser}/> : <MakeProfile /> }
-    </>
-    )
-  }
-  return (
-   <>
-   
+  return(
+    <>
+  <LaunchData />
+  {!currentUser ?  <MakeProfile /> :
     <Stack sx={{ pt: 0, pr: 0}}direction="row">
-
       <Box
         sx={{
           pt: 0, 
@@ -70,11 +61,13 @@ function Welcome ({currentUser}) {
               </Typography>
             </Stack>
       </Box>
- 
     </Stack>
-    </>
-  )
 }
+    </>
+  
+      )
+      }
+
 
 function mapState2Props (globalState) {
   return {

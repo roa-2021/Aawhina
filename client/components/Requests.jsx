@@ -12,14 +12,9 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 
 function Requests ({ currentUser, requests }) {
-  const { isAuthenticated, isLoading } = useAuth0();
 
   const requestsToShow = currentUser ? requests.filter(request => currentUser.id === request.user_id) : requests
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  else if (isAuthenticated) {
-    console.log('loggedin')
+
     return (
       <>
         <Container 
@@ -63,9 +58,7 @@ function Requests ({ currentUser, requests }) {
         </Container>
       </>
     )
-  }  console.log('logged out')
-  return (<Welcome />)
-}
+  }  
 
 function mapState2Props (globalState) {
   return {
