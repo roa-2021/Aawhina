@@ -220,7 +220,7 @@ console.log(props.currentUser)
                   sx={{ width: '18ch' }}>
                   <MenuItem value='Female'>Female</MenuItem>
                   <MenuItem value='Male'>Male</MenuItem>
-                  <MenuItem value='Gender diverse'>Gender Diverse</MenuItem>
+                  <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
                   <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
                 </Select>
                 </FormControl>

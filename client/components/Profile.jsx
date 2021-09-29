@@ -33,10 +33,10 @@ function Profile (props)  {
 
   let history = useHistory()
 
-
   const handleCock = (e) => {
     e.preventDefault() 
       history.push('/profile/edit')
+
   }
   if (isAuthenticated) {
   return (
@@ -139,4 +139,3 @@ function Profile (props)  {
   
 
   export default connect(mapState2Props)(Profile) 
-  
