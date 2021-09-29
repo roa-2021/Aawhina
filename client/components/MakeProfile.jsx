@@ -160,12 +160,8 @@ function MakeProfile (props) {
             </Grid>
         
             <Grid item xs={6}>
-
             {/* <InputLabel>Suburb</InputLabel> */}
             <TextField
-              defaultValue=''
-              
-              color='primary' 
               onChange={handleSuburb}
               className={classes.root}
               value={newSuburb}
@@ -200,11 +196,11 @@ function MakeProfile (props) {
             <Grid item xs={6}>
             {/* <InputLabel>Gender</InputLabel> */}
               <TextField
-                label='Gender'
-                value={gender}
-                className={classes.root} 
                 onChange={handleGender}
+                className={classes.root} 
+                value={gender}
                 sx={{ width: '21ch' }}
+                label='Gender'
                 select>
                 <MenuItem value='female'>Female</MenuItem>
                 <MenuItem value='male'>Male</MenuItem>
