@@ -128,9 +128,9 @@ function MakeProfile (props) {
   return (
 
     <Container component='main' maxWidth='xs'>
-      <Box sx={{ marginTop:8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography  component='h1' color='secondary' focused variant='h5'>Create Profile</Typography>
-        <Box sx={{mt:3}} component='form'>
+        <Box sx={{ my:3 }} component='form'>
       
           <Grid container spacing={2} >
 

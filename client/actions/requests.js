@@ -18,9 +18,8 @@ export function getRequestsThunk () {
 export function postRequestThunk (request) {
   return dispatch => {
     postRequest(request)
-      .then(response => {
-        dispatch(addRequest(response))
-      })
+      .then(response => dispatch(addRequest(response)))
+      .then(() => dispatch(getRequestsThunk()))
   }
 }
 
