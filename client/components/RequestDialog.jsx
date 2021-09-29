@@ -103,7 +103,6 @@ function RequestDialog (props) {
             <ExpandMoreIcon />
           </ExpandMore>
           <Typography onClick={handleExpandClick} sx={{ flexGrow: 2}} >
-          <Typography onClick={handleExpandClick} >
             {`Click to see ${requestOffers.length} ${grammar}`}
           </Typography>
         </>}
