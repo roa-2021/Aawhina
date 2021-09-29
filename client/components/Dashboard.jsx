@@ -60,7 +60,6 @@ function Dashboard({ currentUser }) {
 }
 
 
-
 function mapState2Props (globalState) {
   return {
     offers: globalState.offers,

@@ -2,6 +2,7 @@ const db = require('./connection')
 
 function getAllSuburbs () {
   return db('suburb')
+
     .then(response => {
       suburbsArr = []
       response.map(suburb => {
@@ -10,6 +11,7 @@ function getAllSuburbs () {
       })
       return suburbsArr
     })
+
 }
 
 function getSuburb (id) {

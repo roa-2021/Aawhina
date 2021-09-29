@@ -115,7 +115,7 @@ function RequestDialog (props) {
           Remove Request
       </Button>}
 
-      <Button onClick={handleDialogClose}>Back</Button>
+                 <Button onClick={handleDialogClose}>Back</Button>
 
       </DialogActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

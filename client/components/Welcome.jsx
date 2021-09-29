@@ -19,7 +19,6 @@ import CardContent from '@mui/material/CardContent'
 
 
 function Welcome ({currentUser}) {
-
   return(
     <>
   <LaunchData />
