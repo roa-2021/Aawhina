@@ -254,7 +254,7 @@ function UpdateProfile (props)  {
 
               <Box>
               <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
-              {/* <InputLabel>Suburb</InputLabel> */}
+              <InputLabel>Suburb</InputLabel>
           <TextField
             defaultValue=''
             onChange={handleSuburb}
