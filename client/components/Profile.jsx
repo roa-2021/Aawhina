@@ -59,7 +59,6 @@ function Profile (props)  {
               sx={{ width: 110, height: 110 }}
               />
           </Grid>
-          <Button sx={{ml: 1}}size="small">Edit Photo</Button>
         </Box>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>

@@ -1,6 +1,6 @@
 import { SET_USER } from '../actions/currentUser'
 
-const initialState = {}
+let initialState = null
 
 function currentUserReducer (state = initialState, action) {
   switch(action.type) {
