@@ -57,29 +57,28 @@ function Requests ({ currentUser, requests, users }) {
     setIsFiltered(!isFiltered)
   }
   
-  // if (isAuthenticated) {
-    return (
-      <>
-        <Container 
-          component="main"
-          maxWidth="md"
-          sx={{ mb: 2 }}
-        >
-        { !currentUser && 
-          <Box mt={4} >
-            <Typography variant="h5" align="center">
-              These neighbours of yours have requested help:<br />
+  return (
+    <>
+      <Container 
+        component="main"
+        maxWidth="md"
+        sx={{ mb: 2 }}
+      >
+      { !currentUser && 
+        <Box mt={4} >
+          <Typography variant="h5" align="center">
+            These neighbours of yours have requested help:<br />
             <Link 
               variant="body2"
               underline="hover"
               onClick={handleFilter}
               align="center"
-              >
+            >
               { isFiltered ? "Remove Filter" : "Filter requests to those nearest you"}
             </Link>
-            </Typography>
-          </Box>
-        }
+          </Typography>
+        </Box>
+      }
           <Box mt={2}>
             <Grid
               container
@@ -110,7 +109,6 @@ function Requests ({ currentUser, requests, users }) {
         </Container>
       </>
     )
-  // } return (<Welcome />)
 }
 
 function mapState2Props (globalState) {
@@ -119,5 +117,4 @@ function mapState2Props (globalState) {
     users: globalState.users
   }
 }
-
 export default connect(mapState2Props)(Requests)
