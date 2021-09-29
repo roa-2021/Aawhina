@@ -12,6 +12,7 @@ import Stack from'@mui/material/Stack'
 
 import { connect } from 'react-redux'
 import OfferCard from './OfferCard';
+import LaunchData from './LaunchData'
 
 
 
@@ -22,6 +23,7 @@ function Offers ({ currentUser, offers }) {
 
   return (
     <>
+    <LaunchData />
       <Container
         component="main"
         maxWidth="md" 
