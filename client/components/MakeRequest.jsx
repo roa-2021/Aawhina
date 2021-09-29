@@ -3,6 +3,22 @@ import { useHistory } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { postRequestThunk } from '../actions/requests'
 import { connect } from 'react-redux'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
 
 import Welcome from './Welcome'
 
@@ -22,6 +38,7 @@ function MakeRequest ({ dispatch, currentUser }) {
 
   const [category, setCategory] = useState('')
   const [timeframe, setTimeframe] = useState('')
+  const classes = useStyles()
 
   const [values, setValues] = useState({
     title: '',
@@ -74,16 +91,17 @@ function MakeRequest ({ dispatch, currentUser }) {
           <Box sx={{my: 2}} component='form'>
             <Grid container spacing={2} >
               <Grid item sm={12}>
-                <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' name='title' value={title} onChange={handleChange}/>
+                <TextField sx={{ mt: 2 }} required fullWidth id='outlined-required' label='Title' color='primary' focused name='title' value={title} onChange={handleChange}/>
               </Grid>
               <Grid item sm={12}>
-                <InputLabel>Category</InputLabel>
-                <Select
+                {/* <InputLabel>Category</InputLabel> */}
+                <TextField
                   value={category}
+                  className={classes.root}
                   label='Category'
                   onChange={handleCategory}
                   sx={{ width: '46ch' }}
-                >
+                  select>
                   <MenuItem value='Groceries'>Groceries</MenuItem>
                   <MenuItem value='Transport'>Transport</MenuItem>
                   <MenuItem value='Childcare'>Childcare</MenuItem>
@@ -92,26 +110,27 @@ function MakeRequest ({ dispatch, currentUser }) {
                   <MenuItem value='Outdoor Tasks'>Outdoor Tasks</MenuItem>
                   <MenuItem value='Buddying'>Buddying</MenuItem>
                   <MenuItem value='Other'>Other</MenuItem>
-                </Select>
+                </TextField>
               </Grid>
               <Grid item sm={12}>
-                <InputLabel>Date to be completed by</InputLabel>
-                <Select
+                {/* <InputLabel>Date to be completed by</InputLabel> */}
+                <TextField
                   value={timeframe}
-                  label='timeframe'
+                  label='To be completed by'
                   onChange={handleTimeframe}
+                  className={classes.root}
                   sx={{ width: '46ch' }}
-                >
+                  select>
                   <MenuItem value='Today'>Today</MenuItem>
                   <MenuItem value='Tomorrow'>Tomorrow</MenuItem>
                   <MenuItem value='This week'>This week</MenuItem>
                   <MenuItem value='Next week'>Next week</MenuItem>
                   <MenuItem value='Ongoing'>Ongoing</MenuItem>
                   <MenuItem value='Other'>Other</MenuItem>
-                </Select>
+                </TextField>
               </Grid>
               <Grid item sm={12}>
-                <TextField sx={{ mt: 4 }} fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
+                <TextField sx={{ mt: 4 }} color='primary' focused fullWidth id = 'outlined-required' multiline rows={6}  label = 'Further Details' name='details' value={details} onChange={handleChange}/>
               </Grid>
               <Grid item sm={12}>
                 <Button onClick={handleSubmit}>Create</Button>
