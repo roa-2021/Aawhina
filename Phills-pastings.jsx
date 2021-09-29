@@ -20,17 +20,17 @@ const useStyles = makeStyles({
 function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
-  const classes = useStyles()                    <-------
+  const classes = useStyles()             
   
   -----------------------------------
         
- {/* <InputLabel>Suburb</InputLabel> */}         <-------
-            <TextField                           <-------
+ {/* <InputLabel>Suburb</InputLabel> */}  
+            <TextField                    
               label='Suburb'
               value={newSuburb}
-              className={classes.root}           <-------
-              onChange={handleSuburb}            <-------
+              className={classes.root}    
+              onChange={handleSuburb}     
               sx={{ width: '20ch' }}
-              select>                            <-------
+              select>                     
                 
   -----------------------------------

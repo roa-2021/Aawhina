@@ -24,17 +24,27 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
-// import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 
-// const useStyles = makeStyles({
-
-// })
-
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
 
 function MakeProfile (props) {
   const { dispatch } = props
   const { user } = useAuth0()
-  // const classes = useStyles()
+  const classes = useStyles()    
   
   const [theSuburbs, setSuburbs] = useState([])
   const [gender, setGender] = useState('')
@@ -150,16 +160,14 @@ function MakeProfile (props) {
             </Grid>
         
             <Grid item xs={6}>
-
-            <InputLabel>Suburb</InputLabel>
-            <Select
-              defaultValue=''
-              
-              color='primary' 
+            {/* <InputLabel>Suburb</InputLabel> */}
+            <TextField
               onChange={handleSuburb}
+              className={classes.root}
               value={newSuburb}
               sx={{ width: '21ch' }}
-              label='Suburb'>
+              label='Suburb'
+              select>
               
 
               <ListSubHeader>Wellington</ListSubHeader>
@@ -182,22 +190,23 @@ function MakeProfile (props) {
               <MenuItem value={s.id}>{s.name}</MenuItem>
               ))}
 
-            </Select>
+            </TextField>
             </Grid>
 
             <Grid item xs={6}>
-            <InputLabel>Gender</InputLabel>
-              <Select
-                label='Gender'
-                value={gender}
-                color='primary' focused
+            {/* <InputLabel>Gender</InputLabel> */}
+              <TextField
                 onChange={handleGender}
-                sx={{ width: '21ch' }}>
+                className={classes.root} 
+                value={gender}
+                sx={{ width: '21ch' }}
+                label='Gender'
+                select>
                 <MenuItem value='female'>Female</MenuItem>
                 <MenuItem value='male'>Male</MenuItem>
                 <MenuItem value='gender diverse'>Gender Diverse</MenuItem>
                 <MenuItem value='prefer not to say'>Prefer not to say</MenuItem>
-              </Select>
+              </TextField>
             </Grid>
 
             <Grid item xs={12}>
