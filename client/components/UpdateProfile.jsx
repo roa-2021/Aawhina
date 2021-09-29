@@ -29,12 +29,27 @@ import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack'
+import { makeStyles } from '@material-ui/core'
 
+const useStyles = makeStyles({
+  root: {
+    width: 200,
+    "& .MuiOutlinedInput-input": {
+      color: "#91A6FF"
+    },
+    "& .MuiInputLabel-root": {
+      color: "#91A6FF"
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#91A6FF"
+    },
+  }
+});
 
 
 function UpdateProfile (props)  {
   const { dispatch, currentUser } = props
-
+  const classes = useStyles()
   
   useEffect(() => {
     getSuburbs()
@@ -219,18 +234,19 @@ function UpdateProfile (props)  {
               <Stack sx={{ pl: 0, pr: 0 }}direction="row" justifyContent="centre">
               <Box>
                 <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
-                <InputLabel>Gender</InputLabel>
-                <Select
+                {/* <InputLabel>Gender</InputLabel> */}
+                <TextField
                   value={gender}
                   label='Gender'
-                  color='primary' focused
+                  className={classes.root}
                   onChange={handleGender}
-                  sx={{ width: '18ch' }}>
+                  sx={{ width: '18ch' }}
+                    select>
                   <MenuItem value='Female'>Female</MenuItem>
                   <MenuItem value='Male'>Male</MenuItem>
                   <MenuItem value='Gender Diverse'>Gender Diverse</MenuItem>
                   <MenuItem value='Prefer not to say'>Prefer not to say</MenuItem>
-                </Select>
+                </TextField>
                 </FormControl>
               </Box>
 
@@ -238,14 +254,15 @@ function UpdateProfile (props)  {
 
               <Box>
               <FormControl variant="standard" sx={{ m: 1, width: '18ch' }}>
-              <InputLabel>Suburb</InputLabel>
-          <Select
+              {/* <InputLabel>Suburb</InputLabel> */}
+          <TextField
             defaultValue=''
             onChange={handleSuburb}
             value={newSuburb}
-            color='primary' focused
+            className={classes.root}
             sx={{ width: '18ch' }}
             label='Suburb'
+            select
             >
              
 
@@ -269,7 +286,7 @@ function UpdateProfile (props)  {
             <MenuItem value={s.id}>{s.name}</MenuItem>
             ))}
 
-          </Select>
+          </TextField>
 
           <input label = 'image uploader' type="file" onChange= {(e)=> setImage(e.target.files[0])}></input>
             <Button variant="outlined" onClick={callback}>Update Photo</Button> 
