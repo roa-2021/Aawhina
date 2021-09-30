@@ -47,16 +47,11 @@ function OfferCard ({ offer, requests, currentUser }) {
           onClick={handleDialogOpen}
         >
           <CardHeader
-            action={ offer.accepted &&
-              <IconButton aria-label="offers available">
-                <CircleNotificationsIcon color="success" />
-              </IconButton>
-            }
             title={`${request.title}`}
           />
           <CardContent>
             <Typography>
-              {`You've offered āwhina to ${request.user_id} who requested ${request.title}. `}
+              {`You've offered āwhina to ${request.first_name} who requested ${request.title}. `}
             </Typography>
             <Typography>
               {` ${request.details}`}

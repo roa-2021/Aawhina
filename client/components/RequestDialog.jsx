@@ -47,11 +47,12 @@ function RequestDialog (props) {
   };
 
   const handleAccept = (offerToUpdate) => {
-    newOffer = {
-      ...offerToUpdate,
-      accepted: true
-    }
-    dispatch(updateOfferThunk(newOffer))
+    // newOffer = {
+    //   ...offerToUpdate,
+    //   accepted: true
+    // }
+    // dispatch(updateOfferThunk(newOffer))
+    handleDialogClose()
   }
 
   const grammar = requestOffers?.length > 1 ? 'offers' : 'offer'
